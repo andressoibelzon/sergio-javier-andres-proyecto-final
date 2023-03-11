@@ -1,4 +1,4 @@
-# WebApp boilerplate with React JS and Flask API
+<!-- # WebApp boilerplate with React JS and Flask API
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-flask-hello.git)
 
@@ -96,4 +96,4 @@ To update with all yours tables you can edit the file app.py and go to the line 
 
 ## Publish your website!
 
-This boilerplate it's 100% read to deploy with Render.com and Herkou in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
+This boilerplate it's 100% read to deploy with Render.com and Herkou in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy). -->
