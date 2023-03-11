@@ -66,12 +66,7 @@ export const Login = () => {
                 <div className="col-lg-6">
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-left">
-                      {/* <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                        style="width: 185px;"
-                        alt="logo"
-                      /> */}
-                      <h4 className="mt-1 mb-5 pb-1">Log In</h4>
+                      <h4 className="mt-1 mb-5 pb-1">Log in</h4>
                     </div>
 
                     <form
@@ -109,7 +104,7 @@ export const Login = () => {
                           className="btn btn-primary rounded px-3 "
                           type="button"
                         >
-                          Log in
+                          Register / Log in
                         </button>
                         {/* <a className="text-muted" href="#!">
                           Forgot password?
@@ -117,12 +112,11 @@ export const Login = () => {
                       </div>
 
                       <div className="d-flex align-items-center pb-4">
-                        <p className="mb-0 me-2">Don't have an account?</p>
                         <button
                           type="button"
                           className="btn btn-link"
                         >
-                          Create new
+                          Forgot password?
                         </button>
                       </div>
                     </form>
