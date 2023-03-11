@@ -35,6 +35,7 @@ export const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        username,
         email,
         password,
       }),
@@ -46,7 +47,7 @@ export const Login = () => {
         return response.json();
       })
       .then((data) => {
-        saveToken(data.access_token);
+        // saveToken(data.access_token);
         actions.login();
         navigate("/");
       })
@@ -82,42 +83,48 @@ export const Login = () => {
                           type="email"
                           onChange={(e) => setEmail(e.target.value)}
                           value={email}
+                          required
                           id="form-email"
                           className="form-control"
                           placeholder="Insert an email address"
+                          // aria-describedby="emailHelp"
                         />
+                        <div className="invalid-feedback bg-danger bg-opacity-75 border-danger rounded p-2 text-white">
+                          Wrong email
+                        </div>
                       </div>
+
+                      {/* password */}
                       <label className="form-label" htmlFor="form-password">
                         Password
                       </label>
                       <div className="form-outline mb-4">
                         <input
                           type="password"
+                          onChange={(e) => setPassword(e.target.value)}
+                          value={password}
+                          required
                           id="form-password"
                           className="form-control"
                           placeholder="••••••"
                         />
                       </div>
 
+                        {/* boton registro */}
                       <div className="text-left pt-1 mb-5 pb-1">
                         <button
                           className="btn btn-primary rounded px-3 "
                           type="button"
+                          onClick={handleResetForm}
                         >
                           Register / Log in
                         </button>
-                        {/* <a className="text-muted" href="#!">
-                          Forgot password?
-                        </a> */}
                       </div>
 
                       <div className="d-flex align-items-center pb-4">
-                        <button
-                          type="button"
-                          className="btn btn-link"
-                        >
+                        <a className="text-muted" href="#!">
                           Forgot password?
-                        </button>
+                        </a>
                       </div>
                     </form>
                   </div>
