@@ -1,0 +1,11 @@
+.show-pass {
+    position: absolute;
+    display: block;
+    text-align: center;
+    padding: 0.3rem 1rem 0.5rem;
+    color: #1f5046;
+}
+
+.password {
+    color: #1f5046;
+}
