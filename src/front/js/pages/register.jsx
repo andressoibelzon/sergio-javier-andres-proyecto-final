@@ -2,12 +2,12 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/login.css";
-import { LoginCode } from "../component/logincode.jsx";
+import { RegisterCode } from "../component/registercode.jsx";
 
-export const Login = () => {
+export const Register = () => {
   return (
     <div className="h-100" style={{ backgroundColor: "#eee" }}>
-      <LoginCode />
+        <RegisterCode />
     </div>
   );
 };
