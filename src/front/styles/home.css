@@ -5,3 +5,37 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+.container-fluid {
+  position: relative;
+  width: 100%;
+  /* ancho máximo del contenedor */
+  min-width: 320px;
+  /* ancho mínimo del contenedor */
+  margin: 0 auto;
+  /* centrar el contenedor en la página */
+  padding: 0px;
+  /* añadir un espacio entre el contenido y el contenedor */
+}
+
+.texto-superpuesto1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.texto-superpuesto {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+#icon {
+  font-size: 100px;
+}
