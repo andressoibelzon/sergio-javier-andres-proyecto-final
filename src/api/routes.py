@@ -116,9 +116,9 @@ def recovery_password():
         db.session.commit()
     # Aqui comenzaría el envio del mail con la pass 
         mail = Mail ()
-        message = Message('Recuperación de contraseña', sender  = 'Nakama', recipients =[user.email])
+        message = Message('Recuperación de contraseña', sender  = 'nombre de la web', recipients =[user.email])
         message.body = "Hola " + user.name + " tu nueva contraseña es " + new_password + " recuerda modificarla una vez inicies sesión."
-        message.html ="<h1>Nakama</h1><h2> Hola " + user.name + " </h2> <p> Tu nuevo password es <b> " + new_password + " recuerda modificarla una vez inicies sesión.</b></p><p>Si usted no ha solicitado el cambio de contraseña ignore y elimine este mensaje por favor.</p> <p> Mensaje enviado automáticamente, no responda</p>"
+        message.html ="<h1>nombre de la web</h1><h2> Hola " + user.name + " </h2> <p> Tu nuevo password es <b> " + new_password + " recuerda modificarla una vez inicies sesión.</b></p><p>Si usted no ha solicitado el cambio de contraseña ignore y elimine este mensaje por favor.</p> <p> Mensaje enviado automáticamente, no responda</p>"
         mail.send(message)
         response_body ={
             "message":" correo electrónico enviado correctamente"
@@ -132,7 +132,7 @@ def recovery_password():
 def google_login():
     name = request.json.get("name",None)
     email = request.json.get("email",None)
-    photo = request.json.get("photo",None)
+    # photo = request.json.get("photo",None)
     first_name = request.json.get("first_name",None)
     user_name = request.json.get("user_name",None)
     
