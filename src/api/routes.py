@@ -16,7 +16,7 @@ import random, string
 import re
 
 api = Blueprint('api', __name__)
-
+# bcrypt = Bcrypt ( app )
 # función que encripta las contraseñas
 def encrypt_pwd(pwd):
     return current_app.bcrypt.generate_password_hash(pwd).decode("utf-8")
