@@ -1,176 +1,156 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { Context } from "../store/appContext";
 import "../../styles/login.css";
 
 export const RegisterCode = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  // const { actions } = useContext(Context);
+  const { actions } = useContext(Context);
 
-  const onFormSubmit = (e) => {
-    console.log("entra a formsubmit");
-    if (!e.target.checkValidity()) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    e.preventDefault();
-    // no sale el regexpassword
-    const regex = "/^(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/";
-    const regexName = "^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
-
-    if (!firstName.match(regexName)) {
-      setError("Wrong name");
-    }
-    if (!lastName.match(regexName)) {
-      setError("Wrong lastname");
-    }
-    if (!password.match(regexName)) {
-      setError("Password must be between 8-20 characteres");
-      // se le agrega was-validated al className
-      e.target.classList.add("was-validated");
-    } else {
-      // si el usuario ya esta creado, osea el email ya esta, deberia mandar un mensaje de error, de email ya en uso
-      console.log("mando a base de datos");
-      navigate("/");
-      //   const res = await fetch(process.env.BACKEND_URL + "/api/register", {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify({
-      //       first_name: firstName,
-      //       last_name: lastName,
-      //       email,
-      //       password,
-      //     }),
-      //   });
-      //   if (res.ok) {
-      //     const data = await res.json();
-      //     navigate("/home");
-      //   } else {
-      //     const error = await res.json();
-      //     setError(error.msg);
-      //   }
-      // }
-    }
-
-    // const handleResetForm = () => {
-    //   setFirstName(""), setLastName(""), setEmail(""), setPassword("");
-    // }
-  };
-
+  const formik = useFormik({
+    initialValues: {
+      user_name: "",
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      user_name: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .required("Required"),
+      first_name: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .required("Required"),
+      last_name: Yup.string()
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string()
+        .max(20, "Must be 20 characters or less")
+        .min(8, "Minimum 8 characters")
+        .required("Required"),
+    }),
+    onSubmit: (values) => {
+      // console.log(values)
+      actions.login(values.email, values.password);
+      // alert(JSON.stringify(values, null, 2));
+    },
+  });
   return (
     <section className="h-100" style={{ backgroundColor: "#eee" }}>
       <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-xl-10 card rounded-3 text-black col-lg-6">
-            <div className="card-body p-md-5 mx-md-4">
-              <div className="">
-                <h4 className="mt-1 mb-5 pb-1">Register</h4>
-              </div>
+        <div className="d-flex flex-column justify-content-center align-items-center h-100">
+          <div className="col-xl-10 card rounded-3 text-black col-lg-6 d-flex justify-content-center align-items-center">
 
-              {/* empieza el form */}
-              <form
-                className="needs-validation"
-                noValidate
-                onSubmit={onFormSubmit}
-              >
-                {/* firstname */}
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="form-email">
-                    First name
-                  </label>
-                  <input
-                    type="text"
-                    onChange={(e) => setFirstName(e.target.value)}
-                    value={firstName}
-                    required
-                    id="form-firstname"
-                    className="form-control"
-                    placeholder="Insert your first name"
-                  />
-                  <div className="invalid-feedback bg-danger bg-opacity-75 border-danger rounded p-2 text-white">
-                    Wrong first name
-                  </div>
+              <div>
+                <h4 className="mt-1 pb-1">Register</h4>
                 </div>
 
-                {/* lastname */}
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="form-email">
-                    Last name
-                  </label>
-                  <input
-                    type="text"
-                    onChange={(e) => setLastName(e.target.value)}
-                    value={lastName}
-                    required
-                    id="form-lastname"
-                    className="form-control"
-                    placeholder="Insert your last name"
-                  />
-                  <div className="invalid-feedback bg-danger bg-opacity-75 border-danger rounded p-2 text-white">
-                    Wrong last name
-                  </div>
+            <div className="card-body px-md-5 mx-md-4 mx-5 ">
+              
+
+              <form className="needs-validation" onSubmit={formik.handleSubmit}>
+
+              <div>
+              <label htmlFor="user_name">First Name</label>
+                <input
+                  id="user_name"
+                  name="user_name"
+                  type="text"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.user_name}
+                />
+                {formik.touched.first_name && formik.errors.user_name ? (
+                  <div>{formik.errors.user_name}</div>
+                ) : null}
+</div>
+
+<div>
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.first_name}
+                />
+                {formik.touched.first_name && formik.errors.first_name ? (
+                  <div>{formik.errors.first_name}</div>
+                ) : null}
+</div>
+
+<div>
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.last_name}
+                />
+                {formik.touched.last_name && formik.errors.last_name ? (
+                  <div>{formik.errors.last_name}</div>
+                ) : null}
+                </div>
+                <div>
+                <label className="form-outline mb-4" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="mx-3"
+                  id="email"
+                  name="email"
+                  type="email"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <div>{formik.errors.email}</div>
+                ) : null}
                 </div>
 
-                {/* email */}
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="form-email">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    required
-                    id="form-email"
-                    className="form-control"
-                    placeholder="Insert an email address"
-                  />
-                  <div className="invalid-feedback bg-danger bg-opacity-75 border-danger rounded p-2 text-white">
-                    Wrong email
-                  </div>
+<div>
+                <label className="form-outline mb-4" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  className="mx-3"
+                  id="password"
+                  name="password"
+                  type="password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                />
+                {formik.touched.password && formik.errors.password ? (
+                  <div>{formik.errors.password}</div>
+                ) : null}
                 </div>
 
-                {/* password */}
-                <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="form-password">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    required
-                    id="form-password"
-                    className="form-control"
-                    placeholder="Insert a password"
-                  />
-                  <div className="invalid-feedback bg-danger bg-opacity-75 border-danger rounded p-2 text-white">
-                    Wrong password
-                  </div>
-                </div>
-
-                {/* boton registro */}
-                <div className="text-left pt-1 mb-5 pb-1">
-                  <button
-                    className="btn btn-primary rounded px-3 "
-                    type="submit"
-                  >
-                    Register
-                  </button>
-                </div>
-
-                <div className="d-flex align-items-center pb-4">
-                  <Link to="/login">
-                    <div className="text-muted">Log in</div>
-                  </Link>
+<div>
+                <button className="btn btn-primary rounded" type="submit">
+                  Log in
+                </button>
                 </div>
               </form>
-            </div>
+              </div>
+
+              <div className="d-flex align-items-center pb-4">
+                {/* <Link to="/forgot-password">
+                  <div className="text-muted">
+                    Forgot password?
+                  </div>
+                   </Link> */}
+                <Link to="/login">
+                  <div className="text-muted px-3">Create an account</div>
+                </Link>
+              </div>
           </div>
         </div>
       </div>
