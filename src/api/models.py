@@ -1,15 +1,21 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
 
 db = SQLAlchemy()
 
 class User(db.Model):
-    __tablename__ = 'User'
+    # __tablename__ = 'User'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    name = db.Column(db.String(120), unique=False, nullable=False)
+    user_name = db.Column(db.String(80), unique=False, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     first_name = db.Column(db.String(120), unique=False, nullable=False)
     last_name = db.Column(db.String(120), unique=False, nullable=False)
-    # user_name = db.Column(db.String(120), unique=False, nullable=False)
+    #conexiones
+    indices_id = db.relationship("Indices",backref="User", lazy=True)
+    noticias_id= db.relationship("Noticias",backref="User", lazy=True)
+    graficos_id= db.relationship("Graficos",backref="User", lazy=True)
         
     def __repr__(self):
         return '<User %r>' % self.email
@@ -18,16 +24,14 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            # "name": self.name,
+            "name": self.name,
             "first_name": self.first_name,
             "last_name": self.last_name,
-            # "user_name": self.user_name,
-            # "image": self.image,
+            "user_name": self.user_name,
             "password":self.password,
-            "user_id":self.user_id
-        }
+            }
 class Indices(db.Model):
-    __tablename__ = 'Indices'
+    # __tablename__ = 'Indices'
     id = db.Column(db.Integer, primary_key=True)
     name_indices = db.Column(db.String(120), unique=True, nullable=False)
     ultimo = db.Column(db.String(80), unique=False, nullable=False)
@@ -36,8 +40,7 @@ class Indices(db.Model):
     var = db.Column(db.String(120), unique=False, nullable=False)
     var_2 = db.Column(db.String(120), unique=False, nullable=False)
     hora = db.Column(db.String(120), unique=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),
-        nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
     
     def __repr__(self):
@@ -54,15 +57,14 @@ class Indices(db.Model):
             "hora": self.hora,
         }
 class Noticias(db.Model):
-    __tablename__ = 'Noticias'
+    # __tablename__ = 'Noticias'
     id = db.Column(db.Integer, primary_key=True)
     titulo= db.Column(db.String(120), unique=True, nullable=False)
     text = db.Column(db.String(120), unique=False, nullable=False)
     fecha = db.Column(db.String(120), unique=False, nullable=False)
     image = db.Column(db.String(120), unique=False, nullable=False)
     url = db.Column(db.String(120), unique=False, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),
-        nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     
     def __repr__(self):
@@ -79,7 +81,7 @@ class Noticias(db.Model):
         }
 
 class Graficos(db.Model):
-    __tablename__ = 'Graficos'
+    # __tablename__ = 'Graficos'
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(120), unique=True, nullable=False)
     acronym = db.Column(db.String(120), unique=False, nullable=False)
@@ -89,8 +91,7 @@ class Graficos(db.Model):
     city = db.Column(db.String(120), unique=False, nullable=False)
     website = db.Column(db.String(120), unique=False, nullable=False)
     timezone = db.Column(db.String(120), unique=False, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),
-        nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
     def __repr__(self):
@@ -110,11 +111,11 @@ class Graficos(db.Model):
         }
 
 class Contacto(db.Model):
-    __tablename__ = 'Contacto'
+    # __tablename__ = 'Contacto'
     id = db.Column(db.Integer, primary_key=True)
-    contacto= db.Column(db.String(120), unique=True, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),
-        nullable=False)
+    nombre = db.Column(db.String(120), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    text = db.Column(db.String(120), unique=True, nullable=False)
 
     
     def __repr__(self):
@@ -123,5 +124,7 @@ class Contacto(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "contacto": self.contacto,
+            "nombre": self.nombre,
+            "email": self.email,
+            "text": self.text
         }

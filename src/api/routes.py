@@ -16,7 +16,7 @@ import random, string
 import re
 
 api = Blueprint('api', __name__)
-# bcrypt = Bcrypt ( app )
+
 # función que encripta las contraseñas
 def encrypt_pwd(pwd):
     return current_app.bcrypt.generate_password_hash(pwd).decode("utf-8")
@@ -34,17 +34,8 @@ def register():
 
     
     regex_letter = re.compile(r'^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$') ;      
-
-    #seguridad contraseña
-
     pw_hash = encrypt_pwd(password)
-
-    #filtrar email
-
     user = User.query.filter_by(email=email).first()
-
-    #filtrar el username
-
     username = User.query.filter_by(user_name= user_name).first()
     
     if not re.match(regex_letter, name):
@@ -54,7 +45,6 @@ def register():
             return jsonify({ "msg": "Error en el Apellido "}), 400    
     
     if user:
-        # Comprueba que el email no este en la BBDD
         if email == user.email:
             return jsonify({"msg": "Email ya registrado"}),401
     elif username:
@@ -67,7 +57,7 @@ def register():
         
     else:    
     # Añade el nuevo usuario a la base de datos
-        new_user = User(name = name,first_name =first_name,last_name =last_name, user_name = user_name, email = email, password = pw_hash, image = image)
+        new_user = User(name = name,first_name =first_name,last_name =last_name, user_name = user_name, email = email, password = pw_hash)
         db.session.add(new_user)
         db.session.commit()
     
@@ -85,12 +75,9 @@ def check_password(hash, password):
 
 @api.route('/login', methods=['POST'])
 def login():
-    # Recibe los datos de usuario 
-
     email = request.json.get("email")
     password = request.json.get("password")
-    
-    #filtrar el email y contraseña
+
     user = User.query.filter_by(email=email).first()
     
     if user and check_password(user.password, password):
@@ -127,24 +114,24 @@ def recovery_password():
     else:
         return jsonify({"message":"correo no registrado"}),400
     
-    # Autenticación con Google
-@api.route("/register_google", methods = ["POST"])
-def google_login():
-    name = request.json.get("name",None)
-    email = request.json.get("email",None)
-    # photo = request.json.get("photo",None)
-    first_name = request.json.get("first_name",None)
-    user_name = request.json.get("user_name",None)
+#     # Autenticación con Google
+# @api.route("/register_google", methods = ["POST"])
+# def google_login():
+#     name = request.json.get("name",None)
+#     email = request.json.get("email",None)
+#     # photo = request.json.get("photo",None)
+#     first_name = request.json.get("first_name",None)
+#     user_name = request.json.get("user_name",None)
     
     
-    user = User.query.filter_by(email=email).first()
-    if user is None:
-        pw_hash = current_app.bcrypt.generate_password_hash("google").decode("utf-8")
-        user_google = User(name=name,user_name= user_name,first_name=first_name,last_name="",email=email, password=pw_hash, image=photo)
-        db.session.add(user_google)
-        db.session.commit()
-        time= timedelta(hours=24)
-        access_token = create_access_token(identity=email, expires_delta=time)
-        return jsonify({"access_token":access_token,"email":email}),200
-    else:
-        return jsonify({"message":"error"}),400
+#     user = User.query.filter_by(email=email).first()
+#     if user is None:
+#         pw_hash = current_app.bcrypt.generate_password_hash("google").decode("utf-8")
+#         user_google = User(name=name,user_name= user_name,first_name=first_name,last_name="",email=email, password=pw_hash)
+#         db.session.add(user_google)
+#         db.session.commit()
+#         time= timedelta(hours=24)
+#         access_token = create_access_token(identity=email, expires_delta=time)
+#         return jsonify({"access_token":access_token,"email":email}),200
+#     else:
+#         return jsonify({"message":"error"}),400
