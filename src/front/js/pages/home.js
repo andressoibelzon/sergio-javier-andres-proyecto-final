@@ -73,11 +73,17 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div id="circulos" className="container-fluid">
+      {/* <div id="circulos" className="container-fluid">
         <div class="circulo-exterior"></div>
         <div class="circulo-medio"></div>
         <div class="circulo-interior"></div>
-      </div>
+      </div> */}
+      <ul class="list-group">
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
     </div>
   );
 };
