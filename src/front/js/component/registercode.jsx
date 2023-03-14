@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/login.css";
 
@@ -8,18 +8,8 @@ export const RegisterCode = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [values, setValues] = useState({ showPassword: false });
-  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { actions } = useContext(Context);
-
-  // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
-  // };
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
+  // const { actions } = useContext(Context);
 
   const onFormSubmit = (e) => {
     console.log("entra a formsubmit");
@@ -29,7 +19,8 @@ export const RegisterCode = () => {
     }
 
     e.preventDefault();
-    const regex = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/";
+    // no sale el regexpassword
+    const regex = "/^(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/";
     const regexName = "^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
 
     if (!firstName.match(regexName)) {
@@ -43,6 +34,7 @@ export const RegisterCode = () => {
       // se le agrega was-validated al className
       e.target.classList.add("was-validated");
     } else {
+      // si el usuario ya esta creado, osea el email ya esta, deberia mandar un mensaje de error, de email ya en uso
       console.log("mando a base de datos");
       navigate("/");
       //   const res = await fetch(process.env.BACKEND_URL + "/api/register", {
@@ -137,7 +129,6 @@ export const RegisterCode = () => {
                     id="form-email"
                     className="form-control"
                     placeholder="Insert an email address"
-                    // aria-describedby="emailHelp"
                   />
                   <div className="invalid-feedback bg-danger bg-opacity-75 border-danger rounded p-2 text-white">
                     Wrong email
@@ -168,16 +159,15 @@ export const RegisterCode = () => {
                   <button
                     className="btn btn-primary rounded px-3 "
                     type="submit"
-                    // onClick={handleResetForm}
                   >
                     Register
                   </button>
                 </div>
 
                 <div className="d-flex align-items-center pb-4">
-                  <a className="text-muted" href="#!">
-                    Log in
-                  </a>
+                  <Link to="/login">
+                    <div className="text-muted">Log in</div>
+                  </Link>
                 </div>
               </form>
             </div>
