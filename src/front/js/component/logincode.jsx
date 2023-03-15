@@ -36,7 +36,7 @@ export const LoginCode = () => {
     <section className="h-100" style={{ backgroundColor: "#eee" }}>
       <div className="container py-5 h-100">
         <div className="d-flex flex-column justify-content-center align-items-center h-100">
-          <div className="col-xl-10 card rounded-3 text-black col-lg-6">
+          <div className="col-xl-6 card rounded-3 text-black col-lg-6">
             <div className="card-body p-md-5 mx-md-4 d-flex flex-column">
               <div>
                 <h4 className="mt-1 mb-5 pb-1">Log in</h4>
@@ -53,7 +53,8 @@ export const LoginCode = () => {
                     </label>
                     <div>
                       <input
-                        style={{ width: "100%" }}
+                      style={{ width: "80%" }}
+
                         className=""
                         id="email"
                         name="email"
@@ -74,7 +75,8 @@ export const LoginCode = () => {
                     </label>
                     <div>
                       <input
-                        style={{ width: "100%" }}
+                      style={{ width: "80%" }}
+
                         className=""
                         id="password"
                         name="password"

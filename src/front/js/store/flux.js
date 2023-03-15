@@ -42,10 +42,10 @@ const getState = ({
                 }
             },
 
-            registre: async (user_name, first_name, last_name, email, password) => {
+            register: async (user_name, first_name, last_name, email, password) => {
                 console.log(user_name, first_name, last_name, email, password)
 
-                const res = await fetch(process.env.BACKEND_URL + "/api/registre", {
+                const res = await fetch(process.env.BACKEND_URL + "/api/register", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
