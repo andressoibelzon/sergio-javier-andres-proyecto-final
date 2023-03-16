@@ -20,59 +20,62 @@ const getState = ({
         },
         actions: {
             // Use getActions to call a function within a fuction
-            login: () => {
-                setStore({
-                    isLoggedIn: true
+            login: async (email, password) => {
+                console.log(email, password)
+
+                const res = await fetch(process.env.BACKEND_URL + "/api/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                    }),
                 });
+                if (res.ok) {
+                    const data = await res.json();
+                    // navigate("/home");
+                } else {
+                    const error = await res.json();
+                    setError(error.msg);
+                }
             },
-            logout: (check = true) => {
-                setStore({
-                    isLoggedIn: false,
-                    checkAuth: check
+
+            register: async (user_name, first_name, last_name, email, password) => {
+                console.log(user_name, first_name, last_name, email, password)
+
+                const res = await fetch(process.env.BACKEND_URL + "/api/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        user_name: user_name,
+                        first_name: first_name,
+                        last_name: last_name,
+                        email: email,
+                        password: password,
+                    }),
                 });
+                if (res.ok) {
+                    const data = await res.json();
+                    // navigate("/home");
+                } else {
+                    const error = await res.json();
+                    setError(error.msg);
+                }
             },
-            // RecoveryPassword: async (email) => {
-            //     const options = {
-            //         method: "POST",
-            //         headers: {
-            //             "Content-Type": "application/json"
-            //         },
-            //         body: JSON.stringify({
-            //             email: email
-            //         }),
-            //     };
-            //     try {
-            //         const response = await fetch(
-            //             process.env.BACKEND_URL + "/api/recoverypassword", options
-            //         );
-            //         if (response.status === 200) {
-            //             setStore({
-            //                 mailSend: true
-            //             });
-            //         } else {
-            //             setStore({
-            //                 mailError: true
-            //             });
-            //         }
-            //     } catch (error) {
-            //         setStore({
-            //             mailError: true
-            //         })
+
+
+
+
+
+
+            // setStore({
+            //         isLoggedIn: true
             //     }
-
             // },
-
-
-
-
-
-
-
-
-
-
-
-
 
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
@@ -113,3 +116,40 @@ const getState = ({
 };
 
 export default getState;
+
+// logout: (check = true) => {
+//         setStore({
+//             isLoggedIn: false,
+//             checkAuth: check
+//         });
+//     },
+// RecoveryPassword: async (email) => {
+//     const options = {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({
+//             email: email
+//         }),
+//     };
+//     try {
+//         const response = await fetch(
+//             process.env.BACKEND_URL + "/api/recoverypassword", options
+//         );
+//         if (response.status === 200) {
+//             setStore({
+//                 mailSend: true
+//             });
+//         } else {
+//             setStore({
+//                 mailError: true
+//             });
+//         }
+//     } catch (error) {
+//         setStore({
+//             mailError: true
+//         })
+//     }
+
+// },
