@@ -2,6 +2,15 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import carrousel1Url from "../../img/bull&bear.jpeg";
 import homeChartsUrl from "../../img/homeCharts.jpeg";
+import imagen1 from "../../img/Graficas.jpg";
+import imagen1_1 from "../../img/graficas-t.jpg";
+import imagen2_1 from "../../img/indices-t.jpg";
+import imagen2 from "../../img/Indices.jpg";
+import imagen3 from "../../img/Noticias.jpg";
+import imagen3_1 from "../../img/noticias-t.jpg";
+import imagen4_1 from "../../img/coming-soon-t.jpg";
+import imagen4 from "../../img/coming-soon.jpg";
+
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -9,18 +18,126 @@ export const Home = () => {
 
   return (
     <div className="container-fluid">
-      <div class="container-fluid">
+      <div id="seccion1" class="container-fluid">
         <img src={carrousel1Url} className="img-fluid" alt="Imagen" />
         <div class="texto-superpuesto1">
-          <h1>Título del texto</h1>
-          <p>Texto que quieres poner sobre la imagen.</p>
+          <h1>
+            Tu camino al éxito financiero <br /> empieza aquí
+          </h1>
+          {/* <p>sigue nuestras señales de trading.</p> */}
+        </div>
+        {/* <div id="contenedor_boton" className="container">
+          <button type="button" class="btn btn-outline-primary">
+            Primary
+          </button>
+        </div> */}
+      </div>
+      <div id="titulo_carrusel" className="container">
+        <h1>
+          Todo lo que necesitas, <br /> en el mismo sitio.
+        </h1>
+      </div>
+      <div
+        id="container-carrusel"
+        className="container shadow-lg carousel-fade"
+      >
+        <div
+          id="carouselExampleRide"
+          class="carousel slide"
+          data-bs-ride="true"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                id="img-carrusel"
+                src={imagen1_1}
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                id="img-carrusel"
+                src={imagen1}
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                id="img-carrusel"
+                src={imagen2_1}
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                id="img-carrusel"
+                src={imagen2}
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                id="img-carrusel"
+                src={imagen3_1}
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                id="img-carrusel"
+                src={imagen3}
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                id="img-carrusel"
+                src={imagen4_1}
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                id="img-carrusel"
+                src={imagen4}
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleRide"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleRide"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
+
       <div className="container-fluid">
         <img src={homeChartsUrl} className="img-fluid" alt="Imagen" />
         <div class="texto-superpuesto">
-          <h1>Título del texto</h1>
-          <p>Texto que quieres poner sobre la imagen.</p>
+          <h1>Sigue nuestras señales de entrada</h1>
+          {/* <p>Texto que quieres poner sobre la imagen.</p> */}
         </div>
       </div>
       <div id="section3" className="d-flex row flex-nowrap overflow-auto">
@@ -78,12 +195,12 @@ export const Home = () => {
         <div class="circulo-medio"></div>
         <div class="circulo-interior"></div>
       </div> */}
-      <ul class="list-group">
+      {/* <ul class="list-group">
         <li class="list-group-item">A second item</li>
         <li class="list-group-item">A third item</li>
         <li class="list-group-item">A fourth item</li>
         <li class="list-group-item">And a fifth one</li>
-      </ul>
+      </ul> */}
     </div>
   );
 };
