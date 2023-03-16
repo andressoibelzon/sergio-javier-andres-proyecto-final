@@ -10,6 +10,7 @@ export const RegisterCode = () => {
 
   const formik = useFormik({
     initialValues: {
+      name: "",
       user_name: "",
       first_name: "",
       last_name: "",
@@ -17,6 +18,9 @@ export const RegisterCode = () => {
       password: "",
     },
     validationSchema: Yup.object({
+      name: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .required("Required"),
       user_name: Yup.string()
         .max(15, "Must be 15 characters or less")
         .required("Required"),
@@ -34,7 +38,7 @@ export const RegisterCode = () => {
     }),
     onSubmit: (values) => {
       // console.log(values)
-      actions.register(values.user_name, values.first_name, values.last_name, values.email, values.password);
+      actions.register(values.name, values.user_name, values.first_name, values.last_name, values.email, values.password);
       // alert(JSON.stringify(values, null, 2));
     },
   });
@@ -53,6 +57,29 @@ export const RegisterCode = () => {
                   className="needs-validation"
                   onSubmit={formik.handleSubmit}
                 >
+                  
+                  <div>
+                    <label className="form-outline" htmlFor="name">
+                    Name
+                    </label>
+                    <div>
+                      <input
+                        style={{ width: "80%" }}
+                        className=""
+                        id="name"
+                        name="name"
+                        type="text"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.name}
+                      />
+                      {formik.touched.name && formik.errors.name ? (
+                        <div>{formik.errors.name}</div>
+                      ) : null}
+                    </div>
+                  </div>
+
+
                   <div>
                     <label className="form-outline" htmlFor="user_name">
                       Username

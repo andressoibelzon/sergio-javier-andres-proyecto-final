@@ -42,8 +42,8 @@ const getState = ({
                 }
             },
 
-            register: async (user_name, first_name, last_name, email, password) => {
-                console.log(user_name, first_name, last_name, email, password)
+            register: async (name, user_name, first_name, last_name, email, password) => {
+                console.log(name, user_name, first_name, last_name, email, password)
 
                 const res = await fetch(process.env.BACKEND_URL + "/api/register", {
                     method: "POST",
@@ -51,12 +51,14 @@ const getState = ({
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
+                        name: name,
                         user_name: user_name,
                         first_name: first_name,
                         last_name: last_name,
                         email: email,
                         password: password,
                     }),
+                    mode: 'no-cors'
                 });
                 if (res.ok) {
                     const data = await res.json();
