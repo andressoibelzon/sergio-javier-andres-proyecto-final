@@ -1,0 +1,9 @@
+#container-noticias {
+  background-image: url("/workspace/sergio-javier-andres-proyecto-final/src/front/img/bull&bear.jpeg");
+  padding-top: 50px;
+  padding-bottom: 50px;
+  align-items: center;
+}
+
+#iframe {
+}
