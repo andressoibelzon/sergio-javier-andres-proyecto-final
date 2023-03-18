@@ -58,14 +58,17 @@ const getState = ({
                         email: email,
                         password: password,
                     }),
-                    mode: 'no-cors'
+                    // mode: 'no-cors'
                 });
                 if (res.ok) {
-                    const data = await res.json();
+                    console.log("llega")
+                    const data = res.json();
+                    console.log(data)
                     // navigate("/home");
                 } else {
                     const error = await res.json();
-                    setError(error.msg);
+                    error.msg;
+                    console.log(error)
                 }
             },
 

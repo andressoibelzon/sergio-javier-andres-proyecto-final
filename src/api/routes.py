@@ -32,34 +32,46 @@ def register():
     email = request.json.get("email")
     password = request.json.get("password")
 
-    
-    regex_letter = re.compile(r'^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$') ;      
-    pw_hash = encrypt_pwd(password)
     user = User.query.filter_by(email=email).first()
-    username = User.query.filter_by(user_name= user_name).first()
-    
-    if not re.match(regex_letter, name):
-            return jsonify({ "msg": "Error en el Nombre "}), 400
-        
-    if not re.match(regex_letter, first_name):
-            return jsonify({ "msg": "Error en el Apellido "}), 400    
-    
-    if user:
-        if email == user.email:
-            return jsonify({"msg": "Email ya registrado"}),401
-    elif username:
-    
-        if username:
-        # Comprueba que el username no este ya creado
+    print(user)
 
-            if user_name == username.user_name:
-                return jsonify({"msg": "Usuario ya registrado"}),402
-        
-    else:    
-    # Añade el nuevo usuario a la base de datos
-        new_user = User(name = name,first_name =first_name,last_name =last_name, user_name = user_name, email = email, password = pw_hash)
+    if user is None : 
+        new_user = User(name = name, first_name = first_name, last_name = last_name, user_name = user_name, email = email, password = password)
         db.session.add(new_user)
         db.session.commit()
+    else :
+        return jsonify({"msg": "email ya registrado"}), 402
+
+
+
+
+    
+    # pw_hash = encrypt_pwd(password)
+    # user = User.query.filter_by(email=email).first()
+    # username = User.query.filter_by(user_name= user_name).first()
+    
+    # # if not re.match(regex_letter, name):
+    # #         return jsonify({ "msg": "Error en el Nombre "}), 400
+        
+    # # if not re.match(regex_letter, first_name):
+    # #         return jsonify({ "msg": "Error en el Apellido "}), 400    
+    
+    # if user:
+    #     if email == user.email:
+    #         return jsonify({"msg": "Email ya registrado"}),401
+    # elif username:
+    
+    #     if username:
+    #     # Comprueba que el username no este ya creado
+
+    #         if user_name == username.user_name:
+    #             return jsonify({"msg": "Usuario ya registrado"}),402
+        
+    # else:    
+    # # Añade el nuevo usuario a la base de datos
+    #     new_user = User(name = name,first_name =first_name,last_name =last_name, user_name = user_name, email = email, password = pw_hash)
+    #     db.session.add(new_user)
+    #     db.session.commit()
     
     response_body = {
         "message": "Usuario registrado correctamente"
