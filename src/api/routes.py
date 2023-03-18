@@ -1,25 +1,87 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+
+# import os
+# from flask import Flask, request, jsonify, url_for
+# from flask_migrate import Migrate
+# from flask_swagger import swagger
+# from flask_cors import CORS
+# from utils import APIException, generate_sitemap
+# from admin import setup_admin
+# from models import db, User
+# #from models import Person
+# from flask_jwt_extended import create_access_token
+# from flask_jwt_extended import get_jwt_identity
+# from flask_jwt_extended import jwt_required
+# from flask_jwt_extended import JWTManager
+
+
+import os
+# from flask import Flask, request, jsonify, url_for
+from flask_migrate import Migrate
+from flask_swagger import swagger
+from flask_cors import CORS
+
 from flask import Flask, request, jsonify, url_for, Blueprint, json, current_app
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
-from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
-from flask_bcrypt import Bcrypt
-from datetime import timedelta
-from  dotenv  import  load_dotenv 
-import cloudinary
-import cloudinary.api
-from cloudinary.uploader import upload
-from flask_mail import Mail, Message
-import random, string
-import re
+
+# #from models import Person
+# from flask_jwt_extended import create_access_token
+# from flask_jwt_extended import get_jwt_identity
+# from flask_jwt_extended import jwt_required
+# from flask_jwt_extended import JWTManager
+
+
+# from flask import Flask, request, jsonify, url_for
+
+# from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
+# from flask_bcrypt import Bcrypt
+# # from datetime import timedelta
+# from  dotenv  import  load_dotenv 
+# # import cloudinary
+# # import cloudinary.api
+# # from cloudinary.uploader import upload
+# from flask_mail import Mail, Message
+# import random, string
+# import re
+
+
+# app = Flask(__name__)
+# app.url_map.strict_slashes = False
+
+# db_url = os.getenv("DATABASE_URL")
+# if db_url is not None:
+#     app.config['SQLALCHEMY_DATABASE_URI'] = db_url.replace("postgres://", "postgresql://")
+# else:
+#     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# MIGRATE = Migrate(app, db)
+# db.init_app(app)
+# CORS(app)
+# # Setup the Flask-JWT-Extended extension
+# app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
+# jwt = JWTManager(app)
+
+# setup_admin(app)
+
+# # Handle/serialize errors like a JSON object
+# @app.errorhandler(APIException)
+# def handle_invalid_usage(error):
+#     return jsonify(error.to_dict()), error.status_code
+
+# # generate sitemap with all your endpoints
+# @app.route('/')
+# def sitemap():
+#     return generate_sitemap(app)
 
 api = Blueprint('api', __name__)
 
-# función que encripta las contraseñas
-def encrypt_pwd(pwd):
-    return current_app.bcrypt.generate_password_hash(pwd).decode("utf-8")
+# # función que encripta las contraseñas
+# def encrypt_pwd(pwd):
+#     return current_app.bcrypt.generate_password_hash(pwd).decode("utf-8")
 
 # user registration
 @api.route('/register', methods=['POST'])
@@ -35,9 +97,11 @@ def register():
     print(user)
 
     if user is None : 
-        new_user = User(first_name = first_name, last_name = last_name, user_name = user_name, email = email, password = password)
-        db.session.add(new_user)
+        user = User(first_name = first_name, last_name = last_name, user_name = user_name, email = email, password = password)
+        db.session.add(user)
         db.session.commit()
+        return jsonify({"msg":"Usuario creado con exito"})
+
     else :
         return jsonify({"msg": "email ya registrado"}), 402
 

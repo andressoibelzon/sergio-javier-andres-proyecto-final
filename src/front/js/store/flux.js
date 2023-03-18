@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const getState = ({
     getStore,
     getActions,
@@ -43,33 +45,55 @@ const getState = ({
             },
 
             register: async (user_name, first_name, last_name, email, password) => {
-                console.log(name, user_name, first_name, last_name, email, password)
+                console.log(user_name, first_name, last_name, email, password)
 
-                const res = await fetch(process.env.BACKEND_URL + "/api/register", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        name: name,
+                try {
+                    let response = await axios.post(process.env.BACKEND_URL + "/api/register", {
                         user_name: user_name,
                         first_name: first_name,
                         last_name: last_name,
                         email: email,
                         password: password,
-                    }),
-                    // mode: 'no-cors'
-                });
-                if (res.ok) {
-                    console.log("llega")
-                    const data = res.json();
-                    console.log(data)
-                    // navigate("/home");
-                } else {
-                    const error = await res.json();
-                    error.msg;
-                    console.log(error)
+                    })
+
+                    if (response.status === 200) {
+                        console.log(response);
+                        return true;
+                    }
+                } catch (error) {
+                    console.log(error);
+                    if (error.response.status === 401)
+                        alert(error.response.data.msg)
+                    return false;
                 }
+
+
+
+
+                // const res = await fetch(process.env.BACKEND_URL + "/api/register", {
+                //     method: "POST",
+                //     headers: {
+                //         "Content-Type": "application/json"
+                //     },
+                //     body: JSON.stringify({
+                //         user_name: user_name,
+                //         first_name: first_name,
+                //         last_name: last_name,
+                //         email: email,
+                //         password: password,
+                //     }),
+                //     // mode: 'no-cors'
+                // });
+                // if (res.ok) {
+                //     console.log("llega")
+                //     const data = res.json();
+                //     console.log(data)
+                //     // navigate("/home");
+                // } else {
+                //     const error = await res.json();
+                //     error.msg;
+                //     console.log(error)
+                // }
             },
 
 
@@ -77,10 +101,6 @@ const getState = ({
 
 
 
-            // setStore({
-            //         isLoggedIn: true
-            //     }
-            // },
 
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
