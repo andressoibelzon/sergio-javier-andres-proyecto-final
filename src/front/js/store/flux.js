@@ -42,7 +42,7 @@ const getState = ({
                 }
             },
 
-            register: async (name, user_name, first_name, last_name, email, password) => {
+            register: async (user_name, first_name, last_name, email, password) => {
                 console.log(name, user_name, first_name, last_name, email, password)
 
                 const res = await fetch(process.env.BACKEND_URL + "/api/register", {

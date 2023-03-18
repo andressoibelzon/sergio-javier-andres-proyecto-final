@@ -25,7 +25,6 @@ def encrypt_pwd(pwd):
 @api.route('/register', methods=['POST'])
 def register():
     # Recibe los datos de usuario 
-    name = request.json.get("name")
     first_name = request.json.get("first_name")
     last_name = request.json.get("last_name")
     user_name = request.json.get("user_name")
@@ -36,7 +35,7 @@ def register():
     print(user)
 
     if user is None : 
-        new_user = User(name = name, first_name = first_name, last_name = last_name, user_name = user_name, email = email, password = password)
+        new_user = User(first_name = first_name, last_name = last_name, user_name = user_name, email = email, password = password)
         db.session.add(new_user)
         db.session.commit()
     else :
