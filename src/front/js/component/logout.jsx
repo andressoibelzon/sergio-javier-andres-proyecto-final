@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Context } from "../store/appContext";
 import "../../styles/login.css";
+
+
 
 
 export const Logout = () => {
