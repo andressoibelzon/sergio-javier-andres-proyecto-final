@@ -15,6 +15,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+import requests
 
 
 api = Blueprint('api', __name__)
@@ -146,4 +147,20 @@ def register():
 #         return jsonify(response_body),200
 #     else:
 #         return jsonify({"message":"correo no registrado"}),400
+
+@api.route('/indices', methods=['get'])
+def getindices():
+    url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/exchanges"
+
+    querystring = {"referenceCurrencyUuid":"yhjMzLPhuIDl","limit":"50","offset":"0","orderBy":"24hVolume","orderDirection":"desc"}
+
+    headers = {
+        "X-RapidAPI-Key": "259317a9a4msh9be0ac17ca1cbd3p1458abjsn542243c21d1a",
+        "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    print(response.text)
+    return jsonify(querystring)
     
