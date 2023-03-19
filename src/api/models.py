@@ -31,13 +31,13 @@ class User(db.Model):
 class Indices(db.Model):
     # __tablename__ = 'Indices'
     id = db.Column(db.Integer, primary_key=True)
-    name_indices = db.Column(db.String(120), unique=True, nullable=False)
-    ultimo = db.Column(db.String(80), unique=False, nullable=False)
-    maximo = db.Column(db.String(120), unique=False, nullable=False)
-    minimo = db.Column(db.String(120), unique=False, nullable=False)
-    var = db.Column(db.String(120), unique=False, nullable=False)
-    var_2 = db.Column(db.String(120), unique=False, nullable=False)
-    hora = db.Column(db.String(120), unique=False)
+    referenceCurrencyUuid = db.Column(db.String(120), unique=True, nullable=False)
+    limit = db.Column(db.String(80), unique=False, nullable=False)
+    offset = db.Column(db.String(120), unique=False, nullable=False)
+    orderBy = db.Column(db.String(120), unique=False, nullable=False)
+    orderDirection = db.Column(db.String(120), unique=False, nullable=False)
+    # var_2 = db.Column(db.String(120), unique=False, nullable=False)
+    # hora = db.Column(db.String(120), unique=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
     
@@ -47,12 +47,12 @@ class Indices(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name_indices": self.name_indices,
-            "ultimo": self.ultimo,
-            "maximo": self.maximo,
-            "var": self.var,
-            "var%": self.var_2,
-            "hora": self.hora,
+            "referenceCurrencyUuid": self.referenceCurrencyUuid,
+            "limit": self.limit,
+            "offset": self.offset,
+            "orderBy": self.orderBy,
+            "orderDirection": self.vorderDirection,
+            # "hora": self.hora,
         }
 class Noticias(db.Model):
     # __tablename__ = 'Noticias'
