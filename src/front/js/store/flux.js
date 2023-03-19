@@ -66,13 +66,40 @@ const getState = ({
                         setStore({
                             auth: true
                         });
-                        console.log(response.data.access_token)
+                        Toastify({
+                            text: "Successfull, loging in",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                        // console.log(response.data.access_token)
                         return true;
                     }
                 } catch (error) {
                     console.log(error);
                     if (error.response.status === 401)
-                        alert(error.response.data.msg)
+                        Toastify({
+                            text: "Wrong email or password",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
                     return false;
                 }
             },
