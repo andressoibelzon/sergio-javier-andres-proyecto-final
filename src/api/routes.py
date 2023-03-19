@@ -20,13 +20,6 @@ from flask_jwt_extended import JWTManager
 api = Blueprint('api', __name__)
 
 
-
-# # Setup the Flask-JWT-Extended extension
-# app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
-# jwt = JWTManager(app)
-
-
-
 # Handle/serialize errors like a JSON object
 @api.errorhandler(APIException)
 def handle_invalid_usage(error):

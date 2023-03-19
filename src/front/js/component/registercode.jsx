@@ -34,23 +34,11 @@ export const RegisterCode = () => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      console.log(values)
+      // console.log(values)
       actions.register(values.user_name, values.first_name, values.last_name, values.email, values.password);
+      // alert(JSON.stringify(values, null, 2));
     },
-    
-  })
-  
-  //funcion para limpiar datos e irme al login
-  async function handleSingup(e) {
-    e.preventDefault()
-    console.log(email,password);
-    let isLogged = await actions.register(email,password);
-    if(isLogged){//true
-      // setEmail("")
-      // setPassword("")
-      navigate("/")
-    }
-  };
+  });
   return (
     <section className="h-100" style={{ backgroundColor: "#eee" }}>
       <div className="container py-5 h-100">
