@@ -31,6 +31,7 @@ const getState = ({
                     auth: false,
                 });
             },
+
             validToken: async () => {
                 let token = localStorage.getItem("token");
                 try {
@@ -46,6 +47,7 @@ const getState = ({
                         setStore({
                             auth: response.data.isLogged,
                         });
+                        // console.log(response) aca hay un error el response no trae .data.isLogged revisar ver dia 30 youtube
                         return true;
                     }
                 } catch (error) {

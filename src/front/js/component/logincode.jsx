@@ -17,7 +17,7 @@ export const LoginCode = () => {
     if(isLogged){//true
       setEmail("")
       setPassword("")
-      navigate("/")
+      navigate("/demo")
     }
   }
 

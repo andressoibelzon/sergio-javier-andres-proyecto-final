@@ -42,11 +42,11 @@ export const RegisterCode = () => {
 
       // alert(JSON.stringify(values, null, 2));
     //   let isLogged = actions.register(email,password);
-    // if(isLogged){//true
-    //   // setEmail("")
-    //   // setPassword("")
-    //   navigate("/")
-    // }
+    if(isLogged){//true
+      // setEmail("")
+      // setPassword("")
+      navigate("/login")
+    }
     //este codigo no me funciona para redirigir a la pagina de home o login, tendria que de alguna forma pasarlo para el submit pero creo que esta bien que tenga una asincronia
     async function handleSingup(e) {
       e.preventDefault()
