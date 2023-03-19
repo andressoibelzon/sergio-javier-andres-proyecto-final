@@ -93,5 +93,3 @@ def valid_token():
         return jsonify({"isLogged":False}), 401
 
 
-
-    
