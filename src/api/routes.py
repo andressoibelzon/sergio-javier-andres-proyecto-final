@@ -15,6 +15,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+import requests
 
 
 api = Blueprint('api', __name__)
@@ -93,3 +94,46 @@ def valid_token():
         return jsonify({"isLogged":False}), 401
 
 
+# #  Recuperación de contraseña
+# @api.route("/recoverypassword", methods=['POST'])
+# def recovery_password():
+#     body = json.loads(request.data)
+#     email = body ["email"]
+#     # contraseña aleatoria
+#     new_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(15))
+#     # Encriptacion
+#     pw_hash = encrypt_pwd(new_password)
+#     user = User.query.filter_by(email=email).first()
+#     # Asigno el pass aleatorio al user
+#     if user !=None:
+#         user.password = pw_hash
+#         db.session.commit()
+#     # Aqui comenzaría el envio del mail con la pass 
+#         mail = Mail ()
+#         message = Message('Recuperación de contraseña', sender  = 'nombre de la web', recipients =[user.email])
+#         message.body = "Hola " + user.name + " tu nueva contraseña es " + new_password + " recuerda modificarla una vez inicies sesión."
+#         message.html ="<h1>nombre de la web</h1><h2> Hola " + user.name + " </h2> <p> Tu nuevo password es <b> " + new_password + " recuerda modificarla una vez inicies sesión.</b></p><p>Si usted no ha solicitado el cambio de contraseña ignore y elimine este mensaje por favor.</p> <p> Mensaje enviado automáticamente, no responda</p>"
+#         mail.send(message)
+#         response_body ={
+#             "message":" correo electrónico enviado correctamente"
+#         }
+#         return jsonify(response_body),200
+#     else:
+#         return jsonify({"message":"correo no registrado"}),400
+
+@api.route('/indices', methods=['get'])
+def getindices():
+    url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/exchanges"
+
+    querystring = {"referenceCurrencyUuid":"yhjMzLPhuIDl","limit":"50","offset":"0","orderBy":"24hVolume","orderDirection":"desc"}
+
+    headers = {
+        "X-RapidAPI-Key": "259317a9a4msh9be0ac17ca1cbd3p1458abjsn542243c21d1a",
+        "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    print(response.text)
+    return jsonify(querystring)
+    
