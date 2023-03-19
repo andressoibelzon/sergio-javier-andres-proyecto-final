@@ -7,6 +7,8 @@ import "../../styles/login.css";
 
 export const RegisterCode = () => {
   const { actions } = useContext(Context);
+  const navigate = useNavigate();
+
 
   
   const formik = useFormik({
@@ -36,8 +38,28 @@ export const RegisterCode = () => {
     onSubmit: (values) => {
       // console.log(values)
       actions.register(values.user_name, values.first_name, values.last_name, values.email, values.password);
+            // navigate("/")
+
       // alert(JSON.stringify(values, null, 2));
+    //   let isLogged = actions.register(email,password);
+    // if(isLogged){//true
+    //   // setEmail("")
+    //   // setPassword("")
+    //   navigate("/")
+    // }
+    //este codigo no me funciona para redirigir a la pagina de home o login, tendria que de alguna forma pasarlo para el submit pero creo que esta bien que tenga una asincronia
+    async function handleSingup(e) {
+      e.preventDefault()
+      console.log(email,password);
+      let isLogged = await actions.register(email,password);
+      if(isLogged){//true
+        // setEmail("")
+        // setPassword("")
+        navigate("/")
+      }}
+      handleSingup()
     },
+    
   });
   return (
     <section className="h-100" style={{ backgroundColor: "#eee" }}>

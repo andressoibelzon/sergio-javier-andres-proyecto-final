@@ -37,7 +37,7 @@ const getState = ({
                     let response = await axios.get(
                         process.env.BACKEND_URL + "/api/valid-token", {
                             headers: {
-                                Authorization: "Bearer " + token,
+                                'Authorization': "Bearer" + token,
                             },
                         }
                     );
@@ -57,7 +57,7 @@ const getState = ({
             login: async (email, password) => {
                 console.log(email, password);
                 try {
-                    let response = await axios.post(process.env.BACKEND_URL + "/api/register", {
+                    let response = await axios.post(process.env.BACKEND_URL + "/api/login", {
                         email: email,
                         password: password
                     })
@@ -66,6 +66,7 @@ const getState = ({
                         setStore({
                             auth: true
                         });
+                        console.log(response.data.access_token)
                         return true;
                     }
                 } catch (error) {

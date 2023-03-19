@@ -25,10 +25,6 @@ api = Blueprint('api', __name__)
 def handle_invalid_usage(error):
     return jsonify(error.to_dict()), error.status_code
 
-# generate sitemap with all your endpoints
-@api.route('/')
-def sitemap():
-    return generate_sitemap(app)
 
 @api.route('/login', methods=['POST'])
 def login():
@@ -36,7 +32,7 @@ def login():
     password = request.json.get("password", None)
 #  hacemos una consulta a la tabla para saber si el user existe
     user = User.query.filter_by(email=email).first()
- 
+
     if user is None:
         return jsonify({"msg": "User doesn´t exist"}), 404
     
