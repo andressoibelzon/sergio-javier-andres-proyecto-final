@@ -166,7 +166,7 @@ const getState = ({
             onSubmitContact: async (email, comentario) => {
                 console.log(email, comentario);
                 try {
-                    let response = await axios.post(process.env.BACKEND_URL + "/api/onsubmitcontact", {
+                    let response = await axios.post(process.env.BACKEND_URL + "/api/onsubmit-contact", {
                         email: email,
                         comentario: comentario
                     })

@@ -139,17 +139,16 @@ def getindices():
 
 
 
-    @api.route('/onsubmitcontact', methods=['POST'])
-def onsubmitcontact():
+@api.route('/onsubmit-contact', methods=['POST'])
+def onsubmitContact():
     email = request.json.get("email", None)
     comentario = request.json.get("comentario", None)
 
-    if user is None:
-        return jsonify({"msg": "User doesn´t exist"}), 404
-    
-    if email != user.email or password != user.password:
-        return jsonify({"msg": "Bad email or password"}), 401
-
-    access_token = create_access_token(identity=email)
-    return jsonify(access_token=access_token)
+        # if response.status_code == 200:
+    comment = Contacto(email = email, comentario = comentario)
+    db.session.add(comment)
+    db.session.commit()
+    return jsonify({"msg":"Comentario creado con exito"})
+    # else :
+        # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
     
