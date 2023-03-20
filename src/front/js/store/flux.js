@@ -33,6 +33,7 @@ const getState = ({
             },
 
             validToken: async () => {
+                // console.log(response.data.isLogged)
                 let token = localStorage.getItem("token");
                 try {
                     let response = await axios.get(
@@ -47,7 +48,8 @@ const getState = ({
                         setStore({
                             auth: response.data.isLogged,
                         });
-                        // console.log(response) aca hay un error el response no trae .data.isLogged revisar ver dia 30 youtube
+
+                        // console.log(response) //aca hay un error el response no trae.data.isLogged revisar ver dia 30 youtube
                         return true;
                     }
                 } catch (error) {

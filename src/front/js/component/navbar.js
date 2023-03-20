@@ -41,10 +41,7 @@ export const Navbar = () => {
     <nav className="styleNav p-3 text-bg-black">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a
-            href="/"
-            className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-          >
+       <Link className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" to="/">
             <svg
               className="bi me-2"
               width="40"
@@ -54,33 +51,34 @@ export const Navbar = () => {
             >
               <use xlinkHref="#bootstrap"></use>
             </svg>
-          </a>
+           </Link>
+
 
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li>
-              <a href="/" className="nav-link px-2 text-secondary">
+              <Link to="/" className="nav-link px-2 text-secondary">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/indices" className="nav-link px-2 text-white">
+              <Link to="/indices" className="nav-link px-2 text-white">
                 Indices
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/noticias" className="nav-link px-2 text-white">
+              <Link to="/noticias" className="nav-link px-2 text-white">
                 Noticias
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/graficos" className="nav-link px-2 text-white">
+              <Link to="/graficos" className="nav-link px-2 text-white">
                 Graficos
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contacto" className="nav-link px-2 text-white">
+              <Link to="/contacto" className="nav-link px-2 text-white">
                 Contacto
-              </a>
+              </Link>
             </li>
           </ul>
 
