@@ -62,7 +62,7 @@ def register():
     password = request.json.get("password")
 
     user = User.query.filter_by(email=email).first()
-    print(user)
+    # print(user)
 
     if user is None : 
         user = User(first_name = first_name, last_name = last_name, user_name = user_name, email = email, password = password)
@@ -136,4 +136,20 @@ def getindices():
 
     print(response.text)
     return jsonify(querystring)
+
+
+
+    @api.route('/onsubmitcontact', methods=['POST'])
+def onsubmitcontact():
+    email = request.json.get("email", None)
+    comentario = request.json.get("comentario", None)
+
+    if user is None:
+        return jsonify({"msg": "User doesn´t exist"}), 404
+    
+    if email != user.email or password != user.password:
+        return jsonify({"msg": "Bad email or password"}), 401
+
+    access_token = create_access_token(identity=email)
+    return jsonify(access_token=access_token)
     

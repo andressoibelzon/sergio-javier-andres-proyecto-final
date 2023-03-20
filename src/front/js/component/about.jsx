@@ -29,7 +29,7 @@ Nuestra plataforma está diseñada para ser flexible y adaptable, con gráficos 
           {/* <svg className="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg> */}
         </div>
         <h3 className="fs-2">Indices</h3>
-        <p>Libere el poder de los índices bursátiles para rastrear el desempeño de múltiples activos. Nuestra plataforma proporciona la información y conocimientos más recientes sobre las acciones y tendencias de trading, presentados en gráficos fáciles de entender. Los usuarios pueden hacer seguimiento de los índices del mercado de valores, incluyendo el S&P 500, NASDAQ y el Dow Jones Industrial Average, y mantenerse al día con los últimos movimientos en el mercado.</p>
+        <p>Nuestra plataforma proporciona la información y conocimientos más recientes sobre las acciones y tendencias de trading, presentados en gráficos fáciles de entender. Los usuarios pueden hacer seguimiento de los índices del mercado de valores, incluyendo el S&P 500, NASDAQ y el Dow Jones Industrial Average, y mantenerse al día con los últimos movimientos en el mercado.</p>
         <Link to="/" className="icon-link d-inline-flex align-items-center">
           Ir a indices
           {/* <svg className="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg> */}

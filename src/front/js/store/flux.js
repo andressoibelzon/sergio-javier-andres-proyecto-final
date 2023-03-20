@@ -163,6 +163,51 @@ const getState = ({
                 }
             },
 
+            onSubmitContact: async (email, comentario) => {
+                console.log(email, comentario);
+                try {
+                    let response = await axios.post(process.env.BACKEND_URL + "/api/onsubmitcontact", {
+                        email: email,
+                        comentario: comentario
+                    })
+                    if (response.status === 200) {
+
+                        Toastify({
+                            text: "Mensaje enviado",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                        return true;
+                    }
+                } catch (error) {
+                    if (error.response.status === 401)
+                        Toastify({
+                            text: "Error en el envio, intente mas tarde",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                    return false;
+                }
+            },
+
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
             },
