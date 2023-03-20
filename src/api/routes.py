@@ -21,12 +21,6 @@ import requests
 api = Blueprint('api', __name__)
 
 
-# Handle/serialize errors like a JSON object
-@api.errorhandler(APIException)
-def handle_invalid_usage(error):
-    return jsonify(error.to_dict()), error.status_code
-
-
 @api.route('/login', methods=['POST'])
 def login():
     email = request.json.get("email", None)
@@ -57,9 +51,6 @@ def get_profile():
     return jsonify({"result":user.serialize()}), 200
 
 
-
-
-
 # user registration
 @api.route('/register', methods=['POST'])
 def register():
@@ -78,47 +69,29 @@ def register():
         db.session.add(user)
         db.session.commit()
         return jsonify({"msg":"Usuario creado con exito"})
-
     else :
         return jsonify({"msg": "email ya registrado"}), 402
     
     response_body = {
         "message": "Usuario registrado correctamente"
     }
-
     return jsonify(response_body), 200 
 
-# def check_password(hash, password):
-#     try:
-#         return current_app.bcrypt.check_password_hash(hash, password)
-#     except: 
-#         return False
 
+@api.route("/valid-token", methods=["GET"])
+@jwt_required()
+def valid_token():
+    # Access the identity of the current user with get_jwt_identity
 
-# @api.route("/profile", methods=["GET"])
-# @jwt_required()
-# def get_profile():
-#     # Access the identity of the current user with get_jwt_identity
-
-#     current_user = get_jwt_identity()
-#     user = User.query.filter_by(email=current_user).first()
-#     print(user)
-#     return jsonify({"result":user.serialize()}), 200
-
-# @api.route("/valid-token", methods=["GET"])
-# @jwt_required()
-# def valid_token():
-#     # Access the identity of the current user with get_jwt_identity
-
-#     current_user = get_jwt_identity()
+    current_user = get_jwt_identity()
     
-#     user = User.query.filter_by(email=current_user).first()
-#     if user != None:
+    user = User.query.filter_by(email=current_user).first()
+    if user != None:
         
-#     # print(user)
-#         return jsonify({"isLogged":True}), 200
-#     else:
-#         return jsonify({"isLogged":False}), 401
+    # print(user)
+        return jsonify({"isLogged":True}), 200
+    else:
+        return jsonify({"isLogged":False}), 401
 
 
 # #  Recuperación de contraseña
