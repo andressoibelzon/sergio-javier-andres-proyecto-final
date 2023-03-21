@@ -138,7 +138,6 @@ def getindices():
     return jsonify(querystring)
 
 
-
 @api.route('/onsubmit-contact', methods=['POST'])
 def onsubmitContact():
     email = request.json.get("email", None)
@@ -149,6 +148,19 @@ def onsubmitContact():
     db.session.add(comment)
     db.session.commit()
     return jsonify({"msg":"Comentario creado con exito"})
+    # else :
+    # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
+    
+
+
+@api.route('/suscripcion', methods=['POST'])
+def onsubmitSusc():
+    email = request.json.get("email", None)
+        # if response.status_code == 200:
+    addemail = Suscripcion(email = email)
+    db.session.add(addemail)
+    db.session.commit()
+    return jsonify({"msg":"Email en suscritos"})
     # else :
         # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
     

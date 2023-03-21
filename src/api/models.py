@@ -124,3 +124,19 @@ class Contacto(db.Model):
             "email": self.email,
             "comentario": self.comentario
         }
+
+
+class Suscripcion(db.Model):
+    # __tablename__ = 'Contacto'
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    
+    def __repr__(self):
+        return '<Suscripcion %r>' % self.id
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+        }
