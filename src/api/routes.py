@@ -113,6 +113,31 @@ def recovery_password():
         return jsonify(response_body),200
     else:
         return jsonify({"message":"correo no registrado"}),400
+
+# Perfil de usuario => una vez logeado, me traigo los datos del usuario en cuestión
+@api.route('/profile', methods=['GET'])
+@jwt_required()
+def user_profile():
+    current_user = get_jwt_identity()
+    user = User.query.filter_by(email=current_user).first()
+    return jsonify(user.serialize()), 200
+
+# Perfil de usuario => eliminar cuenta
+@api.route("/profile", methods=['DELETE'])
+@jwt_required()
+def delete_user_profile():
+    current_user = get_jwt_identity()
+    delete_user = User.query.filter_by(email = current_user).first()
+    
+    db.session.delete(delete_user)
+    db.session.commit()
+    
+    response_body = {
+        "message": "Usuario eliminado correctamente"
+    }
+    return jsonify(response_body),200
+
+
     
 #     # Autenticación con Google
 # @api.route("/register_google", methods = ["POST"])
