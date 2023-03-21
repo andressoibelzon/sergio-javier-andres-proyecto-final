@@ -99,7 +99,6 @@ export const Exchange = () => {
                     </li>
                 </ul>
             </nav>
-            <script type="module" src="./indices.js"></script>
         </div>
     )
 }
