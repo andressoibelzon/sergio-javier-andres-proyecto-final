@@ -9,24 +9,24 @@ const getState = ({
             demo: [{
                     title: "FIRST",
                     background: "white",
-                    initial: "white"
+                    initial: "white",
                 },
                 {
                     title: "SECOND",
                     background: "white",
-                    initial: "white"
-                }
-            ]
+                    initial: "white",
+                },
+            ],
         },
         actions: {
             // Use getActions to call a function within a fuction
             login: async (email, password) => {
-                console.log(email, password)
+                console.log(email, password);
 
                 const res = await fetch(process.env.BACKEND_URL + "/api/login", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
                         email: email,
@@ -42,13 +42,26 @@ const getState = ({
                 }
             },
 
+            getDataProfile: () => {
+                fetch(process.env.BACKEND_URL + "/api/profile", {
+                        method: "GET",
+                        headers: {
+                            Authorization: "Bearer " + getToken(),
+                        },
+                    })
+                    .then((resp) => resp.json())
+                    .then((data) => setStore({
+                        user: data
+                    }));
+            },
+
             register: async (user_name, first_name, last_name, email, password) => {
-                console.log(user_name, first_name, last_name, email, password)
+                console.log(user_name, first_name, last_name, email, password);
 
                 const res = await fetch(process.env.BACKEND_URL + "/api/register", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
                         user_name: user_name,
@@ -67,11 +80,6 @@ const getState = ({
                 }
             },
 
-
-
-
-
-
             // setStore({
             //         isLoggedIn: true
             //     }
@@ -84,15 +92,15 @@ const getState = ({
             getMessage: async () => {
                 try {
                     // fetching data from the backend
-                    const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-                    const data = await resp.json()
+                    const resp = await fetch(process.env.BACKEND_URL + "/api/hello");
+                    const data = await resp.json();
                     setStore({
-                        message: data.message
-                    })
+                        message: data.message,
+                    });
                     // don't forget to return something, that is how the async resolves
                     return data;
                 } catch (error) {
-                    console.log("Error loading message from backend", error)
+                    console.log("Error loading message from backend", error);
                 }
             },
             changeColor: (index, color) => {
@@ -108,10 +116,10 @@ const getState = ({
 
                 //reset the global store
                 setStore({
-                    demo: demo
+                    demo: demo,
                 });
-            }
-        }
+            },
+        },
     };
 };
 
