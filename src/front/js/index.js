@@ -9,4 +9,16 @@ import "../styles/index.css";
 import Layout from "./layout";
 
 //render your react application
+// import { Context } from "../store/appContext";
+
+// async function conditionLoggedin(e) {
+//     e.preventDefault()
+//     let isLogged = await actions.login(email,password);
+//     if(isLogged){//true
+//       setEmail("")
+//       setPassword("")
+//       navigate("/demo")
+//     }
+//   }
+
 ReactDOM.render(<Layout />, document.querySelector("#app"));

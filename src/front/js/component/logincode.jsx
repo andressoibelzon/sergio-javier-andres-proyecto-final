@@ -8,7 +8,7 @@ import "../../styles/login.css";
 export const LoginCode = () => {
  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {actions}=useContext(Context)
+  const {actions} = useContext(Context)
   const navigate = useNavigate();
 
   async function login(e) {
@@ -17,7 +17,7 @@ export const LoginCode = () => {
     if(isLogged){//true
       setEmail("")
       setPassword("")
-      navigate("/demo")
+      navigate("/")
     }
   }
 

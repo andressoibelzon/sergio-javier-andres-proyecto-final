@@ -47,15 +47,14 @@ const getState = ({
                     if (response.status === 200) {
                         console.log(response)
                         setStore({
-                            // auth: response.data.isLogged
-                            // auth: response.data.isLogged,
+                            auth: response.data.isLogged,
                         });
                         // console.log(response) aca hay un error el response no trae .data.isLogged revisar ver dia 30 youtube
                         return true;
                     }
                 } catch (error) {
                     console.log(error);
-                    alert(error.response.data.msg);
+                    console(error.response.data.msg);
                     return false;
                 }
             },
