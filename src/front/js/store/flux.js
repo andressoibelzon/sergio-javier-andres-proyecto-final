@@ -56,6 +56,11 @@ const getState = ({
                     return false;
                 }
             },
+            indices: async () => {
+                let response = await axios.get(
+                    process.env.BACKEND_URL + "/api/indices")
+                console.log(response.data)
+            },
             login: async (email, password) => {
                 console.log(email, password);
                 try {
