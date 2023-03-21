@@ -8,7 +8,7 @@ const options = {
     'x-access-token': 'coinranking01dedb7a7955216d99f82ecfab7dabbaca98eaee97945b7f'
 }
 
-export const Indices = () => {
+export const Exchange = () => {
     const { store, actions } = useContext(Context);
     const params = useParams();
     async function redenderTable(page = 1) {
@@ -34,11 +34,11 @@ export const Indices = () => {
             if (index >= start && index < end) return true;
         }).forEach(coin => {
             cryptoCoin += "<tr>"
-            cryptoCoin += `<td>${parseFloat(coin.btcPrices).toFixed(6)}</td>`
+            cryptoCoin += `<td>${parseFloat(coin.btcPrice).toFixed(6)}</td>`
             cryptoCoin += `<td>${(coin.rank)}</td>`
             cryptoCoin += `<td>${(coin.tier)}</td>`
             cryptoCoin += `<td>${(coin.name)}</td>`
-            cryptoCoin += `<td>${Math.round(coin.prices)}Billons</td>`
+            cryptoCoin += `<td>${Math.round(coin.price)}Billons</td>`
             cryptoCoin += `<td>${(coin.symbol)}</td>`
         })
         document.getElementById("data").innerHTML = cryptoCoin
@@ -52,23 +52,23 @@ export const Indices = () => {
 
     }
     let coinsData = []
-    let pageSize = 10;
+    let pageSize = 50;
     let currentsPage = 1;
 
     // hacer que se cambie de pagina de 1 en 1
-    function previousPage() {
-        if (currentsPage > 1)
-            currentsPage--;
-        redenderTable(currentsPage)
-    }
-    // function nextPage() {
-    if ((currentsPage * pageSize) < coinsData.length)
-        currentsPage++;
-    redenderTable(currentsPage)
+    // function previousPage() {
+    //     if (currentsPage > 1)
+    //         currentsPage--;
+    //     redenderTable(currentsPage)
+    // }
+    // // function nextPage() {
+    // if ((currentsPage * pageSize) < coinsData.length)
+    //     currentsPage++;
+    // redenderTable(currentsPage)
 
-    function numbersPages() {
-        return Math.ceil(coinsData.length / pageSize)
-    }
+    // function numbersPages() {
+    //     return Math.ceil(coinsData.length / pageSize)
+    // }
     //evento de listado 
 
     // documents.querySelector('#prevButton').addEvenListener('click', previousPage, false)
@@ -78,12 +78,12 @@ export const Indices = () => {
             <table className="table table-dark table-striped" id="listingTable">
                 <thead>
                     <tr>
-                        <th scope="col" id="cryptoCoin">BTC price</th>
-                        <th scope="col" id="cryptoCoin">Rank</th>
-                        <th scope="col" id="cryptoCoin">Tier</th>
-                        <th scope="col" id="cryptoCoin">Name</th>
-                        <th scope="col" id="cryptoCoin">Prices</th>
-                        <th scope="col" id="cryptoCoin">Symbol</th>
+                        <th scope="col" >BTC price</th>
+                        <th scope="col" >Rank</th>
+                        <th scope="col" >Tier</th>
+                        <th scope="col" >Name</th>
+                        <th scope="col" >Prices</th>
+                        <th scope="col" >Symbol</th>
                     </tr>
                 </thead>
                 <tbody id="data">

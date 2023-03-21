@@ -1,16 +1,16 @@
 import React, { useState, useContext } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/nav.css";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate()
-  
-	function handleLogout() {
-		actions.logout()
-		navigate("/")
-	}
+
+  function handleLogout() {
+    actions.logout()
+    navigate("/")
+  }
 
 
   return (
@@ -63,8 +63,8 @@ export const Navbar = () => {
               </a>
             </li>
             <li>
-              <a href="/indices" className="nav-link px-2 text-white">
-                Indices
+              <a href="/exchange" className="nav-link px-2 text-white">
+                Exchange
               </a>
             </li>
             <li>

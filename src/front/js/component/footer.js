@@ -8,7 +8,7 @@ export const Footer = () => (
 				<h5>Principales</h5>
 				<ul className="nav flex-column">
 					<li className="nav-item mb-2"><a href="/home" className="nav-link p-0 text-muted">Home</a></li>
-					<li className="nav-item mb-2"><a href="/indices" className="nav-link p-0 text-muted">Indices</a></li>
+					<li className="nav-item mb-2"><a href="/exchange" className="nav-link p-0 text-muted">Exchange</a></li>
 					<li className="nav-item mb-2"><a href="/graficos" className="nav-link p-0 text-muted">Graficos</a></li>
 					<li className="nav-item mb-2"><a href="/contacto" className="nav-link p-0 text-muted">Politica de privacidad</a></li>
 					{/* <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">About</a></li> */}

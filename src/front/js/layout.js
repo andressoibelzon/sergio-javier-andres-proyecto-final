@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Noticias } from "./pages/noticias";
-import { Indices } from "./pages/indices";
+import { Exchange } from "./pages/exchange";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
@@ -27,7 +27,7 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Noticias />} path="/noticias" />
-            <Route element={<Indices />} path="/indices" />
+            <Route element={<Exchange />} path="/exchange" />
             <Route element={<Login />} path="/login" />
             <Route element={<Register />} path="/register" />
             <Route element={<Demo />} path="/demo" />
