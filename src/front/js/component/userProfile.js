@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import ModalDeleteUser from "./modalDeleteUser";
-import { getToken } from "../tokenUtilities";
-import { Link } from "react-router-dom";
-import { deleteToken } from "../tokenUtilities";
+import ModalDeleteUser from "../modalDeleteUser.js";
+import { getToken } from "../tokenUtilities.js";
+// import { Link } from "react-router-dom";
+import { deleteToken } from "../tokenUtilities.js";
 
-const ProfileDate = () => {
+const userProfile = () => {
   const [showModal, setShowModal] = useState(false);
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    actions.getDataProfile();
+    actions.getDataProfile(); // Obtiene los datos del usuario en cuestion
   }, []);
 
   const onDeleteButtonClick = () => {
@@ -40,11 +40,11 @@ const ProfileDate = () => {
   return (
     <>
       <div className="card profile-date mt-4">
-        <img
+        {/* <img
           src={store.user.image}
           className="avatar rounded-circle img-thumbnail img-profile-date img-fluid mt-2 mb-3"
           alt="..."
-        />
+        /> */}
 
         <div className="card-body-h5 mb-3">
           <h5 className="card-title fs-1 text-capitalize user">
@@ -73,14 +73,14 @@ const ProfileDate = () => {
           >
             Eliminar cuenta
           </button>
-          <Link to="/profile/modificate">
+          {/* <Link to="/profile/modificate">
             <button
               className="btn btn-md btn btn-profile bg-gradient  ms-4"
               type="button"
             >
               Modificar datos de usuario
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
       {showModal && <ModalDeleteUser />}
@@ -88,4 +88,4 @@ const ProfileDate = () => {
   );
 };
 
-export default ProfileDate;
+export default userProfile;

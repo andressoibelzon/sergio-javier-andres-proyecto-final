@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/index.css";
-import "../../styles/modalUserDelete.css";
+import "../../styles/modalDeleteUser.css";
 
 const ModalDeleteUser = () => {
   const navigate = useNavigate();
