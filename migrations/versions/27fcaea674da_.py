@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 06996487de43
+Revision ID: 27fcaea674da
 Revises: 
-Create Date: 2023-03-14 18:58:33.587152
+Create Date: 2023-03-19 16:34:35.807067
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '06996487de43'
+revision = '27fcaea674da'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,7 +31,6 @@ def upgrade():
     op.create_table('user',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('email', sa.String(length=120), nullable=False),
-    sa.Column('name', sa.String(length=120), nullable=False),
     sa.Column('user_name', sa.String(length=80), nullable=False),
     sa.Column('password', sa.String(length=80), nullable=False),
     sa.Column('first_name', sa.String(length=120), nullable=False),
@@ -56,17 +55,15 @@ def upgrade():
     )
     op.create_table('indices',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('name_indices', sa.String(length=120), nullable=False),
-    sa.Column('ultimo', sa.String(length=80), nullable=False),
-    sa.Column('maximo', sa.String(length=120), nullable=False),
-    sa.Column('minimo', sa.String(length=120), nullable=False),
-    sa.Column('var', sa.String(length=120), nullable=False),
-    sa.Column('var_2', sa.String(length=120), nullable=False),
-    sa.Column('hora', sa.String(length=120), nullable=True),
+    sa.Column('referenceCurrencyUuid', sa.String(length=120), nullable=False),
+    sa.Column('limit', sa.String(length=80), nullable=False),
+    sa.Column('offset', sa.String(length=120), nullable=False),
+    sa.Column('orderBy', sa.String(length=120), nullable=False),
+    sa.Column('orderDirection', sa.String(length=120), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('name_indices')
+    sa.UniqueConstraint('referenceCurrencyUuid')
     )
     op.create_table('noticias',
     sa.Column('id', sa.Integer(), nullable=False),

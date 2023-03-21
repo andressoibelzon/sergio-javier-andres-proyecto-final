@@ -14,7 +14,8 @@
         "name": "Alejandro Sanchez",
         "url": "http://alesanchezr.com/"
     },
-    "contributors": [{
+    "contributors": [
+        {
             "name": "Alejandro Sanchez",
             "url": "http://alesanchezr.com/"
         },
@@ -72,14 +73,17 @@
         ]
     },
     "dependencies": {
-        "formik": "^2.2.9",
         "@fortawesome/fontawesome-free": "^6.3.0",
         "@fortawesome/fontawesome-svg-core": "^6.3.0",
+        "axios": "^1.3.4",
+        "formik": "^2.2.9",
         "prop-types": "^15.6.1",
         "react": "^16.14.0",
         "react-dom": "^16.8.4",
         "react-polyfills": "0.0.1",
         "react-router-dom": "^6.9.0",
+        "react-use-navigate": "^0.1.1",
+        "toastify-js": "^1.12.0",
         "yup": "^1.0.2"
     }
 }

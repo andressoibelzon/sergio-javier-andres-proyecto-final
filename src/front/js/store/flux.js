@@ -1,3 +1,7 @@
+import axios from "axios";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+
 const getState = ({
     getStore,
     getActions,
@@ -17,28 +21,88 @@ const getState = ({
                     initial: "white",
                 },
             ],
+            auth: false,
         },
         actions: {
             // Use getActions to call a function within a fuction
+            logout: () => {
+                localStorage.removeItem("token");
+                setStore({
+                    auth: false,
+                });
+            },
+
+            validToken: async () => {
+                let token = localStorage.getItem("token");
+                try {
+                    let response = await axios.get(
+                        process.env.BACKEND_URL + "/api/valid-token", {
+                            headers: {
+                                'Authorization': "Bearer" + token,
+                            },
+                        }
+                    );
+
+                    if (response.status === 200) {
+                        setStore({
+                            auth: response.data.isLogged,
+                        });
+                        // console.log(response) aca hay un error el response no trae .data.isLogged revisar ver dia 30 youtube
+                        return true;
+                    }
+                } catch (error) {
+                    console.log(error);
+                    // alert(error.response.data.msg);
+                    return false;
+                }
+            },
             login: async (email, password) => {
                 console.log(email, password);
-
-                const res = await fetch(process.env.BACKEND_URL + "/api/login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
+                try {
+                    let response = await axios.post(process.env.BACKEND_URL + "/api/login", {
                         email: email,
-                        password: password,
-                    }),
-                });
-                if (res.ok) {
-                    const data = await res.json();
-                    // navigate("/home");
-                } else {
-                    const error = await res.json();
-                    setError(error.msg);
+                        password: password
+                    })
+                    if (response.status === 200) {
+                        localStorage.setItem("token", response.data.access_token);
+                        setStore({
+                            auth: true
+                        });
+                        Toastify({
+                            text: "Successfull, loging in",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                        // console.log(response.data.access_token)
+                        return true;
+                    }
+                } catch (error) {
+                    console.log(error);
+                    if (error.response.status === 401)
+                        Toastify({
+                            text: "Wrong email or password",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                    return false;
                 }
             },
 
@@ -58,32 +122,57 @@ const getState = ({
             register: async (user_name, first_name, last_name, email, password) => {
                 console.log(user_name, first_name, last_name, email, password);
 
-                const res = await fetch(process.env.BACKEND_URL + "/api/register", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        user_name: user_name,
-                        first_name: first_name,
-                        last_name: last_name,
-                        email: email,
-                        password: password,
-                    }),
-                });
-                if (res.ok) {
-                    const data = await res.json();
-                    // navigate("/home");
-                } else {
-                    const error = await res.json();
-                    setError(error.msg);
+                try {
+                    let response = await axios.post(
+                        process.env.BACKEND_URL + "/api/register", {
+                            user_name: user_name,
+                            first_name: first_name,
+                            last_name: last_name,
+                            email: email,
+                            password: password,
+                        }
+                    );
+
+                    if (response.status === 200) {
+                        Toastify({
+                            text: "User created successfull",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+
+                        return true;
+                    }
+                } catch (error) {
+                    Toastify({
+                        text: "Email already registered",
+                        duration: 3000,
+                        destination: "https://github.com/apvarun/toastify-js",
+                        newWindow: true,
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        },
+                        onClick: function() {}, // Callback after click
+                    }).showToast();
+
+                    // console.log(error);
+                    if (error.response.status === 401)
+                        // alert(error.response.data.msg)
+                        return false;
                 }
             },
-
-            // setStore({
-            //         isLoggedIn: true
-            //     }
-            // },
 
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
@@ -124,40 +213,3 @@ const getState = ({
 };
 
 export default getState;
-
-// logout: (check = true) => {
-//         setStore({
-//             isLoggedIn: false,
-//             checkAuth: check
-//         });
-//     },
-// RecoveryPassword: async (email) => {
-//     const options = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-//             email: email
-//         }),
-//     };
-//     try {
-//         const response = await fetch(
-//             process.env.BACKEND_URL + "/api/recoverypassword", options
-//         );
-//         if (response.status === 200) {
-//             setStore({
-//                 mailSend: true
-//             });
-//         } else {
-//             setStore({
-//                 mailError: true
-//             });
-//         }
-//     } catch (error) {
-//         setStore({
-//             mailError: true
-//         })
-//     }
-
-// },

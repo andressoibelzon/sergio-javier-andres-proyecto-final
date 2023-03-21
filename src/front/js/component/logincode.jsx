@@ -6,116 +6,55 @@ import * as Yup from "yup";
 import "../../styles/login.css";
 
 export const LoginCode = () => {
-  const { actions } = useContext(Context);
+ const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const {actions}=useContext(Context)
+  const navigate = useNavigate();
 
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: Yup.object({
-      // firstName: Yup.string()
-      //   .max(15, "Must be 15 characters or less")
-      //   .required("Required"),
-      // lastName: Yup.string()
-      //   .max(20, "Must be 20 characters or less")
-      //   .required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
-      password: Yup.string()
-        .max(20, "Must be 20 characters or less")
-        .min(8, "Minimum 8 characters")
-        .required("Required"),
-    }),
-    onSubmit: (values) => {
-      // console.log(values)
-      actions.login(values.email, values.password);
-      // alert(JSON.stringify(values, null, 2));
-    },
-  });
+  async function login(e) {
+    e.preventDefault()
+    let isLogged = await actions.login(email,password);
+    if(isLogged){//true
+      setEmail("")
+      setPassword("")
+      navigate("/demo")
+    }
+  }
+
   return (
-    <section className="h-100" style={{ backgroundColor: "#eee" }}>
-      <div className="container py-5 h-100">
-        <div className="d-flex flex-column justify-content-center align-items-center h-100">
-          <div className="col-xl-6 card rounded-3 text-black col-lg-6">
-            <div className="card-body p-md-5 mx-md-4 d-flex flex-column">
-              <div>
-                <h4 className="mt-1 mb-5 pb-1">Log in</h4>
-              </div>
-
-              <div className="">
-                <form
-                  className="needs-validation"
-                  onSubmit={formik.handleSubmit}
-                >
-                  <div>
-                    <label className="form-outline " htmlFor="email">
-                      Email
-                    </label>
-                    <div>
-                      <input
-                      style={{ width: "80%" }}
-
-                        className=""
-                        id="email"
-                        name="email"
-                        type="email"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.email}
-                      />
-                      {formik.touched.email && formik.errors.email ? (
-                        <div>{formik.errors.email}</div>
-                      ) : null}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="form-outline mt-4" htmlFor="password">
-                      Password
-                    </label>
-                    <div>
-                      <input
-                      style={{ width: "80%" }}
-
-                        className=""
-                        id="password"
-                        name="password"
-                        type="password"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.password}
-                      />
-                      {formik.touched.password && formik.errors.password ? (
-                        <div>{formik.errors.password}</div>
-                      ) : null}
-                    </div>
-                  </div>
-
-                  <div>
-                    <button
-                      className="btn btn-primary rounded mt-4 mb-3"
-                      type="submit"
-                    >
-                      Log in
-                    </button>
-                  </div>
-                </form>
-              </div>
-
-              <div className="">
-                {/* <Link to="/forgot-password">
-                  <div className="text-muted">
-                    Forgot password?
-                  </div>
-                   </Link> */}
-                <Link to="/register">
-                  <div className="text-muted ">Create an account</div>
-                </Link>
-              </div>
-            </div>
-          </div>
+    <form onSubmit={login}>
+      <h1>Login</h1>
+      <div className="mb-3">
+        <label htmlFor="exampleInputEmail1" className="form-label">
+          Email address
+        </label>
+        <input
+          type="email"
+          className="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          onChange={(e)=>setEmail(e.target.value)}
+          value={email}
+        />
+        <div id="emailHelp" className="form-text">
+          We'll never share your email with anyone else.
         </div>
       </div>
-    </section>
+      <div className="mb-3">
+        <label htmlFor="exampleInputPassword1" className="form-label">
+          Password
+        </label>
+        <input
+          type="password"
+          className="form-control"
+          id="exampleInputPassword1"
+          onChange={(e)=>setPassword(e.target.value)}
+          value={password}
+        />
+      </div>
+      <button type="submit" className="btn btn-primary">
+        Submit
+      </button>
+    </form>
   );
 };
