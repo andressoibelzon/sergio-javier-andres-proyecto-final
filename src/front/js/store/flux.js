@@ -91,7 +91,7 @@ const getState = ({
                     console.log(error);
                     if (error.response.status === 401)
                         Toastify({
-                            text: "Wrong email or password",
+                            text: "Email o contraseña no válido",
                             duration: 3000,
                             destination: "https://github.com/apvarun/toastify-js",
                             newWindow: true,
@@ -124,7 +124,7 @@ const getState = ({
 
                     if (response.status === 200) {
                         Toastify({
-                            text: "User created successfull",
+                            text: "Usuario creado satisfactoriamente",
                             duration: 3000,
                             destination: "https://github.com/apvarun/toastify-js",
                             newWindow: true,
@@ -142,7 +142,7 @@ const getState = ({
                     }
                 } catch (error) {
                     Toastify({
-                        text: "Email already registered",
+                        text: "Email ya registrado",
                         duration: 3000,
                         destination: "https://github.com/apvarun/toastify-js",
                         newWindow: true,
