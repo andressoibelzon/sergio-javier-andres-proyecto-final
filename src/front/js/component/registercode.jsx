@@ -10,7 +10,6 @@ export const RegisterCode = () => {
   const navigate = useNavigate();
 
 
-  
   const formik = useFormik({
     initialValues: {
       user_name: "",
@@ -37,36 +36,34 @@ export const RegisterCode = () => {
     }),
     onSubmit: (values) => {
       // console.log(values)
-      actions.register(values.user_name, values.first_name, values.last_name, values.email, values.password);
+      let isLogged = actions.register(values.user_name, values.first_name, values.last_name, values.email, values.password);
             // navigate("/")
 
       // alert(JSON.stringify(values, null, 2));
-    //   let isLogged = actions.register(email,password);
     if(isLogged){//true
       // setEmail("")
       // setPassword("")
       navigate("/login")
     }
     //este codigo no me funciona para redirigir a la pagina de home o login, tendria que de alguna forma pasarlo para el submit pero creo que esta bien que tenga una asincronia
-    async function handleSingup(e) {
-      e.preventDefault()
-      console.log(email,password);
-      let isLogged = await actions.register(email,password);
-      if(isLogged){//true
-        // setEmail("")
-        // setPassword("")
-        navigate("/")
-      }}
-      handleSingup()
+    // async function handleSingup(e) {
+    //   e.preventDefault()
+    //   console.log(email,password);
+    //   let isLogged = await actions.register(email,password);
+    //   if(isLogged){//true
+    //     // setEmail("")
+    //     // setPassword("")
+    //     navigate("/")
+    //   }}
+      // handleSingup()
     },
     
   });
   return (
-    <section className="h-100" style={{ backgroundColor: "#eee" }}>
-      <div className="container py-5 h-100">
-        <div className="d-flex flex-column justify-content-center align-items-center h-100">
-          <div className="col-xl-6 card rounded-3 text-black col-sm-10">
-            <div className="card-body p-md-5 mx-md-5 d-flex flex-column">
+    <div className="container">
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <div className="col-xl-6 rounded-3 text-black col-sm-10">
+            <div className=" p-md-5 mx-md-5 d-flex flex-column">
               <div>
                 <h4 className="mt-1 mb-5 pb-1">Register</h4>
               </div>
@@ -205,7 +202,6 @@ export const RegisterCode = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
   );
 };

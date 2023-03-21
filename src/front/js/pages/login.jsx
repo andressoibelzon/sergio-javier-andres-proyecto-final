@@ -9,7 +9,6 @@ export const Login = () => {
   return (
     <div className="h-100" style={{ backgroundColor: "#eee" }}>
       <LoginCode />
-      <Logout />
     </div>
   );
 };
