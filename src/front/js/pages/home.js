@@ -15,7 +15,31 @@ import "../../styles/home.css";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-
+  //carrusel tesla
+  window.top.addEventListener("message", function (msg) {
+    const widget = document.getElementById('ChartWidget-c65oag2');
+    if (!widget) return; const styles = msg.data?.styles;
+    if (styles) { Object.keys(styles).forEach(key => widget.style.setProperty(key, styles[key])) }
+  })
+  //carusel bbva
+  window.top.addEventListener("message", function (msg) {
+    const widget = document.getElementById('ChartWidget-zf5z3yw');
+    if (!widget) return; const styles = msg.data?.styles;
+    if (styles) { Object.keys(styles).forEach(key => widget.style.setProperty(key, styles[key])) }
+  })
+  //carusel ibex 35
+  window.top.addEventListener("message", function (msg) {
+    const widget = document.getElementById('ChartWidget-405ivec');
+    if (!widget) return; const styles = msg.data?.styles;
+    if (styles) { Object.keys(styles).forEach(key => widget.style.setProperty(key, styles[key])) }
+  })
+  //noticias
+  window.top.addEventListener("message", function (msg) {
+    const widget = document.getElementById('NewsWidget-913w4va');
+    if (!widget) return;
+    const styles = msg.data?.styles;
+    if (styles) { Object.keys(styles).forEach(key => widget.style.setProperty(key, styles[key])) }
+  });
   return (
     <div className="container-fluid">
       <div id="seccion1" class="container-fluid">
@@ -33,9 +57,14 @@ export const Home = () => {
         </div> */}
       </div>
       <div id="titulo_carrusel" className="container">
-        <h1>
-          Todo lo que necesitas, <br /> en el mismo sitio.
+        <h1 className="container d-flex justify-content-center">
+          Todo lo que necesitas, <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AQUÍ MISMO
         </h1>
+      </div>
+      <br />
+      <br />
+      <div>
+        <h2 className="container d-flex justify-content-center"><span className="badge rounded-pill bg-dark"> Gráficos en tiempo real</span></h2>
       </div>
       <div
         id="container-carrusel"
@@ -48,69 +77,97 @@ export const Home = () => {
         >
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img
+              <iframe
+                class="d-block w-100 rounded"
+                id="img-carrusel ChartWidget-c65oag2"
+                width="840px"
+                height="470px"
+                data-widget-name=""
+                name="ChartWidget"
+                src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJTVE9DS1MiOlsiVFNMQS5VUyJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJUZXNsYSBJbmMiLCJ0IjoiVFNMQS5VUyIsImFjIjoiU1RPQ0tTIn1dLCJjaHJUIjoibGluZSIsInNsIjp0cnVlfSwiZXhwIjoxNjg3MjY1ODU1LCJzdWIiOiJhY2Nlc3MifQ.OLBpkaRBDzQHGdjlUEzPLgBIYOdG7Cc5KWcpftNObJI">
+              </iframe>
+              {/* <img
                 id="img-carrusel"
                 src={imagen1_1}
                 class="d-block w-100 rounded"
                 alt="..."
-              />
+              /> */}
             </div>
             <div class="carousel-item">
-              <img
+              <iframe
+                class="d-block w-100 rounded"
+                id="img-carrusel ChartWidget-zf5z3yw"
+                width="840px"
+                height="470px"
+                data-widget-name=""
+                name="ChartWidget"
+                src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJTVE9DS1MiOlsiQkJWQS5VUyJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJCYW5jbyBCaWxiYW8gVmlzY2F5YSBBcmdlbnRhcmlhIFNBIEFEUiIsInQiOiJCQlZBLlVTIiwiYWMiOiJTVE9DS1MifV0sImNoclQiOiJsaW5lIiwic2wiOnRydWV9LCJleHAiOjE2ODcyNjYyODQsInN1YiI6ImFjY2VzcyJ9.68gNC83E3YVb0a-cVVQs2Tmy7pCm5XH0jxz8LngBnfU">
+              </iframe>
+              {/* <img
                 id="img-carrusel"
                 src={imagen1}
                 class="d-block w-100 rounded"
                 alt="..."
-              />
+              /> */}
             </div>
             <div class="carousel-item">
-              <img
+              <iframe
+                class="d-block w-100 rounded"
+                id="img-carrusel ChartWidget-405ivec"
+                width="840px"
+                height="470px"
+                data-widget-name=""
+                name="ChartWidget"
+                src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJJTkRFWEVTIjpbIklCRVguSU5EWCJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJJQkVYIDM1IEluZGV4IiwidCI6IklCRVguSU5EWCIsImFjIjoiSU5ERVhFUyJ9XSwiY2hyVCI6ImxpbmUiLCJzbCI6dHJ1ZX0sImV4cCI6MTY4NzI2NjYzNiwic3ViIjoiYWNjZXNzIn0.tsdP72rzC9k3vAWsbssAgKCw0ORrTxuIqCw7nWmjeYE">
+
+              </iframe>
+              {/* <img
                 id="img-carrusel"
                 src={imagen2_1}
                 class="d-block w-100 rounded"
                 alt="..."
-              />
+              /> */}
             </div>
-            <div class="carousel-item">
+            {/* <div class="carousel-item">
               <img
                 id="img-carrusel"
                 src={imagen2}
                 class="d-block w-100 rounded"
                 alt="..."
               />
-            </div>
-            <div class="carousel-item">
+            </div> */}
+            {/* <div class="carousel-item">
               <img
                 id="img-carrusel"
                 src={imagen3_1}
                 class="d-block w-100 rounded"
                 alt="..."
               />
-            </div>
-            <div class="carousel-item">
+            </div> */}
+            {/* <div class="carousel-item">
               <img
                 id="img-carrusel"
                 src={imagen3}
                 class="d-block w-100 rounded"
                 alt="..."
               />
-            </div>
-            <div class="carousel-item">
+            </div> */}
+            {/* <div class="carousel-item">
               <img
                 id="img-carrusel"
                 src={imagen4_1}
                 class="d-block w-100 rounded"
                 alt="..."
               />
-            </div>
-            <div class="carousel-item">
+            </div> */}
+            {/* <div class="carousel-item">
               <img
                 id="img-carrusel"
                 src={imagen4}
                 class="d-block w-100 rounded"
                 alt="..."
               />
-            </div>
+            </div> */}
           </div>
           <button
             class="carousel-control-prev"
@@ -132,12 +189,23 @@ export const Home = () => {
           </button>
         </div>
       </div>
-
+      <br />
+      <br />
       <div className="container-fluid">
         <img src={homeChartsUrl} className="img-fluid" alt="Imagen" />
         <div class="texto-superpuesto">
-          <h1>Sigue nuestras señales de entrada</h1>
+          <h1><span className="badge rounded-pill bg-dark"> Actualizate con las mejores noticias del día</span></h1>
+          <br />
+          <br />
           {/* <p>Texto que quieres poner sobre la imagen.</p> */}
+          <iframe
+            class="container rounded d-flex justify-content-center"
+            width="330px"
+            height="550px"
+            data-widget-name=""
+            name="NewsWidget"
+            src="https://darqube.com/external-embedding/news-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsibmV3cyI6WyJGb3JleGxpdmUiLCJUaGUgRWNvbm9taXN0IiwiQnVzaW5lc3MgSW5zaWRlciIsIkZpbmFuY2lhbCBUaW1lcyIsIkZpbmFuY2lhbCBQb3N0Il0sInR3X3VpZHMiOlsiNDU1ODI0NzcxIiwiMTUzOTY2MTIzIiwiMjg1ODI2ODAiLCIyNTA5ODA4NDMiLCI1NDY3NTcwMCJdfSwid190eXBlIjoiTmV3c1dpZGdldCIsImZlX2NmZyI6eyJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo5OTAsInciOjMzMCwiYXN6Ijp0cnVlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX19LCJleHAiOjE2ODcyNjc4MTMsInN1YiI6ImFjY2VzcyJ9.eOptEWvWOf5VX6T14Bmvl22AO32gpKydcjyGBDwlqn4" id="NewsWidget-h0utvq2">
+          </iframe>
         </div>
       </div>
       <div id="section3" className="d-flex row flex-nowrap overflow-auto">
