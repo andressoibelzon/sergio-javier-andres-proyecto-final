@@ -1,6 +1,9 @@
 import axios from "axios";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
+import {
+    getToken
+} from "../tokenUtilities";
 
 const getState = ({
     getStore,
@@ -21,6 +24,7 @@ const getState = ({
                     initial: "white",
                 },
             ],
+            user: [],
             auth: false,
         },
         actions: {
@@ -38,7 +42,7 @@ const getState = ({
                     let response = await axios.get(
                         process.env.BACKEND_URL + "/api/valid-token", {
                             headers: {
-                                'Authorization': "Bearer" + token,
+                                Authorization: "Bearer" + token,
                             },
                         }
                     );
@@ -59,14 +63,16 @@ const getState = ({
             login: async (email, password) => {
                 console.log(email, password);
                 try {
-                    let response = await axios.post(process.env.BACKEND_URL + "/api/login", {
-                        email: email,
-                        password: password
-                    })
+                    let response = await axios.post(
+                        process.env.BACKEND_URL + "/api/login", {
+                            email: email,
+                            password: password,
+                        }
+                    );
                     if (response.status === 200) {
                         localStorage.setItem("token", response.data.access_token);
                         setStore({
-                            auth: true
+                            auth: true,
                         });
                         Toastify({
                             text: "Successfull, loging in",
@@ -114,9 +120,11 @@ const getState = ({
                         },
                     })
                     .then((resp) => resp.json())
-                    .then((data) => setStore({
-                        user: data
-                    }));
+                    .then((data) =>
+                        setStore({
+                            user: data,
+                        })
+                    );
             },
 
             register: async (user_name, first_name, last_name, email, password) => {

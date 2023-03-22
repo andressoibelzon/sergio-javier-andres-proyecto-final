@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import ModalDeleteUser from "./modalDeleteUser.js";
-import { getToken, deleteToken } from "../component/../store/tokenUtilities";
+import { getToken, deleteToken } from "../tokenUtilities";
 // import { Link } from "react-router-dom";
 
 const userProfile = () => {
