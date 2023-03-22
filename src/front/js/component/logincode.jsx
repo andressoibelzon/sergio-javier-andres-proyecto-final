@@ -35,6 +35,7 @@ export const LoginCode = () => {
           aria-describedby="emailHelp"
           onChange={(e)=>setEmail(e.target.value)}
           value={email}
+          required
         />
         <div id="emailHelp" className="form-text">
           We'll never share your email with anyone else.
@@ -50,6 +51,7 @@ export const LoginCode = () => {
           id="exampleInputPassword1"
           onChange={(e)=>setPassword(e.target.value)}
           value={password}
+          required
         />
       </div>
       <button type="submit" className="btn btn-primary">

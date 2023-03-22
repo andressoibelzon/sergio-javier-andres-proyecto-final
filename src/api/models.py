@@ -111,9 +111,8 @@ class Graficos(db.Model):
 class Contacto(db.Model):
     # __tablename__ = 'Contacto'
     id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(120), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    text = db.Column(db.String(120), unique=True, nullable=False)
+    comentario = db.Column(db.String(120), unique=True, nullable=False)
 
     
     def __repr__(self):
@@ -122,7 +121,22 @@ class Contacto(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "nombre": self.nombre,
             "email": self.email,
-            "text": self.text
+            "comentario": self.comentario
+        }
+
+
+class Suscripcion(db.Model):
+    # __tablename__ = 'Contacto'
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    
+    def __repr__(self):
+        return '<Suscripcion %r>' % self.id
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "email": self.email,
         }
