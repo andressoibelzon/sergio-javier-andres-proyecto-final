@@ -121,7 +121,7 @@ def valid_token():
 #     else:
 #         return jsonify({"message":"correo no registrado"}),400
 
-@api.route('/indices', methods=['get'])
+@api.route('/indices', methods=['GET'])
 def getindices():
     url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/exchanges"
 

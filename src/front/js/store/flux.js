@@ -48,7 +48,7 @@ const getState = ({
                     if (response.status === 200) {
                         console.log(response)
                         setStore({
-                            auth: response.data.isLogged,
+                            auth: response.data.isLogged
                         });
 
                         // console.log(response) //aca hay un error el response no trae.data.isLogged revisar ver dia 30 youtube
@@ -60,6 +60,11 @@ const getState = ({
                     return false;
                 }
             },
+            // indices: async () => {
+            //     let response = await axios.get(
+            //         process.env.BACKEND_URL + "/api/indices")
+            //     console.log(response.data)
+            // },
             login: async (email, password) => {
                 console.log(email, password);
                 try {

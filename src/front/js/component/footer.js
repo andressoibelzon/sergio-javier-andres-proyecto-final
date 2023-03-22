@@ -111,9 +111,9 @@ export const Footer = () => {
                 type="text"
                 className="form-control"
                 placeholder="Email address"
-				onChange={(e) => setEmail(e.target.value)}
-				value={email}
-				required
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
               />
               <button className="btn btn-primary" type="submit">
                 Enviar
