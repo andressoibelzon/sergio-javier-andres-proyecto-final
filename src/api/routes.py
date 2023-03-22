@@ -62,7 +62,7 @@ def register():
     password = request.json.get("password")
 
     user = User.query.filter_by(email=email).first()
-    print(user)
+    # print(user)
 
     if user is None : 
         user = User(first_name = first_name, last_name = last_name, user_name = user_name, email = email, password = password)
@@ -121,7 +121,7 @@ def valid_token():
 #     else:
 #         return jsonify({"message":"correo no registrado"}),400
 
-@api.route('/indices', methods=['get'])
+@api.route('/indices', methods=['GET'])
 def getindices():
     url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/exchanges"
 
@@ -136,4 +136,31 @@ def getindices():
 
     print(response.text)
     return jsonify(querystring)
+
+
+@api.route('/onsubmit-contact', methods=['POST'])
+def onsubmitContact():
+    email = request.json.get("email", None)
+    comentario = request.json.get("comentario", None)
+
+        # if response.status_code == 200:
+    comment = Contacto(email = email, comentario = comentario)
+    db.session.add(comment)
+    db.session.commit()
+    return jsonify({"msg":"Comentario creado con exito"})
+    # else :
+    # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
+    
+
+
+@api.route('/suscripcion', methods=['POST'])
+def onsubmitSusc():
+    email = request.json.get("email", None)
+        # if response.status_code == 200:
+    addemail = Suscripcion(email = email)
+    db.session.add(addemail)
+    db.session.commit()
+    return jsonify({"msg":"Email en suscritos"})
+    # else :
+        # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
     

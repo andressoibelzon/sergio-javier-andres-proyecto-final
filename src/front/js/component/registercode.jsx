@@ -9,8 +9,6 @@ export const RegisterCode = () => {
   const { actions } = useContext(Context);
   const navigate = useNavigate();
 
-
-  
   const formik = useFormik({
     initialValues: {
       user_name: "",
@@ -36,176 +34,157 @@ export const RegisterCode = () => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      // console.log(values)
-      actions.register(values.user_name, values.first_name, values.last_name, values.email, values.password);
-            // navigate("/")
-
-      // alert(JSON.stringify(values, null, 2));
-    //   let isLogged = actions.register(email,password);
-    if(isLogged){//true
-      // setEmail("")
-      // setPassword("")
-      navigate("/login")
-    }
-    //este codigo no me funciona para redirigir a la pagina de home o login, tendria que de alguna forma pasarlo para el submit pero creo que esta bien que tenga una asincronia
-    async function handleSingup(e) {
-      e.preventDefault()
-      console.log(email,password);
-      let isLogged = await actions.register(email,password);
-      if(isLogged){//true
-        // setEmail("")
-        // setPassword("")
-        navigate("/")
-      }}
-      handleSingup()
+      let isLogged = actions.register(
+        values.user_name,
+        values.first_name,
+        values.last_name,
+        values.email,
+        values.password
+      );
+      if (isLogged) {
+        //true
+        navigate("/login");
+      }
     },
-    
   });
   return (
-    <section className="h-100" style={{ backgroundColor: "#eee" }}>
-      <div className="container py-5 h-100">
-        <div className="d-flex flex-column justify-content-center align-items-center h-100">
-          <div className="col-xl-6 card rounded-3 text-black col-sm-10">
-            <div className="card-body p-md-5 mx-md-5 d-flex flex-column">
-              <div>
-                <h4 className="mt-1 mb-5 pb-1">Register</h4>
-              </div>
+    <div className="container">
+      <div className="d-flex flex-column justify-content-center align-items-center">
+        <div className="col-xl-6 rounded-3 text-black col-sm-10">
+          <div className=" p-md-5 mx-md-5 d-flex flex-column">
+            <div>
+              <h4 className="mt-1 mb-5 pb-1">Register</h4>
+            </div>
 
-              <div className="">
-                <form
-                  className="needs-validation"
-                  onSubmit={formik.handleSubmit}
-                >
-                
-
+            <div className="">
+              <form className="needs-validation" onSubmit={formik.handleSubmit}>
+                <div>
+                  <label className="form-outline" htmlFor="user_name">
+                    Username
+                  </label>
                   <div>
-                    <label className="form-outline" htmlFor="user_name">
-                      Username
-                    </label>
-                    <div>
-                      <input
-                        style={{ width: "80%" }}
-                        className=""
-                        id="user_name"
-                        name="user_name"
-                        type="text"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.user_name}
-                      />
-                      {formik.touched.user_name && formik.errors.user_name ? (
-                        <div>{formik.errors.user_name}</div>
-                      ) : null}
-                    </div>
+                    <input
+                      style={{ width: "80%" }}
+                      className=""
+                      id="user_name"
+                      name="user_name"
+                      type="text"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.user_name}
+                    />
+                    {formik.touched.user_name && formik.errors.user_name ? (
+                      <div>{formik.errors.user_name}</div>
+                    ) : null}
                   </div>
+                </div>
 
+                <div>
+                  <label className="form-outline mt-4" htmlFor="first_name">
+                    First Name
+                  </label>
                   <div>
-                    <label className="form-outline mt-4" htmlFor="first_name">
-                      First Name
-                    </label>
-                    <div>
-                      <input
-                        style={{ width: "80%" }}
-                        className=""
-                        id="first_name"
-                        name="first_name"
-                        type="text"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.first_name}
-                      />
-                      {formik.touched.first_name && formik.errors.first_name ? (
-                        <div>{formik.errors.first_name}</div>
-                      ) : null}
-                    </div>
+                    <input
+                      style={{ width: "80%" }}
+                      className=""
+                      id="first_name"
+                      name="first_name"
+                      type="text"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.first_name}
+                    />
+                    {formik.touched.first_name && formik.errors.first_name ? (
+                      <div>{formik.errors.first_name}</div>
+                    ) : null}
                   </div>
+                </div>
 
+                <div>
+                  <label className="form-outline mt-4" htmlFor="last_name">
+                    Last Name
+                  </label>
                   <div>
-                    <label className="form-outline mt-4" htmlFor="last_name">
-                      Last Name
-                    </label>
-                    <div>
-                      <input
-                        style={{ width: "80%" }}
-                        className=""
-                        id="last_name"
-                        name="last_name"
-                        type="text"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.last_name}
-                      />
-                      {formik.touched.last_name && formik.errors.last_name ? (
-                        <div>{formik.errors.last_name}</div>
-                      ) : null}
-                    </div>
+                    <input
+                      style={{ width: "80%" }}
+                      className=""
+                      id="last_name"
+                      name="last_name"
+                      type="text"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.last_name}
+                    />
+                    {formik.touched.last_name && formik.errors.last_name ? (
+                      <div>{formik.errors.last_name}</div>
+                    ) : null}
                   </div>
+                </div>
 
+                <div>
+                  <label className="form-outline mt-4" htmlFor="email">
+                    Email
+                  </label>
                   <div>
-                    <label className="form-outline mt-4" htmlFor="email">
-                      Email
-                    </label>
-                    <div>
-                      <input
-                        style={{ width: "80%" }}
-                        className=""
-                        id="email"
-                        name="email"
-                        type="email"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.email}
-                      />
-                      {formik.touched.email && formik.errors.email ? (
-                        <div>{formik.errors.email}</div>
-                      ) : null}
-                    </div>
+                    <input
+                      style={{ width: "80%" }}
+                      className=""
+                      id="email"
+                      name="email"
+                      type="email"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.email}
+                    />
+                    {formik.touched.email && formik.errors.email ? (
+                      <div>{formik.errors.email}</div>
+                    ) : null}
                   </div>
+                </div>
 
+                <div>
+                  <label className="form-outline mt-4" htmlFor="password">
+                    Password
+                  </label>
                   <div>
-                    <label className="form-outline mt-4" htmlFor="password">
-                      Password
-                    </label>
-                    <div>
-                      <input
-                        style={{ width: "80%" }}
-                        className=""
-                        id="password"
-                        name="password"
-                        type="password"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.password}
-                      />
-                      {formik.touched.password && formik.errors.password ? (
-                        <div>{formik.errors.password}</div>
-                      ) : null}
-                    </div>
+                    <input
+                      style={{ width: "80%" }}
+                      className=""
+                      id="password"
+                      name="password"
+                      type="password"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.password}
+                    />
+                    {formik.touched.password && formik.errors.password ? (
+                      <div>{formik.errors.password}</div>
+                    ) : null}
                   </div>
+                </div>
 
-                  <div>
-                    <button
-                      className="btn btn-primary rounded mt-4 mb-3"
-                      type="submit"
-                    >
-                      Register
-                    </button>
-                  </div>
-                </form>
-              </div>
+                <div>
+                  <button
+                    className="btn btn-primary rounded mt-4 mb-3"
+                    type="submit"
+                  >
+                    Register
+                  </button>
+                </div>
+              </form>
+            </div>
 
-              <div className="d-flex flex-row">
-                <Link to="/forgot-password">
-                  <div className="text-muted">Forgot password?</div>
-                </Link>
-                <Link to="/register">
-                  <div className="text-muted px-3">Log in</div>
-                </Link>
-              </div>
+            <div className="d-flex flex-row">
+              <Link to="/forgot-password">
+                <div className="text-muted">Forgot password?</div>
+              </Link>
+              <Link to="/register">
+                <div className="text-muted px-3">Log in</div>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

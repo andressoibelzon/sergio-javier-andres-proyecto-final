@@ -33,29 +33,38 @@ const getState = ({
             },
 
             validToken: async () => {
+                // console.log(response.data.isLogged)
                 let token = localStorage.getItem("token");
+                console.log(token)
                 try {
                     let response = await axios.get(
                         process.env.BACKEND_URL + "/api/valid-token", {
                             headers: {
-                                'Authorization': "Bearer" + token,
+                                'Authorization': 'Bearer ' + token,
                             },
                         }
                     );
 
                     if (response.status === 200) {
+                        console.log(response)
                         setStore({
-                            auth: response.data.isLogged,
+                            auth: response.data.isLogged
                         });
-                        // console.log(response) aca hay un error el response no trae .data.isLogged revisar ver dia 30 youtube
+
+                        // console.log(response) //aca hay un error el response no trae.data.isLogged revisar ver dia 30 youtube
                         return true;
                     }
                 } catch (error) {
                     console.log(error);
-                    // alert(error.response.data.msg);
+                    console(error.response.data.msg);
                     return false;
                 }
             },
+            // indices: async () => {
+            //     let response = await axios.get(
+            //         process.env.BACKEND_URL + "/api/indices")
+            //     console.log(response.data)
+            // },
             login: async (email, password) => {
                 console.log(email, password);
                 try {
@@ -89,7 +98,7 @@ const getState = ({
                     console.log(error);
                     if (error.response.status === 401)
                         Toastify({
-                            text: "Wrong email or password",
+                            text: "Email o contraseña no válido",
                             duration: 3000,
                             destination: "https://github.com/apvarun/toastify-js",
                             newWindow: true,
@@ -122,7 +131,7 @@ const getState = ({
 
                     if (response.status === 200) {
                         Toastify({
-                            text: "User created successfull",
+                            text: "Usuario creado satisfactoriamente",
                             duration: 3000,
                             destination: "https://github.com/apvarun/toastify-js",
                             newWindow: true,
@@ -140,7 +149,7 @@ const getState = ({
                     }
                 } catch (error) {
                     Toastify({
-                        text: "Email already registered",
+                        text: "Email ya registrado",
                         duration: 3000,
                         destination: "https://github.com/apvarun/toastify-js",
                         newWindow: true,
@@ -158,6 +167,95 @@ const getState = ({
                     if (error.response.status === 401)
                         // alert(error.response.data.msg)
                         return false;
+                }
+            },
+
+            onSubmitContact: async (email, comentario) => {
+                console.log(email, comentario);
+                try {
+                    let response = await axios.post(process.env.BACKEND_URL + "/api/onsubmit-contact", {
+                        email: email,
+                        comentario: comentario
+                    })
+                    if (response.status === 200) {
+
+                        Toastify({
+                            text: "Mensaje enviado",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                        return true;
+                    }
+                } catch (error) {
+                    if (error.response.status === 401)
+                        Toastify({
+                            text: "Error en el envio, intente mas tarde",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                    return false;
+                }
+            },
+
+            onSubmitSusc: async (email) => {
+                console.log(email);
+                try {
+                    let response = await axios.post(process.env.BACKEND_URL + "/api/suscripcion", {
+                        email: email,
+                    })
+                    if (response.status === 200) {
+
+                        Toastify({
+                            text: "Estas suscrito",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                        return true;
+                    }
+                } catch (error) {
+                    if (error.response.status === 401)
+                        Toastify({
+                            text: "Error en el envio, intente mas tarde",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // `top` or `bottom`
+                            position: "right", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
+                    return false;
                 }
             },
 
