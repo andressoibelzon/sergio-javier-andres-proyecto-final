@@ -55,50 +55,31 @@ export const Exchange = () => {
     let pageSize = 50;
     let currentsPage = 1;
 
-    // hacer que se cambie de pagina de 1 en 1
-    // function previousPage() {
-    //     if (currentsPage > 1)
-    //         currentsPage--;
-    //     redenderTable(currentsPage)
-    // }
-    // // function nextPage() {
-    // if ((currentsPage * pageSize) < coinsData.length)
-    //     currentsPage++;
-    // redenderTable(currentsPage)
-
-    // function numbersPages() {
-    //     return Math.ceil(coinsData.length / pageSize)
-    // }
-    //evento de listado 
-
-    // documents.querySelector('#prevButton').addEvenListener('click', previousPage, false)
-    // documents.querySelector('#nextButton').addEvenListener('click', nextPage, false)
     return (
-        <div className="container mt-5 mb-5 bg-black">
+        <div className="container mt-5 mb-5 ">
+            <h1 className="d-flex justify-content-center bg-white ">Exchange</h1>
             <table className="table table-dark table-striped" id="listingTable">
                 <thead>
                     <tr>
-                        <th scope="col" >BTC price</th>
-                        <th scope="col" >Rank</th>
-                        <th scope="col" >Tier</th>
-                        <th scope="col" >Name</th>
-                        <th scope="col" >Prices</th>
-                        <th scope="col" >Symbol</th>
+                        <th scope="col" >BTC price*</th>
+                        <th scope="col" >Rank*</th>
+                        <th scope="col" >Tier*</th>
+                        <th scope="col" >Name*</th>
+                        <th scope="col" >Prices*</th>
+                        <th scope="col" >Symbol*</th>
                     </tr>
                 </thead>
                 <tbody id="data">
                 </tbody>
             </table>
-            <nav>
-                <ul className="pagination">
-                    <li className="page-item">
-                        <button className="page-link mx-2" id="prevButton">Previous</button>
-                    </li>
-                    <li className="page-item">
-                        <button className="page-link" id="nextButton">Next</button>
-                    </li>
-                </ul>
-            </nav>
+            <ul className="bg-grey">
+                <li className="">Btc Prices = precio exchange respecto al Bitcoin</li>
+                <li className="">Rank = ranking segun su valor de mercado</li>
+                <li className="">Tier = nivel del exchange</li>
+                <li className="">Name = nombre del exchange</li>
+                <li className="">Prices = inversion que tiene el exchange</li>
+                <li className="">Symbol = abreviatura</li>
+            </ul>
         </div>
     )
 }
