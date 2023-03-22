@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Noticias } from "./pages/noticias";
+import { Graficos } from "./pages/graficos";
 import { Exchange } from "./pages/exchange";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
@@ -21,7 +22,7 @@ const Layout = () => {
   // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
   const basename = process.env.BASENAME || "";
 
-  
+
 
   return (
     <div>
@@ -31,6 +32,7 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Noticias />} path="/noticias" />
+            <Route element={<Graficos />} path="/graficos" />
             <Route element={<Exchange />} path="/exchange" />
             <Route element={<Login />} path="/login" />
             <Route element={<Register />} path="/register" />
