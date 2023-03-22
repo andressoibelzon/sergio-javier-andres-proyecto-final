@@ -5,16 +5,7 @@ import "../../styles/nav.css";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-<<<<<<< HEAD
-  const navigate = useNavigate()
-
-  function handleLogout() {
-    actions.logout()
-    navigate("/")
-  }
-=======
   const navigate = useNavigate();
->>>>>>> 74e16f9a74683cc3279ba829e7bd5e5d1007dc43
 
   function handleLogout() {
     actions.logout();
@@ -39,54 +30,40 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-<<<<<<< HEAD
-              <a href="/exchange" className="nav-link px-2 text-white">
-                Exchange
-              </a>
-            </li>
-            <li>
-              <a href="/noticias" className="nav-link px-2 text-white">
-                Noticias
-              </a>
-            </li>
-            <li>
-              <a href="/graficos" className="nav-link px-2 text-white">
-=======
-            {/* si store.auth esta logueado mostrar indices, graficos, noticias */}
+              {/* si store.auth esta logueado mostrar indices, graficos, noticias */}
 
-            {store.auth === true ? (
-              <Link to="/noticias">
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  className="btn btn-outline-light me-2"
-                >
-                  Noticias
-                </button> 
-              </Link>
-              &&
-              <Link to="/graficos">
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="btn btn-outline-light me-2"
-              >
->>>>>>> 74e16f9a74683cc3279ba829e7bd5e5d1007dc43
-                Graficos
-              </button> 
-            </Link>
-              &&
-              <Link to="/indices">
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="btn btn-outline-light me-2"
-              >
-                Indices
-              </button> 
-            </Link>
-            ) : null
-            }
+              {store.auth === true ? (
+                <Link to="/noticias">
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="btn btn-outline-light me-2"
+                  >
+                    Noticias
+                  </button>
+                </Link>
+                &&
+                <Link to="/graficos">
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="btn btn-outline-light me-2"
+                  >
+                    Graficos
+                  </button>
+                </Link>
+                &&
+                <Link to="/indices">
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="btn btn-outline-light me-2"
+                  >
+                    Indices
+                  </button>
+                </Link>
+              ) : null
+              }
 
               <Link to="/contacto" className="nav-link px-2 text-white">
                 Contacto
@@ -94,7 +71,7 @@ export const Navbar = () => {
             </li>
           </ul>
 
-            {/* login registro */}
+          {/* login registro */}
           <div className="text-end">
             {/* si store.auth esta logueado mostrar log out, sino alreves */}
             {store.auth === true ? (

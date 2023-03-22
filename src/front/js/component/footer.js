@@ -3,25 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/footer.css";
 
-<<<<<<< HEAD
-export const Footer = () => (
-	<footer className="stylefooter py-5">
-		<div className="row">
-			<div className="col-6 col-md-2 mb-3">
-				<h5>Principales</h5>
-				<ul className="nav flex-column">
-					<li className="nav-item mb-2"><a href="/home" className="nav-link p-0 text-muted">Home</a></li>
-					<li className="nav-item mb-2"><a href="/exchange" className="nav-link p-0 text-muted">Exchange</a></li>
-					<li className="nav-item mb-2"><a href="/graficos" className="nav-link p-0 text-muted">Graficos</a></li>
-					<li className="nav-item mb-2"><a href="/contacto" className="nav-link p-0 text-muted">Politica de privacidad</a></li>
-					{/* <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">About</a></li> */}
-				</ul>
-			</div>
-=======
 export const Footer = () => {
   const [email, setEmail] = useState("");
   const { actions } = useContext(Context);
->>>>>>> 74e16f9a74683cc3279ba829e7bd5e5d1007dc43
 
   function onSubmitSusc(e) {
     e.preventDefault();
@@ -127,9 +111,9 @@ export const Footer = () => {
                 type="text"
                 className="form-control"
                 placeholder="Email address"
-				onChange={(e) => setEmail(e.target.value)}
-				value={email}
-				required
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
               />
               <button className="btn btn-primary" type="submit">
                 Enviar
