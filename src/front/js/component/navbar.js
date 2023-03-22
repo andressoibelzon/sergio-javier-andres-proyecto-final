@@ -20,7 +20,7 @@ export const Navbar = () => {
             className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
             to="/"
           >
-            <h3 className="mx-5">SignalMood</h3>
+            <h3 className="mx-5">MarketMood</h3>
           </Link>
 
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -29,42 +29,32 @@ export const Navbar = () => {
                 Home
               </Link>
             </li>
+
             <li>
-              {/* si store.auth esta logueado mostrar indices, graficos, noticias */}
-
               {store.auth === true ? (
-                <Link to="/noticias">
-                  <button
-                    type="button"
-                    onClick={handleLogout}
-                    className="btn btn-outline-light me-2"
-                  >
-                    Noticias
-                  </button>
+                <Link to="/graficos" className="nav-link px-2 text-white">
+                  Graficos
                 </Link>
-                &&
-                <Link to="/graficos">
-                  <button
-                    type="button"
-                    onClick={handleLogout}
-                    className="btn btn-outline-light me-2"
-                  >
-                    Graficos
-                  </button>
-                </Link>
-                &&
-                <Link to="/indices">
-                  <button
-                    type="button"
-                    onClick={handleLogout}
-                    className="btn btn-outline-light me-2"
-                  >
-                    Indices
-                  </button>
-                </Link>
-              ) : null
-              }
+              ) : null}
+            </li>
 
+            <li>
+              {store.auth === true ? (
+                <Link to="/indices" className="nav-link px-2 text-white">
+                  Indices
+                </Link>
+              ) : null}
+            </li>
+
+            <li>
+              {store.auth === true ? (
+                <Link to="/noticias" className="nav-link px-2 text-white">
+                  Noticias
+                </Link>
+              ) : null}
+            </li>
+
+            <li>
               <Link to="/contacto" className="nav-link px-2 text-white">
                 Contacto
               </Link>
