@@ -35,16 +35,18 @@ const getState = ({
             validToken: async () => {
                 // console.log(response.data.isLogged)
                 let token = localStorage.getItem("token");
+                console.log(token)
                 try {
                     let response = await axios.get(
                         process.env.BACKEND_URL + "/api/valid-token", {
                             headers: {
-                                'Authorization': "Bearer" + token,
+                                'Authorization': 'Bearer ' + token,
                             },
                         }
                     );
 
                     if (response.status === 200) {
+                        console.log(response)
                         setStore({
                             auth: response.data.isLogged,
                         });
@@ -54,7 +56,7 @@ const getState = ({
                     }
                 } catch (error) {
                     console.log(error);
-                    // alert(error.response.data.msg);
+                    console(error.response.data.msg);
                     return false;
                 }
             },
@@ -91,7 +93,7 @@ const getState = ({
                     console.log(error);
                     if (error.response.status === 401)
                         Toastify({
-                            text: "Wrong email or password",
+                            text: "Email o contraseña no válido",
                             duration: 3000,
                             destination: "https://github.com/apvarun/toastify-js",
                             newWindow: true,
@@ -124,7 +126,7 @@ const getState = ({
 
                     if (response.status === 200) {
                         Toastify({
-                            text: "User created successfull",
+                            text: "Usuario creado satisfactoriamente",
                             duration: 3000,
                             destination: "https://github.com/apvarun/toastify-js",
                             newWindow: true,
@@ -142,7 +144,7 @@ const getState = ({
                     }
                 } catch (error) {
                     Toastify({
-                        text: "Email already registered",
+                        text: "Email ya registrado",
                         duration: 3000,
                         destination: "https://github.com/apvarun/toastify-js",
                         newWindow: true,
