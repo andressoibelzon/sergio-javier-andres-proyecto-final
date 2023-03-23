@@ -84,12 +84,8 @@ export const Navbar = () => {
 
             {/* si store.auth esta logueado mostrar Perfil sino registrarse */}
             {store.auth === true ? (
-              <Link to="/">
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  className="btn btn-outline-light me-2"
-                >
+              <Link to="/profile">
+                <button type="button" className="btn btn-outline-light me-2">
                   Perfil
                 </button>
               </Link>
