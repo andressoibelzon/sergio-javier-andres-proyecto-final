@@ -57,7 +57,6 @@ const getState = ({
                         }
                     } catch (error) {
                         console.log(error);
-                        console(error.response.data.msg);
                         return false;
                     }
                 },
