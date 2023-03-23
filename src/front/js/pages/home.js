@@ -58,18 +58,9 @@ export const Home = () => {
         </div> */}
       </div>
       <div id="titulo_carrusel" className="container">
-        <h1 className="container d-flex justify-content-center">
+        <h1 className="container  d-flex justify-content-center">
           Todo lo que necesitas, <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AQUÍ MISMO
         </h1>
-      </div>
-      <div class="fixed-card top-50 end-0 translate-middle-y">
-        <iframe
-          width="220px"
-          height="380px"
-          data-widget-name=""
-          name="MarketOverview"
-          src="https://darqube.com/external-embedding/market-overview?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsib3ZlcnZpZXdfc2VjdGlvbnMiOltdLCJpbnN0cnVtZW50cyI6eyJJTkRFWEVTIjpbXX19LCJ3X3R5cGUiOiJNYXJrZXRPdmVydmlldyIsImZlX2NmZyI6eyJjaGNsciI6InJnYmEoNjEsIDE4NywgMTU0LCAxKSIsImNtb2RlIjowLCJmY2xyIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAxKSIsImJnIjoicmdiYSgyMSwgMjUsIDMwLCAxKSIsImgiOjM2MCwidyI6MzMwLCJhc3oiOmZhbHNlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX0sInVjIjoicmdiYSg0OCwgMTMxLCAxMDksIDEpIiwiZGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImFjbyI6WyJJTkRFWEVTIl0sInNtYiI6e30sInNzIjp0cnVlLCJzdCI6dHJ1ZSwic2wiOnRydWUsImN0ZGMiOmZhbHNlfSwiZXhwIjoxNjg3MzQzOTk1LCJzdWIiOiJhY2Nlc3MifQ.U7zXtHxzM0X_p_-ddhK7tqjGJav-NUNG7Gji5ycZHLA"
-          id="MarketOverview-5tj3i5t"></iframe>
       </div>
       <br />
       <br />
@@ -87,7 +78,7 @@ export const Home = () => {
         >
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <iframe
+              <iframe // grafico tesla
                 class="d-block w-100 rounded"
                 id="img-carrusel ChartWidget-c65oag2"
                 width="840px"
@@ -98,7 +89,7 @@ export const Home = () => {
               </iframe>
             </div>
             <div class="carousel-item">
-              <iframe
+              <iframe //grafico bbva
                 class="d-block w-100 rounded"
                 id="img-carrusel ChartWidget-zf5z3yw"
                 width="840px"
@@ -109,7 +100,7 @@ export const Home = () => {
               </iframe>
             </div>
             <div class="carousel-item">
-              <iframe
+              <iframe //grafico ibex
                 class="d-block w-100 rounded"
                 id="img-carrusel ChartWidget-405ivec"
                 width="840px"
@@ -144,7 +135,7 @@ export const Home = () => {
           <br />
           <br />
           {/* <p>Texto que quieres poner sobre la imagen.</p> */}
-          <iframe
+          <iframe // noticias
             class="container rounded d-flex justify-content-center"
             width="330px"
             height="550px"
@@ -152,6 +143,15 @@ export const Home = () => {
             name="NewsWidget"
             src="https://darqube.com/external-embedding/news-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsibmV3cyI6WyJGb3JleGxpdmUiLCJUaGUgRWNvbm9taXN0IiwiQnVzaW5lc3MgSW5zaWRlciIsIkZpbmFuY2lhbCBUaW1lcyIsIkZpbmFuY2lhbCBQb3N0Il0sInR3X3VpZHMiOlsiNDU1ODI0NzcxIiwiMTUzOTY2MTIzIiwiMjg1ODI2ODAiLCIyNTA5ODA4NDMiLCI1NDY3NTcwMCJdfSwid190eXBlIjoiTmV3c1dpZGdldCIsImZlX2NmZyI6eyJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo5OTAsInciOjMzMCwiYXN6Ijp0cnVlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX19LCJleHAiOjE2ODcyNjc4MTMsInN1YiI6ImFjY2VzcyJ9.eOptEWvWOf5VX6T14Bmvl22AO32gpKydcjyGBDwlqn4" id="NewsWidget-h0utvq2">
           </iframe>
+        </div>
+        <div class="fixed-card top-50 end-0 translate-middle-y">
+          <iframe // indice
+            width="220px"
+            height="380px"
+            data-widget-name=""
+            name="MarketOverview"
+            src="https://darqube.com/external-embedding/market-overview?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsib3ZlcnZpZXdfc2VjdGlvbnMiOltdLCJpbnN0cnVtZW50cyI6eyJJTkRFWEVTIjpbXX19LCJ3X3R5cGUiOiJNYXJrZXRPdmVydmlldyIsImZlX2NmZyI6eyJjaGNsciI6InJnYmEoNjEsIDE4NywgMTU0LCAxKSIsImNtb2RlIjowLCJmY2xyIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAxKSIsImJnIjoicmdiYSgyMSwgMjUsIDMwLCAxKSIsImgiOjM2MCwidyI6MzMwLCJhc3oiOmZhbHNlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX0sInVjIjoicmdiYSg0OCwgMTMxLCAxMDksIDEpIiwiZGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImFjbyI6WyJJTkRFWEVTIl0sInNtYiI6e30sInNzIjp0cnVlLCJzdCI6dHJ1ZSwic2wiOnRydWUsImN0ZGMiOmZhbHNlfSwiZXhwIjoxNjg3MzQzOTk1LCJzdWIiOiJhY2Nlc3MifQ.U7zXtHxzM0X_p_-ddhK7tqjGJav-NUNG7Gji5ycZHLA"
+            id="MarketOverview-5tj3i5t"></iframe>
         </div>
       </div>
       <div id="section3" className="d-flex row flex-nowrap overflow-auto">
@@ -204,17 +204,6 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      {/* <div id="circulos" className="container-fluid">
-        <div class="circulo-exterior"></div>
-        <div class="circulo-medio"></div>
-        <div class="circulo-interior"></div>
-      </div> */}
-      {/* <ul class="list-group">
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul> */}
     </div>
   );
 };

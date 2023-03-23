@@ -119,4 +119,5 @@
 .fixed-card {
     position: fixed;
     top: 70px;
+    z-index: 1;
 }

@@ -40,7 +40,7 @@ export const Navbar = () => {
 
             <li>
               {store.auth === true ? (
-                <Link to="/indices" className="nav-link px-2 text-white">
+                <Link to="/exchange" className="nav-link px-2 text-white">
                   Indices
                 </Link>
               ) : null}
