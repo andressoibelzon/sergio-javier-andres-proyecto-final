@@ -49,12 +49,12 @@
 
 .card {
   margin: 10px;
-  background-color: #dd3cff;
+  background-color: #4b0202;
   background-image: linear-gradient(
     180deg,
-    #dd3cff 0%,
-    #5a20ea 57%,
-    #2b51c5 100%
+    #000000 0%,
+    #470702 57%,
+    #ce0404 100%
   );
   color: white;
   text-align: justify;

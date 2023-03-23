@@ -2,14 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import carrousel1Url from "../../img/bull&bear.jpeg";
 import homeChartsUrl from "../../img/homeCharts.jpeg";
-import imagen1 from "../../img/Graficas.jpg";
-import imagen1_1 from "../../img/graficas-t.jpg";
-import imagen2_1 from "../../img/indices-t.jpg";
-import imagen2 from "../../img/Indices.jpg";
-import imagen3 from "../../img/Noticias.jpg";
-import imagen3_1 from "../../img/noticias-t.jpg";
-import imagen4_1 from "../../img/coming-soon-t.jpg";
-import imagen4 from "../../img/coming-soon.jpg";
+
 
 import "../../styles/home.css";
 
@@ -86,12 +79,6 @@ export const Home = () => {
                 name="ChartWidget"
                 src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJTVE9DS1MiOlsiVFNMQS5VUyJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJUZXNsYSBJbmMiLCJ0IjoiVFNMQS5VUyIsImFjIjoiU1RPQ0tTIn1dLCJjaHJUIjoibGluZSIsInNsIjp0cnVlfSwiZXhwIjoxNjg3MjY1ODU1LCJzdWIiOiJhY2Nlc3MifQ.OLBpkaRBDzQHGdjlUEzPLgBIYOdG7Cc5KWcpftNObJI">
               </iframe>
-              {/* <img
-                id="img-carrusel"
-                src={imagen1_1}
-                class="d-block w-100 rounded"
-                alt="..."
-              /> */}
             </div>
             <div class="carousel-item">
               <iframe
@@ -103,12 +90,6 @@ export const Home = () => {
                 name="ChartWidget"
                 src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJTVE9DS1MiOlsiQkJWQS5VUyJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJCYW5jbyBCaWxiYW8gVmlzY2F5YSBBcmdlbnRhcmlhIFNBIEFEUiIsInQiOiJCQlZBLlVTIiwiYWMiOiJTVE9DS1MifV0sImNoclQiOiJsaW5lIiwic2wiOnRydWV9LCJleHAiOjE2ODcyNjYyODQsInN1YiI6ImFjY2VzcyJ9.68gNC83E3YVb0a-cVVQs2Tmy7pCm5XH0jxz8LngBnfU">
               </iframe>
-              {/* <img
-                id="img-carrusel"
-                src={imagen1}
-                class="d-block w-100 rounded"
-                alt="..."
-              /> */}
             </div>
             <div class="carousel-item">
               <iframe
@@ -119,62 +100,10 @@ export const Home = () => {
                 data-widget-name=""
                 name="ChartWidget"
                 src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJJTkRFWEVTIjpbIklCRVguSU5EWCJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJJQkVYIDM1IEluZGV4IiwidCI6IklCRVguSU5EWCIsImFjIjoiSU5ERVhFUyJ9XSwiY2hyVCI6ImxpbmUiLCJzbCI6dHJ1ZX0sImV4cCI6MTY4NzI2NjYzNiwic3ViIjoiYWNjZXNzIn0.tsdP72rzC9k3vAWsbssAgKCw0ORrTxuIqCw7nWmjeYE">
-
               </iframe>
-              {/* <img
-                id="img-carrusel"
-                src={imagen2_1}
-                class="d-block w-100 rounded"
-                alt="..."
-              /> */}
             </div>
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen2}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen3_1}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen3}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen4_1}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen4}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleRide"
-            data-bs-slide="prev"
-          >
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
