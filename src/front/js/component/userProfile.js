@@ -12,29 +12,29 @@ const userProfile = () => {
     actions.getDataProfile(); // Obtiene los datos del usuario en cuestion
   }, []);
 
-  const onDeleteButtonClick = () => {
-    fetch(process.env.BACKEND_URL + "/api/profile", {
-      method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + getToken(),
-      },
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          throw new Error();
-        }
-        return response.json();
-      })
+  // const onDeleteButtonClick = () => {
+  //   fetch(process.env.BACKEND_URL + "/api/profile", {
+  //     method: "DELETE",
+  //     headers: {
+  //       Authorization: "Bearer " + getToken(),
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (response.status !== 200) {
+  //         throw new Error();
+  //       }
+  //       return response.json();
+  //     })
 
-      .then((data) => {
-        deleteToken();
-        actions.logout(false);
-        setShowModal(true);
-      })
-      .catch(() => {
-        setShowModal(false);
-      });
-  };
+  //     .then((data) => {
+  //       deleteToken();
+  //       actions.logout(false);
+  //       setShowModal(true);
+  //     })
+  //     .catch(() => {
+  //       setShowModal(false);
+  //     });
+  // };
 
   return (
     <>
@@ -46,33 +46,29 @@ const userProfile = () => {
                                               alt="..."
                                             /> */}{" "}
         <div className="card-body-h5 mb-3">
-          <h5 className="card-title fs-1 text-capitalize user">
-            {" "}
-            {store.user.user_name}{" "}
-          </h5>{" "}
-        </div>{" "}
-        <ul className="list-group list-group-flush list-body-main mt-4 rounded">
-          <li className="list-group-item text-capitalize list-body">
-            <strong> Nombre </strong>: {store.user.name}{" "}
-          </li>{" "}
-          <li className="list-group-item text-capitalize list-body">
-            <strong> Primer apellido </strong>: {store.user.first_name}{" "}
-          </li>{" "}
-          <li className="list-group-item text-capitalize list-body">
-            <strong> Segundo apellido </strong>: {store.user.last_name}{" "}
-          </li>{" "}
+        <li className="list-group-item list-body">
+            <strong> Correo electrónico </strong>: {store.user.email}
+          </li>
           <li className="list-group-item list-body">
-            <strong> Correo electrónico </strong>: {store.user.email}{" "}
+            <strong> Usuario </strong>: {store.user.user_name}
+          </li>
+       
+
+          <li className="list-group-item text-capitalize list-body">
+            <strong> Nombre </strong>: {store.user.first_name}{" "}
           </li>{" "}
-        </ul>{" "}
+          <li className="list-group-item text-capitalize list-body">
+            <strong> Apellido </strong>: {store.user.last_name}{" "}
+          </li>{" "}
+          </div>
         <div className="btn-group mt-4  mb-2">
           <button
             className="btn btn-md btn button-dlt bg-gradient rounded"
             type="delete"
-            onClick={onDeleteButtonClick}
+            // onClick={onDeleteButtonClick}
           >
-            Eliminar cuenta{" "}
-          </button>{" "}
+            Eliminar cuenta
+          </button>
           {/* <Link to="/profile/modificate">
                                                 <button
                                                   className="btn btn-md btn btn-profile bg-gradient  ms-4"

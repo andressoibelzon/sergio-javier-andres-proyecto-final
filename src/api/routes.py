@@ -40,6 +40,9 @@ def login():
 
     # Protect a route with jwt_required, which will kick out requests
 # without a valid JWT present.
+
+
+
 @api.route("/profile", methods=["GET"])
 @jwt_required()
 def get_profile():
