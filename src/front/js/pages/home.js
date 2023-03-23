@@ -2,14 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import carrousel1Url from "../../img/bull&bear.jpeg";
 import homeChartsUrl from "../../img/homeCharts.jpeg";
-import imagen1 from "../../img/Graficas.jpg";
-import imagen1_1 from "../../img/graficas-t.jpg";
-import imagen2_1 from "../../img/indices-t.jpg";
-import imagen2 from "../../img/Indices.jpg";
-import imagen3 from "../../img/Noticias.jpg";
-import imagen3_1 from "../../img/noticias-t.jpg";
-import imagen4_1 from "../../img/coming-soon-t.jpg";
-import imagen4 from "../../img/coming-soon.jpg";
+
 
 import "../../styles/home.css";
 
@@ -40,6 +33,14 @@ export const Home = () => {
     const styles = msg.data?.styles;
     if (styles) { Object.keys(styles).forEach(key => widget.style.setProperty(key, styles[key])) }
   });
+  // indices
+  window.top.addEventListener("message", function (msg) {
+    const widget = document.getElementById('MarketOverview-rbnzv2k');
+    if (!widget) return;
+    const styles = msg.data?.styles;
+    if (styles) { Object.keys(styles).forEach(key => widget.style.setProperty(key, styles[key])) }
+  });
+
   return (
     <div className="container-fluid">
       <div id="seccion1" class="container-fluid">
@@ -57,7 +58,7 @@ export const Home = () => {
         </div> */}
       </div>
       <div id="titulo_carrusel" className="container">
-        <h1 className="container d-flex justify-content-center">
+        <h1 className="container  d-flex justify-content-center">
           Todo lo que necesitas, <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AQUÍ MISMO
         </h1>
       </div>
@@ -77,7 +78,7 @@ export const Home = () => {
         >
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <iframe
+              <iframe // grafico tesla
                 class="d-block w-100 rounded"
                 id="img-carrusel ChartWidget-c65oag2"
                 width="840px"
@@ -86,15 +87,9 @@ export const Home = () => {
                 name="ChartWidget"
                 src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJTVE9DS1MiOlsiVFNMQS5VUyJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJUZXNsYSBJbmMiLCJ0IjoiVFNMQS5VUyIsImFjIjoiU1RPQ0tTIn1dLCJjaHJUIjoibGluZSIsInNsIjp0cnVlfSwiZXhwIjoxNjg3MjY1ODU1LCJzdWIiOiJhY2Nlc3MifQ.OLBpkaRBDzQHGdjlUEzPLgBIYOdG7Cc5KWcpftNObJI">
               </iframe>
-              {/* <img
-                id="img-carrusel"
-                src={imagen1_1}
-                class="d-block w-100 rounded"
-                alt="..."
-              /> */}
             </div>
             <div class="carousel-item">
-              <iframe
+              <iframe //grafico bbva
                 class="d-block w-100 rounded"
                 id="img-carrusel ChartWidget-zf5z3yw"
                 width="840px"
@@ -103,15 +98,9 @@ export const Home = () => {
                 name="ChartWidget"
                 src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJTVE9DS1MiOlsiQkJWQS5VUyJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJCYW5jbyBCaWxiYW8gVmlzY2F5YSBBcmdlbnRhcmlhIFNBIEFEUiIsInQiOiJCQlZBLlVTIiwiYWMiOiJTVE9DS1MifV0sImNoclQiOiJsaW5lIiwic2wiOnRydWV9LCJleHAiOjE2ODcyNjYyODQsInN1YiI6ImFjY2VzcyJ9.68gNC83E3YVb0a-cVVQs2Tmy7pCm5XH0jxz8LngBnfU">
               </iframe>
-              {/* <img
-                id="img-carrusel"
-                src={imagen1}
-                class="d-block w-100 rounded"
-                alt="..."
-              /> */}
             </div>
             <div class="carousel-item">
-              <iframe
+              <iframe //grafico ibex
                 class="d-block w-100 rounded"
                 id="img-carrusel ChartWidget-405ivec"
                 width="840px"
@@ -119,62 +108,10 @@ export const Home = () => {
                 data-widget-name=""
                 name="ChartWidget"
                 src="https://darqube.com/external-embedding/chart-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsidGlja2VycyI6eyJJTkRFWEVTIjpbIklCRVguSU5EWCJdfSwic2VsbF9idXlfdXJsIjpudWxsfSwid190eXBlIjoiQ2hhcnRXaWRnZXQiLCJmZV9jZmciOnsiY2hjbHIiOiJyZ2JhKDYxLCAxODcsIDE1NCwgMSkiLCJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo0NzAsInciOjg0MCwiYXN6IjpmYWxzZSwiZnQiOiJkZWZhdWx0IiwiaHQiOiJub25lIiwidHJoIjpbXSwiY2hjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJiZSI6dHJ1ZSwiYmMiOiJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLCJidyI6MSwiY24iOiIiLCJsbmciOiJlbiIsImhkaWNuIjpmYWxzZSwid3RtViI6eyJ0eXBlIjoiRGFycXViZSIsImVuYWJsZWQiOnRydWV9LCJ1YyI6InJnYmEoNDgsIDEzMSwgMTA5LCAxKSIsImRjIjoicmdiYSgyMzcsIDUwLCA5OCwgMSkiLCJzbWIiOlt7Im4iOiJJQkVYIDM1IEluZGV4IiwidCI6IklCRVguSU5EWCIsImFjIjoiSU5ERVhFUyJ9XSwiY2hyVCI6ImxpbmUiLCJzbCI6dHJ1ZX0sImV4cCI6MTY4NzI2NjYzNiwic3ViIjoiYWNjZXNzIn0.tsdP72rzC9k3vAWsbssAgKCw0ORrTxuIqCw7nWmjeYE">
-
               </iframe>
-              {/* <img
-                id="img-carrusel"
-                src={imagen2_1}
-                class="d-block w-100 rounded"
-                alt="..."
-              /> */}
             </div>
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen2}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen3_1}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen3}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen4_1}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
-            {/* <div class="carousel-item">
-              <img
-                id="img-carrusel"
-                src={imagen4}
-                class="d-block w-100 rounded"
-                alt="..."
-              />
-            </div> */}
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleRide"
-            data-bs-slide="prev"
-          >
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
@@ -198,7 +135,7 @@ export const Home = () => {
           <br />
           <br />
           {/* <p>Texto que quieres poner sobre la imagen.</p> */}
-          <iframe
+          <iframe // noticias
             class="container rounded d-flex justify-content-center"
             width="330px"
             height="550px"
@@ -206,6 +143,15 @@ export const Home = () => {
             name="NewsWidget"
             src="https://darqube.com/external-embedding/news-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsibmV3cyI6WyJGb3JleGxpdmUiLCJUaGUgRWNvbm9taXN0IiwiQnVzaW5lc3MgSW5zaWRlciIsIkZpbmFuY2lhbCBUaW1lcyIsIkZpbmFuY2lhbCBQb3N0Il0sInR3X3VpZHMiOlsiNDU1ODI0NzcxIiwiMTUzOTY2MTIzIiwiMjg1ODI2ODAiLCIyNTA5ODA4NDMiLCI1NDY3NTcwMCJdfSwid190eXBlIjoiTmV3c1dpZGdldCIsImZlX2NmZyI6eyJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo5OTAsInciOjMzMCwiYXN6Ijp0cnVlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX19LCJleHAiOjE2ODcyNjc4MTMsInN1YiI6ImFjY2VzcyJ9.eOptEWvWOf5VX6T14Bmvl22AO32gpKydcjyGBDwlqn4" id="NewsWidget-h0utvq2">
           </iframe>
+        </div>
+        <div class="fixed-card top-50 end-0 translate-middle-y">
+          <iframe // indice
+            width="220px"
+            height="380px"
+            data-widget-name=""
+            name="MarketOverview"
+            src="https://darqube.com/external-embedding/market-overview?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsib3ZlcnZpZXdfc2VjdGlvbnMiOltdLCJpbnN0cnVtZW50cyI6eyJJTkRFWEVTIjpbXX19LCJ3X3R5cGUiOiJNYXJrZXRPdmVydmlldyIsImZlX2NmZyI6eyJjaGNsciI6InJnYmEoNjEsIDE4NywgMTU0LCAxKSIsImNtb2RlIjowLCJmY2xyIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAxKSIsImJnIjoicmdiYSgyMSwgMjUsIDMwLCAxKSIsImgiOjM2MCwidyI6MzMwLCJhc3oiOmZhbHNlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX0sInVjIjoicmdiYSg0OCwgMTMxLCAxMDksIDEpIiwiZGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImFjbyI6WyJJTkRFWEVTIl0sInNtYiI6e30sInNzIjp0cnVlLCJzdCI6dHJ1ZSwic2wiOnRydWUsImN0ZGMiOmZhbHNlfSwiZXhwIjoxNjg3MzQzOTk1LCJzdWIiOiJhY2Nlc3MifQ.U7zXtHxzM0X_p_-ddhK7tqjGJav-NUNG7Gji5ycZHLA"
+            id="MarketOverview-5tj3i5t"></iframe>
         </div>
       </div>
       <div id="section3" className="d-flex row flex-nowrap overflow-auto">
@@ -258,17 +204,6 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      {/* <div id="circulos" className="container-fluid">
-        <div class="circulo-exterior"></div>
-        <div class="circulo-medio"></div>
-        <div class="circulo-interior"></div>
-      </div> */}
-      {/* <ul class="list-group">
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul> */}
     </div>
   );
 };
