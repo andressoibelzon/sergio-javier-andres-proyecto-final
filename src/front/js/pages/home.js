@@ -33,6 +33,14 @@ export const Home = () => {
     const styles = msg.data?.styles;
     if (styles) { Object.keys(styles).forEach(key => widget.style.setProperty(key, styles[key])) }
   });
+  // indices
+  window.top.addEventListener("message", function (msg) {
+    const widget = document.getElementById('MarketOverview-rbnzv2k');
+    if (!widget) return;
+    const styles = msg.data?.styles;
+    if (styles) { Object.keys(styles).forEach(key => widget.style.setProperty(key, styles[key])) }
+  });
+
   return (
     <div className="container-fluid">
       <div id="seccion1" class="container-fluid">
@@ -53,6 +61,15 @@ export const Home = () => {
         <h1 className="container d-flex justify-content-center">
           Todo lo que necesitas, <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AQUÍ MISMO
         </h1>
+      </div>
+      <div class="fixed-card top-50 end-0 translate-middle-y">
+        <iframe
+          width="220px"
+          height="380px"
+          data-widget-name=""
+          name="MarketOverview"
+          src="https://darqube.com/external-embedding/market-overview?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsib3ZlcnZpZXdfc2VjdGlvbnMiOltdLCJpbnN0cnVtZW50cyI6eyJJTkRFWEVTIjpbXX19LCJ3X3R5cGUiOiJNYXJrZXRPdmVydmlldyIsImZlX2NmZyI6eyJjaGNsciI6InJnYmEoNjEsIDE4NywgMTU0LCAxKSIsImNtb2RlIjowLCJmY2xyIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAxKSIsImJnIjoicmdiYSgyMSwgMjUsIDMwLCAxKSIsImgiOjM2MCwidyI6MzMwLCJhc3oiOmZhbHNlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX0sInVjIjoicmdiYSg0OCwgMTMxLCAxMDksIDEpIiwiZGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImFjbyI6WyJJTkRFWEVTIl0sInNtYiI6e30sInNzIjp0cnVlLCJzdCI6dHJ1ZSwic2wiOnRydWUsImN0ZGMiOmZhbHNlfSwiZXhwIjoxNjg3MzQzOTk1LCJzdWIiOiJhY2Nlc3MifQ.U7zXtHxzM0X_p_-ddhK7tqjGJav-NUNG7Gji5ycZHLA"
+          id="MarketOverview-5tj3i5t"></iframe>
       </div>
       <br />
       <br />
