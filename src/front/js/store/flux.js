@@ -401,7 +401,6 @@ const getState = ({
                             user: data,
                         })
                     );
-                console.log(user);
             },
 
             register: async (user_name, first_name, last_name, email, password) => {
@@ -496,6 +495,5 @@ const getState = ({
         },
     };
 };
-
 
 export default getState;
