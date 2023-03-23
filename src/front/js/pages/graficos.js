@@ -12,7 +12,7 @@ export const Graficos = () => {
         const height = msg.data?.tickerTapeHeight;
         if (height) { widget.style.setProperty('height', height + 'px'); }
     });
-
+    //cryptos
     window.top.addEventListener("message", function (msg) {
         const widget = document.getElementById('ScreenerWidget-24wh974');
         if (!widget) return; const styles = msg.data?.styles;
@@ -50,3 +50,5 @@ export const Graficos = () => {
         </div>
     )
 }
+
+
