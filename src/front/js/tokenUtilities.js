@@ -6,6 +6,7 @@ export function saveToken(token) {
 }
 // Borra el token
 export function deleteToken() {
+    debugger;
     localStorage.removeItem("token");
 }
 //Coge el token

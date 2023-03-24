@@ -53,14 +53,14 @@ const userProfile = () => {
         </div>{" "}
         <ul className="list-group list-group-flush list-body-main mt-4 rounded">
           <li className="list-group-item text-capitalize list-body">
-            <strong> Nombre </strong>: {store.user.name}{" "}
+            <strong> Nombre </strong>: {store.user.first_name}{" "}
           </li>{" "}
           <li className="list-group-item text-capitalize list-body">
-            <strong> Primer apellido </strong>: {store.user.first_name}{" "}
+            <strong> Primer apellido </strong>: {store.user.last_name}{" "}
           </li>{" "}
-          <li className="list-group-item text-capitalize list-body">
+          {/* <li className="list-group-item text-capitalize list-body">
             <strong> Segundo apellido </strong>: {store.user.last_name}{" "}
-          </li>{" "}
+          </li>{" "} */}
           <li className="list-group-item list-body">
             <strong> Correo electrónico </strong>: {store.user.email}{" "}
           </li>{" "}

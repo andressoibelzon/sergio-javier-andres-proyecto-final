@@ -50,6 +50,21 @@ def get_profile():
     # return jsonify(logged_in_as=current_user), 200
     return jsonify({"result":user.serialize()}), 200
 
+@api.route("/profile", methods=["DELETE"])
+@jwt_required()
+def delete_profile():
+    # Access the identity of the current user with get_jwt_identity
+    current_user = get_jwt_identity()
+    delete_user = User.query.filter_by(email=current_user).first()
+
+    db.session.delete(delete_user)
+    db.session.commit()
+
+    response_body = {
+        "result": "Cuenta al carajo"
+    }
+    return jsonify(response_body), 200
+
 
 # user registration
 @api.route('/register', methods=['POST'])
