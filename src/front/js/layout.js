@@ -15,6 +15,7 @@ import { Login } from "./pages/login.jsx";
 import { Register } from "./pages/register.jsx";
 import Profile from "./pages/profile";
 import { Contacto } from "./pages/contacto.jsx";
+import { RecoveryPassword } from "./component/recoverypassword";
 
 //create your first component
 const Layout = () => {
@@ -37,6 +38,7 @@ const Layout = () => {
             <Route element={<Profile />} path="/profile" />
             <Route element={<Contacto />} path="/contacto" />
             <Route element={<Demo />} path="/demo" />
+            <Route element={<RecoveryPassword />} path="/recovery-passwprd" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1> Not found! </h1>} />
           </Routes>{" "}
