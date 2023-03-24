@@ -1,3 +1,69 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,100&display=swap");
+
+/*#F7F7F7 (white) - for backgrounds
+# black - for plain text
+#11143f (dark blue) - for headings and subheadings 
+#125e7c (light blue) - for secondary text and accents 
+#36dab1 (turqo) - for call-to-action buttons or other interactive elements 
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    --text: black;
+    --background: #f7f7f7;
+    --headings: #11143f;
+    --accents: #125e7c;
+    --interactive: #36dab1;
+}
+
+.btn {
+    font-family: "Poppins", sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    border: none;
+    background: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--interactive);
+    color: var(--text);
+    border: none;
+}
+
+.btn-danger {
+    background-color: var(--interactive);
+    color: var(--text);
+    border: none;
+}
+
+.btn-danger:hover {
+    color: white;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--headings);
+}
+
+h4,
+h5 {
+    color: var(--accents);
+}
+
+footer {
+    background-color: var(--background);
+    padding: 30px 30px 30px 30px;
+    margin-top: 50px;
+}

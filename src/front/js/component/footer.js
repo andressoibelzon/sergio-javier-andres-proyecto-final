@@ -14,7 +14,7 @@ export const Footer = () => {
   }
 
   return (
-    <footer className="stylefooter py-5">
+    <footer className="stylefooter">
       <div className="row">
         <div className="col-6 col-md-2 mb-3">
           <h5>Principales</h5>
@@ -98,7 +98,7 @@ export const Footer = () => {
           </ul>
         </div>
 
-        <div className="col-md-5 offset-md-1 mb-3">
+        <div className="col-md-5 offset-md-1">
           <form onSubmit={onSubmitSusc}>
             <h5>Suscripción</h5>
             <p>La mejor información de mercados finacieros.</p>
@@ -123,8 +123,8 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-        <p>© 2023 SignalMood. Todos los derechos reservados.</p>
+      <div className="d-flex flex-column flex-sm-row justify-content-between pt-2 border-top">
+        <p>© 2023 MarketMood. Todos los derechos reservados.</p>
         <ul className="list-unstyled d-flex">
           <li className="ms-3">
             <a className="link-dark" href="#">

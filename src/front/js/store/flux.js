@@ -39,7 +39,7 @@ const getState = ({
             validToken: async () => {
                 // console.log(response.data.isLogged)
                 let token = localStorage.getItem("token");
-                console.log(token);
+                // console.log(token);
                 try {
                     let response = await axios.get(
                         process.env.BACKEND_URL + "/api/valid-token", {
