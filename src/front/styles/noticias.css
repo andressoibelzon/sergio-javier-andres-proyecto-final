@@ -5,5 +5,7 @@
   align-items: center;
 }
 
-#iframe {
+.noticias {
+  background-color: rgba(0, 0, 0, 0.822);
+  border: white;
 }
