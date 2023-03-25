@@ -179,14 +179,17 @@ def onsubmitContact():
 
 
 @api.route('/suscripcion', methods=['POST'])
-def onsubmitSusc():
-    email = request.json.get("email", None)
-        # if response.status_code == 200:
-    addemail = Suscripcion(email = email)
-    db.session.add(addemail)
-    db.session.commit()
-    return jsonify({"msg":"Email en suscritos"})
-    # else :
-        # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
+def suscritos():
+    suscritos_email = request.json['email']
+    if not suscritos_email:
+        return jsonify({"msg": "No email detectado"}), 401
+
+    msg = Message("Hi", recipients=[suscritos_email])
+    msg.html = f"""<h1>Gracias por su suscropción , en breves le informaremos de todas las novedad y noticias actualizadas</h1>"""
+    current_app.mail.send(msg)
+    return jsonify({"msg": "Gracias por sus suscripcion"}), 200
+
+    
+
 
 
