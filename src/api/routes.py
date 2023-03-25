@@ -2,7 +2,6 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 
-
 import os
 from flask_migrate import Migrate
 from flask_swagger import swagger
@@ -15,6 +14,10 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+from flask_mail import Message
+from flask_mail import Mail
+import random 
+import string
 import requests
 
 
@@ -109,48 +112,26 @@ def valid_token():
         return jsonify({"isLogged":False}), 401
 
 
-# #  Recuperación de contraseña
-# @api.route("/recoverypassword", methods=['POST'])
-# def recovery_password():
-#     body = json.loads(request.data)
-#     email = body ["email"]
-#     # contraseña aleatoria
-#     new_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(15))
-#     # Encriptacion
-#     pw_hash = encrypt_pwd(new_password)
-#     user = User.query.filter_by(email=email).first()
-#     # Asigno el pass aleatorio al user
-#     if user !=None:
-#         user.password = pw_hash
-#         db.session.commit()
-#     # Aqui comenzaría el envio del mail con la pass 
-#         mail = Mail ()
-#         message = Message('Recuperación de contraseña', sender  = 'nombre de la web', recipients =[user.email])
-#         message.body = "Hola " + user.name + " tu nueva contraseña es " + new_password + " recuerda modificarla una vez inicies sesión."
-#         message.html ="<h1>nombre de la web</h1><h2> Hola " + user.name + " </h2> <p> Tu nuevo password es <b> " + new_password + " recuerda modificarla una vez inicies sesión.</b></p><p>Si usted no ha solicitado el cambio de contraseña ignore y elimine este mensaje por favor.</p> <p> Mensaje enviado automáticamente, no responda</p>"
-#         mail.send(message)
-#         response_body ={
-#             "message":" correo electrónico enviado correctamente"
-#         }
-#         return jsonify(response_body),200
-#     else:
-#         return jsonify({"message":"correo no registrado"}),400
-
-@api.route('/indices', methods=['GET'])
-def getindices():
-    url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/exchanges"
-
-    querystring = {"referenceCurrencyUuid":"yhjMzLPhuIDl","limit":"50","offset":"0","orderBy":"24hVolume","orderDirection":"desc"}
-
-    headers = {
-        "X-RapidAPI-Key": "259317a9a4msh9be0ac17ca1cbd3p1458abjsn542243c21d1a",
-        "X-RapidAPI-Host": "coinranking1.p.rapidapi.com"
-    }
-
-    response = requests.request("GET", url, headers=headers, params=querystring)
-
-    print(response.text)
-    return jsonify(querystring)
+#  Recuperación de contraseña
+@api.route("/recovery-password", methods=["POST"])
+def recoverypassword():
+    recover_email = request.json['email']
+    recover_password = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(8)) #clave aleatoria nueva
+    
+    if not recover_email:
+        return jsonify({"msg": "Debe ingresar el correo"}), 401
+	#busco si el correo existe en mi base de datos
+    user = User.query.filter_by(email=recover_email).first()
+    if recover_email != user.email:
+        return jsonify({"msg": "El correo ingresado no existe en nuestros registros"}), 400
+    #si existe guardo la nueva contraseña aleatoria
+    user.password = recover_password
+    db.session.commit()
+	#luego se la envio al usuario por correo para que pueda ingresar
+    msg = Message("Hi", recipients=[recover_email])
+    msg.html = f"""<h1>Su nueva contraseña es: {recover_password}</h1>"""
+    current_app.mail.send(msg)
+    return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
 
 
 @api.route('/onsubmit-contact', methods=['POST'])
@@ -178,4 +159,5 @@ def onsubmitSusc():
     return jsonify({"msg":"Email en suscritos"})
     # else :
         # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
-    
+
+

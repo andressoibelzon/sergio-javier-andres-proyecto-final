@@ -18,6 +18,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+from flask_mail import Mail
 #from models import Person
 
 ENV = os.getenv("FLASK_ENV")
@@ -35,6 +36,7 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type = True)
 db.init_app(app)
+
 
 # Allow CORS requests to this API
 CORS(app)
@@ -64,6 +66,23 @@ def sitemap():
     if ENV == "development":
         return generate_sitemap(app)
     return send_from_directory(static_file_dir, 'index.html')
+    
+    #CONFIGURACION EMAIL
+mail_settings = {
+    "MAIL_SERVER": 'sandbox.smtp.mailtrap.io',
+    "MAIL_PORT":  2525,
+    "MAIL_USE_TLS": True,
+    "MAIL_USE_SSL": False,
+    "MAIL_USERNAME":  '8fe50809865916', #ACA COLOQUEN EL CORREO DE LA APP DEL ALUMN
+    "MAIL_PASSWORD": 'b2dde003b92ff2', #PASSWORD DEL CORREO DE LA APP DEL ALUMNO
+    "MAIL_DEFAULT_SENDER": 'marketmood@marketmood.com',
+}
+app.config.update(mail_settings)
+mail = Mail(app)
+#agregan mail a la app y se va llamar en routes.py como current_app
+app.mail= mail
+
+#FIN CONFIGURACION EMAIL
 
 # any other endpoint will try to serve it like a static file
 @app.route('/<path:path>', methods=['GET'])

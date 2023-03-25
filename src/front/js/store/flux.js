@@ -299,23 +299,43 @@ const getState = ({
                     console.log("Error loading message from backend", error);
                 }
             },
+            recoveryPassword: (email) => {
+                fetch(process.env.BACKEND_URL + '/api/recovery-password', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email
+                        })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert("Se ha enviado un correo electrónico con instrucciones para restablecer tu contraseña")
+                        } else {
+                            alert("no encontrado dirección de correo electrónico")
+                        }
+                    })
+                    .catch(error => {
+                        alert("Se ha producido un error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde")
+                    });
+            }
+        },
+        changeColor: (index, color) => {
+            //get the store
+            const store = getStore();
 
-            changeColor: (index, color) => {
-                //get the store
-                const store = getStore();
+            //we have to loop the entire demo array to look for the respective index
+            //and change its color
+            const demo = store.demo.map((elm, i) => {
+                if (i === index) elm.background = color;
+                return elm;
+            });
 
-                //we have to loop the entire demo array to look for the respective index
-                //and change its color
-                const demo = store.demo.map((elm, i) => {
-                    if (i === index) elm.background = color;
-                    return elm;
-                });
-
-                //reset the global store
-                setStore({
-                    demo: demo,
-                });
-            },
+            //reset the global store
+            setStore({
+                demo: demo,
+            });
         },
     };
 };
