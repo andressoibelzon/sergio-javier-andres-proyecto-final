@@ -9,7 +9,10 @@ export const RecoveryPassword = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        actions.recoveryPassword(email);
+        actions.recoveryPassowrd(email);
+
+        setEmail("");
+        navigate("/login");
     };
 
     return (

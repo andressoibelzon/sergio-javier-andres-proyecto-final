@@ -158,7 +158,14 @@ def recoverypassword():
     db.session.commit()
 	#luego se la envio al usuario por correo para que pueda ingresar
     msg = Message("Hi", recipients=[recover_email])
-    msg.html = f"""<h1>Su nueva contraseña es: {recover_password}</h1>"""
+    msg.html = f"""<div style="background-color: #f2f2f2; padding: 20px;">
+    <h1 style="color: #008080; font-size: 36px; font-weight: bold;">
+        Tu nueva contraseña es: {recover_password}
+    </h1>
+    <p style="color: #555; font-size: 18px;">
+        Recuerda cambiar tu contraseña lo antes posible y no compartirla con nadie más.
+    </p>
+</div>"""
     current_app.mail.send(msg)
     return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
 
@@ -179,14 +186,24 @@ def onsubmitContact():
 
 
 @api.route('/suscripcion', methods=['POST'])
-def onsubmitSusc():
-    email = request.json.get("email", None)
-        # if response.status_code == 200:
-    addemail = Suscripcion(email = email)
-    db.session.add(addemail)
-    db.session.commit()
-    return jsonify({"msg":"Email en suscritos"})
-    # else :
-        # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
+def suscritos():
+    suscritos_email = request.json['email']
+
+    msg = Message("Hi", recipients=[suscritos_email])
+    msg.html = f"""<div style="background-color: #f2f2f2; padding: 20px;">
+    <h1 style="color: #008080; font-size: 36px; font-weight: bold;">
+        Gracias por su suscripción, en breves le informaremos de todas las novedades y noticias actualizadas.
+    </h1>
+    <p style="color: #555; font-size: 18px;">
+        ¡Manténgase atento a su correo electrónico!
+    </p>
+</div>"""
+    current_app.mail.send(msg)
+    return jsonify({"msg": "Gracias por sus suscripcion"}), 200
+
+
+
+    
+
 
 
