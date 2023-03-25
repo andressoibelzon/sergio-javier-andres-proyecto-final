@@ -312,6 +312,47 @@ const getState = ({
                 getActions().changeColor(0, "green");
             },
 
+            recoveryPassowrd: (email) => {
+                fetch(process.env.BACKEND_URL + '/api/recovery-password', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email
+                        })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert("Se ha enviado un correo electrónico con instrucciones para restablecer tu contraseña")
+                        } else {
+                            alert("no encontrado dirección de correo electrónico")
+                        }
+                    })
+                    .catch(error => {
+                        alert("Se ha producido un error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde")
+                    });
+            },
+
+            suscripcion: (email) => {
+                fetch(process.env.BACKEND_URL + '/api/suscripcion', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email
+                        })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert("¡Gracias por suscribirte!")
+                        }
+                    })
+                    .catch(error => {
+                        alert("Hubo un error al enviar la suscripción.Intentelo mas tarde")
+                    });
+            },
             getMessage: async () => {
                 try {
                     // fetching data from the backend

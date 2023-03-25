@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/footer.css";
+import { Suscripcion } from "./footersus";
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
@@ -97,30 +98,7 @@ export const Footer = () => {
 					<li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">About</a></li> */}
           </ul>
         </div>
-
-        <div className="col-md-5 offset-md-1 mb-3">
-          <form onSubmit={onSubmitSusc}>
-            <h5>Suscripción</h5>
-            <p>La mejor información de mercados finacieros.</p>
-            <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-              <label htmlFor="newsletter1" className="visually-hidden">
-                Email
-              </label>
-              <input
-                id="newsletter1"
-                type="text"
-                className="form-control"
-                placeholder="Email address"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                required
-              />
-              <button className="btn btn-primary" type="submit">
-                Enviar
-              </button>
-            </div>
-          </form>
-        </div>
+        <Suscripcion />
       </div>
 
       <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">

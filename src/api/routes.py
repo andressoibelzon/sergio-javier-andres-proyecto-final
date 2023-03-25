@@ -185,9 +185,10 @@ def suscritos():
         return jsonify({"msg": "No email detectado"}), 401
 
     msg = Message("Hi", recipients=[suscritos_email])
-    msg.html = f"""<h1>Gracias por su suscropción , en breves le informaremos de todas las novedad y noticias actualizadas</h1>"""
+    msg.html = f"""<h1>Gracias por su suscripción , en breves le informaremos de todas las novedad y noticias actualizadas</h1>"""
     current_app.mail.send(msg)
     return jsonify({"msg": "Gracias por sus suscripcion"}), 200
+
 
     
 

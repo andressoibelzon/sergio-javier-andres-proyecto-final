@@ -7,6 +7,7 @@ import { Noticias } from "./pages/noticias";
 import { Graficos } from "./pages/graficos";
 import { Exchange } from "./pages/exchange";
 import { Demo } from "./pages/demo";
+import { Suscripcion } from "./component/footersus";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
@@ -35,6 +36,7 @@ const Layout = () => {
             <Route element={<Noticias />} path="/noticias" />
             <Route element={<Graficos />} path="/graficos" />
             <Route element={<Exchange />} path="/exchange" />
+            <Route element={<Suscripcion />} path="/suscripcion" />
             <Route element={<Login />} path="/login" />
             <Route element={<Register />} path="/register" />
             <Route element={<Profile />} path="/profile" />
