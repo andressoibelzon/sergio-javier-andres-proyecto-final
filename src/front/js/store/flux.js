@@ -135,6 +135,33 @@ const getState = ({
                     });
             },
 
+            actualizaUsusarioModificado: (email, password, first_name, last_name) => {
+                fetch(process.env.BACKEND_URL + "/api/profile", {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: "Bearer " + getToken(),
+                    },
+                    body: JSON.stringify({
+                        first_name,
+                        last_name,
+                        email,
+                        password,
+                    }),
+                }).then((response) => {
+                    if (response.status !== 200) {
+                        throw new Error();
+                    }
+                    // actions.getDataProfile(); // Obtiene los datos del usuario en cuestion
+
+                    //     return response.json();
+                    //   })
+                    //   .then((data) => {
+                    //     navigate("/profile");
+                });
+                //   .catch(() => setShowError(true));
+            },
+
             register: async (user_name, first_name, last_name, email, password) => {
                 console.log(user_name, first_name, last_name, email, password);
 
@@ -299,43 +326,23 @@ const getState = ({
                     console.log("Error loading message from backend", error);
                 }
             },
-            recoveryPassword: (email) => {
-                fetch(process.env.BACKEND_URL + '/api/recovery-password', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            email
-                        })
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            alert("Se ha enviado un correo electrónico con instrucciones para restablecer tu contraseña")
-                        } else {
-                            alert("no encontrado dirección de correo electrónico")
-                        }
-                    })
-                    .catch(error => {
-                        alert("Se ha producido un error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde")
-                    });
-            }
-        },
-        changeColor: (index, color) => {
-            //get the store
-            const store = getStore();
 
-            //we have to loop the entire demo array to look for the respective index
-            //and change its color
-            const demo = store.demo.map((elm, i) => {
-                if (i === index) elm.background = color;
-                return elm;
-            });
+            changeColor: (index, color) => {
+                //get the store
+                const store = getStore();
 
-            //reset the global store
-            setStore({
-                demo: demo,
-            });
+                //we have to loop the entire demo array to look for the respective index
+                //and change its color
+                const demo = store.demo.map((elm, i) => {
+                    if (i === index) elm.background = color;
+                    return elm;
+                });
+
+                //reset the global store
+                setStore({
+                    demo: demo,
+                });
+            },
         },
     };
 };

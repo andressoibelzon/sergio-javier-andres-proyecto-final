@@ -53,6 +53,35 @@ def get_profile():
     # return jsonify(logged_in_as=current_user), 200
     return jsonify({"result":user.serialize()}), 200
 
+# User profile modificación de los datos de usuario (ruta privada)
+@api.route('/profile', methods=['PUT'])
+@jwt_required()
+def user_profile_update():
+    user = get_jwt_identity()
+    # name = request.json.get("name")
+    first_name = request.json.get("first_name")
+    last_name = request.json.get("last_name")
+    email = request.json.get("email")
+    password = request.json.get("password")
+    # user_name = request.json.get("user_name")
+    
+    # pw_hash = encrypt_pwd(password)
+    
+    user_update = User.query.filter_by(email=user).first()
+    # user_update.name = name
+    user_update.first_name = first_name
+    user_update.last_name = last_name
+
+    user_update.email = email  #eliminar para no tener que comprobar y guardar en la base de datos que el email esta libre
+    user_update.password = password
+
+    db.session.commit()
+    response_body = {
+        "message": "Usuario modificado correctamente"
+    }
+    return jsonify(response_body),200
+
+
 @api.route("/profile", methods=["DELETE"])
 @jwt_required()
 def delete_profile():
