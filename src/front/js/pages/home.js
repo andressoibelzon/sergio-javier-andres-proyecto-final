@@ -221,6 +221,8 @@ export const Home = () => {
       </div>
     </div>
 
+    <h4>Proximamente senales de trading</h4>
+
 
       {/* <div id="section3" className="d-flex row flex-nowrap overflow-auto">
         <div className="card text-bg-primary mb-3" style={{ width: "20rem" }}>
