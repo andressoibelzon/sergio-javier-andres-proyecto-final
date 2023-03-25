@@ -48,24 +48,21 @@ export const RegisterCode = () => {
     },
   });
   return (
-    <div className="container">
-      <div className="d-flex flex-column justify-content-center align-items-center">
-        <div className="col-xl-6 rounded-3 text-black col-sm-10">
-          <div className=" p-md-5 mx-md-5 d-flex flex-column">
-            <div>
-              <h4 className="mt-1 mb-5 pb-1">Register</h4>
-            </div>
+    <div className="container py-5">
 
-            <div className="">
-              <form className="needs-validation" onSubmit={formik.handleSubmit}>
+              <h3 className="mb-4">Register</h3>
+           
+            <form className="needs-validation" onSubmit={formik.handleSubmit}>
+
+            <div className="mb-3">
                 <div>
-                  <label className="form-outline" htmlFor="user_name">
+                  <label className="form-outline mb-1" htmlFor="user_name">
                     Username
                   </label>
                   <div>
                     <input
                       style={{ width: "80%" }}
-                      className=""
+                      className="form-control mb-3"
                       id="user_name"
                       name="user_name"
                       type="text"
@@ -80,13 +77,13 @@ export const RegisterCode = () => {
                 </div>
 
                 <div>
-                  <label className="form-outline mt-4" htmlFor="first_name">
+                  <label className="form-outline  mb-1" htmlFor="first_name">
                     First Name
                   </label>
                   <div>
                     <input
                       style={{ width: "80%" }}
-                      className=""
+                      className="form-control mb-3"
                       id="first_name"
                       name="first_name"
                       type="text"
@@ -101,13 +98,13 @@ export const RegisterCode = () => {
                 </div>
 
                 <div>
-                  <label className="form-outline mt-4" htmlFor="last_name">
+                  <label className="form-outline  mb-1" htmlFor="last_name">
                     Last Name
                   </label>
                   <div>
                     <input
                       style={{ width: "80%" }}
-                      className=""
+                      className="form-control mb-3"
                       id="last_name"
                       name="last_name"
                       type="text"
@@ -122,13 +119,13 @@ export const RegisterCode = () => {
                 </div>
 
                 <div>
-                  <label className="form-outline mt-4" htmlFor="email">
+                  <label className="form-outline mb-1" htmlFor="email">
                     Email
                   </label>
                   <div>
                     <input
                       style={{ width: "80%" }}
-                      className=""
+                      className="form-control mb-3"
                       id="email"
                       name="email"
                       type="email"
@@ -143,13 +140,13 @@ export const RegisterCode = () => {
                 </div>
 
                 <div>
-                  <label className="form-outline mt-4" htmlFor="password">
+                  <label className="form-outline mb-1" htmlFor="password">
                     Password
                   </label>
                   <div>
                     <input
                       style={{ width: "80%" }}
-                      className=""
+                      className="form-control mb-3"
                       id="password"
                       name="password"
                       type="password"
@@ -165,16 +162,15 @@ export const RegisterCode = () => {
 
                 <div>
                   <button
-                    className="btn btn-primary rounded mt-4 mb-3"
+                    className="btn btn-primary rounded"
                     type="submit"
                   >
                     Register
                   </button>
                 </div>
-              </form>
             </div>
 
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-row ">
               <Link to="/forgot-password">
                 <div className="text-muted">Forgot password?</div>
               </Link>
@@ -182,9 +178,10 @@ export const RegisterCode = () => {
                 <div className="text-muted px-3">Log in</div>
               </Link>
             </div>
+            </form>
+
           </div>
-        </div>
-      </div>
-    </div>
+
+
   );
 };

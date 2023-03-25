@@ -67,3 +67,8 @@ footer {
     padding: 30px 30px 30px 30px;
     margin-top: 50px;
 }
+
+p {
+    font-size: large;
+    text-align: justify;
+}
