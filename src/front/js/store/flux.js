@@ -217,97 +217,26 @@ const getState = ({
                 }
             },
 
-            onSubmitContact: async (email, comentario) => {
-                console.log(email, comentario);
-                try {
-                    let response = await axios.post(
-                        process.env.BACKEND_URL + "/api/onsubmit-contact", {
-                            email: email,
-                            comentario: comentario,
+            contacto: () => {
+                fetch(process.env.BACKEND_URL + '/api/contacto', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email,
+                            comentario
+                        })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert("Se ha enviado correctamente")
                         }
-                    );
-                    if (response.status === 200) {
-                        Toastify({
-                            text: "Mensaje enviado",
-                            duration: 3000,
-                            destination: "https://github.com/apvarun/toastify-js",
-                            newWindow: true,
-                            close: true,
-                            gravity: "top", // `top` or `bottom`
-                            position: "right", // `left`, `center` or `right`
-                            stopOnFocus: true, // Prevents dismissing of toast on hover
-                            style: {
-                                background: "linear-gradient(to right, #00b09b, #96c93d)",
-                            },
-                            onClick: function() {}, // Callback after click
-                        }).showToast();
-                        return true;
-                    }
-                } catch (error) {
-                    if (error.response.status === 401)
-                        Toastify({
-                            text: "Error en el envio, intente mas tarde",
-                            duration: 3000,
-                            destination: "https://github.com/apvarun/toastify-js",
-                            newWindow: true,
-                            close: true,
-                            gravity: "top", // `top` or `bottom`
-                            position: "right", // `left`, `center` or `right`
-                            stopOnFocus: true, // Prevents dismissing of toast on hover
-                            style: {
-                                background: "linear-gradient(to right, #00b09b, #96c93d)",
-                            },
-                            onClick: function() {}, // Callback after click
-                        }).showToast();
-                    return false;
-                }
+                    })
+                    .catch(error => {
+                        alert("Se ha producido un error al enviar el comentario. Por favor, inténtalo de nuevo más tarde")
+                    });
             },
-
-            onSubmitSusc: async (email) => {
-                console.log(email);
-                try {
-                    let response = await axios.post(
-                        process.env.BACKEND_URL + "/api/suscripcion", {
-                            email: email,
-                        }
-                    );
-                    if (response.status === 200) {
-                        Toastify({
-                            text: "Estas suscrito",
-                            duration: 3000,
-                            destination: "https://github.com/apvarun/toastify-js",
-                            newWindow: true,
-                            close: true,
-                            gravity: "top", // `top` or `bottom`
-                            position: "right", // `left`, `center` or `right`
-                            stopOnFocus: true, // Prevents dismissing of toast on hover
-                            style: {
-                                background: "linear-gradient(to right, #00b09b, #96c93d)",
-                            },
-                            onClick: function() {}, // Callback after click
-                        }).showToast();
-                        return true;
-                    }
-                } catch (error) {
-                    if (error.response.status === 401)
-                        Toastify({
-                            text: "Error en el envio, intente mas tarde",
-                            duration: 3000,
-                            destination: "https://github.com/apvarun/toastify-js",
-                            newWindow: true,
-                            close: true,
-                            gravity: "top", // `top` or `bottom`
-                            position: "right", // `left`, `center` or `right`
-                            stopOnFocus: true, // Prevents dismissing of toast on hover
-                            style: {
-                                background: "linear-gradient(to right, #00b09b, #96c93d)",
-                            },
-                            onClick: function() {}, // Callback after click
-                        }).showToast();
-                    return false;
-                }
-            },
-
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
             },

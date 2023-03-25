@@ -170,18 +170,13 @@ def recoverypassword():
     return jsonify({"msg": "Su nueva clave ha sido enviada al correo electrónico ingresado"}), 200
 
 
-@api.route('/onsubmit-contact', methods=['POST'])
-def onsubmitContact():
-    email = request.json.get("email", None)
-    comentario = request.json.get("comentario", None)
+@api.route('/contacto', methods=['POST'])
+def contacto():
+    contacto_email = request.json["email"]
+    contacto:comentario = request.json["comentario"]
 
-        # if response.status_code == 200:
-    comment = Contacto(email = email, comentario = comentario)
-    db.session.add(comment)
-    db.session.commit()
     return jsonify({"msg":"Comentario creado con exito"})
-    # else :
-    # return jsonify({"msg": "No enviado, intentar mas tarde"}), 401
+
     
 
 
