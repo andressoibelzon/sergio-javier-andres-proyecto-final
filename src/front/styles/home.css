@@ -5,19 +5,20 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
-
+/* 
 .container-fluid {
     position: relative;
-    width: 100%;
-    /* ancho máximo del contenedor */
-    min-width: 320px;
-    /* ancho mínimo del contenedor */
-    margin: 0 auto;
-    /* centrar el contenedor en la página */
-    padding: 0px;
-    /* añadir un espacio entre el contenido y el contenedor */
-}
+    width: 100%; */
+/* ancho máximo del contenedor */
+/* min-width: 320px; */
+/* ancho mínimo del contenedor */
+/* margin: 0 auto; */
+/* centrar el contenedor en la página */
+/* padding: 0px; */
+/* añadir un espacio entre el contenido y el contenedor */
+/* } */
 
+/* 
 #seccion1 {
     margin-bottom: 30px;
 }
@@ -61,12 +62,7 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-#icon {
-    width: 30px;
-    height: 30px;
-    fill: white;
-    margin-bottom: 10px;
-}
+
 
 #circulos {
     margin-left: 10%;
@@ -120,4 +116,4 @@
     position: fixed;
     top: 70px;
     z-index: 1;
-}
+} */

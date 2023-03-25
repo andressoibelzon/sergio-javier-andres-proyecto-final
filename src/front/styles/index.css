@@ -72,3 +72,9 @@ p {
     font-size: large;
     text-align: justify;
 }
+
+#icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--accents);
+}
