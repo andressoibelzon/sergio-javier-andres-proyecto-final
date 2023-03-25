@@ -175,7 +175,17 @@ def contacto():
     contacto_email = request.json["email"]
     contacto:comentario = request.json["comentario"]
 
-    return jsonify({"msg":"Comentario creado con exito"})
+    msg = Message("Hi", recipients=[contacto_email])
+    msg.html = f"""<div style="background-color: #f2f2f2; padding: 20px;">
+    <h1 style="color: #008080; font-size: 36px; font-weight: bold;">
+        Gracias por ayudarnos a mejorar, revisaremos la información y nos pondremos a trabajar.
+    </h1>
+    <p style="color: #555; font-size: 18px;">
+        Para cualquier otra consulta, no dude en volver a informarnos
+    </p>
+</div>"""
+    current_app.mail.send(msg)
+    return jsonify({"msg":"Comentario creado con exito"}), 200
 
     
 

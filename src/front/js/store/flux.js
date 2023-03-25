@@ -217,7 +217,7 @@ const getState = ({
                 }
             },
 
-            contacto: () => {
+            contacto: (email, comentario) => {
                 fetch(process.env.BACKEND_URL + '/api/contacto', {
                         method: 'POST',
                         headers: {

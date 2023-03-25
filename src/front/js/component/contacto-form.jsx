@@ -1,27 +1,24 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
-
 import "../../styles/contacto.css";
 
 export const ContactoForm = () => {
   const [email, setEmail] = useState("");
   const [comentario, setComentario] = useState("");
   const { actions } = useContext(Context);
-  // realizar en flux una funcion que acepte onSubmit
 
-  function onSubmitContact(e) {
+  function onSubmit(e) {
     e.preventDefault();
-    actions.onSubmitContact(email, comentario);
-    console.log(email, comentario)
+    actions.contacto(email, comentario);
     setEmail("");
     setComentario("");
   }
 
   return (
     <div className="py-5">
-      <form onSubmit={onSubmitContact} className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">
+      <form onSubmit={onSubmit} className="mb-3">
+        <label htmlFor="exampleFormControlInput1" className="form-label">
           Email
         </label>
         <input
@@ -35,11 +32,11 @@ export const ContactoForm = () => {
         />
 
         <div className="mb-3">
-          <label for="exampleFormControlTextarea1" className="form-label">
+          <label htmlFor="exampleFormControlTextarea1" className="form-label">
             Comentario
           </label>
           <textarea
-            className="form-control "
+            className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
             onChange={(e) => setComentario(e.target.value)}
@@ -47,7 +44,7 @@ export const ContactoForm = () => {
             required
           ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
