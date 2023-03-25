@@ -29,15 +29,12 @@ class User(db.Model):
             "password":self.password,
             }
 class Indices(db.Model):
-    # __tablename__ = 'Indices'
     id = db.Column(db.Integer, primary_key=True)
     referenceCurrencyUuid = db.Column(db.String(120), unique=True, nullable=False)
     limit = db.Column(db.String(80), unique=False, nullable=False)
     offset = db.Column(db.String(120), unique=False, nullable=False)
     orderBy = db.Column(db.String(120), unique=False, nullable=False)
     orderDirection = db.Column(db.String(120), unique=False, nullable=False)
-    # var_2 = db.Column(db.String(120), unique=False, nullable=False)
-    # hora = db.Column(db.String(120), unique=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
     
@@ -52,10 +49,8 @@ class Indices(db.Model):
             "offset": self.offset,
             "orderBy": self.orderBy,
             "orderDirection": self.vorderDirection,
-            # "hora": self.hora,
         }
 class Noticias(db.Model):
-    # __tablename__ = 'Noticias'
     id = db.Column(db.Integer, primary_key=True)
     titulo= db.Column(db.String(120), unique=True, nullable=False)
     text = db.Column(db.String(120), unique=False, nullable=False)
@@ -79,7 +74,6 @@ class Noticias(db.Model):
         }
 
 class Graficos(db.Model):
-    # __tablename__ = 'Graficos'
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(120), unique=True, nullable=False)
     acronym = db.Column(db.String(120), unique=False, nullable=False)
@@ -107,9 +101,21 @@ class Graficos(db.Model):
             "website": self.website,
             "timezone": self.timezone,
         }
+class Suscripcion(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return '<Suscripcion %r>' % self.id
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+        }
+
 
 class Contacto(db.Model):
-    # __tablename__ = 'Contacto'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     comentario = db.Column(db.String(120), unique=True, nullable=False)
@@ -125,18 +131,3 @@ class Contacto(db.Model):
             "comentario": self.comentario
         }
 
-
-class Suscripcion(db.Model):
-    # __tablename__ = 'Contacto'
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-
-    
-    def __repr__(self):
-        return '<Suscripcion %r>' % self.id
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "email": self.email,
-        }
