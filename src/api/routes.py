@@ -188,8 +188,6 @@ def onsubmitContact():
 @api.route('/suscripcion', methods=['POST'])
 def suscritos():
     suscritos_email = request.json['email']
-    if suscritos_email in suscritos:
-        return jsonify({"msg": "Ya estas Suscrit@ Gracias!!"}), 401
 
     msg = Message("Hi", recipients=[suscritos_email])
     msg.html = f"""<div style="background-color: #f2f2f2; padding: 20px;">
@@ -202,6 +200,7 @@ def suscritos():
 </div>"""
     current_app.mail.send(msg)
     return jsonify({"msg": "Gracias por sus suscripcion"}), 200
+
 
 
     
