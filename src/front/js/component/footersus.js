@@ -38,8 +38,6 @@ export const Suscripcion = () => {
                         Enviar
                     </button>
                 </div>
-                <div className="alert alert-danger mt-2" role="alert">
-                </div>
                 <small id="emailHelp" className="form-text text-muted">
                     Nunca compartiremos tu correo electrónico con terceros.
                 </small>
