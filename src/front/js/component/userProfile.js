@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import ModalDeleteUser from "./modalDeleteUser.js";
 import { getToken, deleteToken } from "../tokenUtilities";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const userProfile = () => {
   const [showModal, setShowModal] = useState(false);
@@ -41,10 +41,10 @@ const userProfile = () => {
       <div className="card profile-date mt-4">
         {" "}
         {/* <img
-                                              src={store.user.image}
-                                              className="avatar rounded-circle img-thumbnail img-profile-date img-fluid mt-2 mb-3"
-                                              alt="..."
-                                            /> */}{" "}
+                                                          src={store.user.image}
+                                                          className="avatar rounded-circle img-thumbnail img-profile-date img-fluid mt-2 mb-3"
+                                                          alt="..."
+                                                        /> */}{" "}
         <div className="card-body-h5 mb-3">
           <h5 className="card-title fs-1 text-capitalize user">
             {" "}
@@ -59,8 +59,8 @@ const userProfile = () => {
             <strong> Primer apellido </strong>: {store.user.last_name}{" "}
           </li>{" "}
           {/* <li className="list-group-item text-capitalize list-body">
-            <strong> Segundo apellido </strong>: {store.user.last_name}{" "}
-          </li>{" "} */}
+                        <strong> Segundo apellido </strong>: {store.user.last_name}{" "}
+                      </li>{" "} */}{" "}
           <li className="list-group-item list-body">
             <strong> Correo electrónico </strong>: {store.user.email}{" "}
           </li>{" "}
@@ -73,14 +73,14 @@ const userProfile = () => {
           >
             Eliminar cuenta{" "}
           </button>{" "}
-          {/* <Link to="/profile/modificate">
-                                                <button
-                                                  className="btn btn-md btn btn-profile bg-gradient  ms-4"
-                                                  type="button"
-                                                >
-                                                  Modificar datos de usuario
-                                                </button>
-                                              </Link> */}{" "}
+          <Link to="/profile/modificate">
+            <button
+              className="btn btn-md btn btn-profile bg-gradient  ms-4"
+              type="button"
+            >
+              Modificar datos de usuario{" "}
+            </button>{" "}
+          </Link>{" "}
         </div>{" "}
       </div>{" "}
       {showModal && <ModalDeleteUser />}{" "}
