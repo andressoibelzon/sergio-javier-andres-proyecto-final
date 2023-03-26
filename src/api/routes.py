@@ -93,7 +93,7 @@ def delete_profile():
     db.session.commit()
 
     response_body = {
-        "result": "Cuenta al carajo"
+        "result": "Cuenta eliminada con éxito"
     }
     return jsonify(response_body), 200
 
