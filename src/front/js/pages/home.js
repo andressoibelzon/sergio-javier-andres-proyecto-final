@@ -55,11 +55,7 @@ export const Home = () => {
             Tu camino al éxito financiero empieza aquí
           </h1>
           
-          <Link to="/register">
-          <button type="button" className="btn btn-outline-light position-absolute bottom-0 start-50 translate-middle my-3">
-            Ir a registro
-          </button>
-          </Link>
+         
         </div>
 
 
@@ -146,7 +142,7 @@ export const Home = () => {
       <hr></hr>
 
       {/* esto muestra el contenido del indice */}
-      <div className="py-3">
+      {/* <div className="py-3">
       <h2 className="container d-flex justify-content-center mb-5"> Índices de mercados financieros globales. </h2>
 
 <div className="container pb-5">
@@ -154,7 +150,7 @@ export const Home = () => {
         </div>
 
 
-      </div>
+      </div> */}
 
       <hr></hr>
 
@@ -174,14 +170,22 @@ export const Home = () => {
           </iframe>
         </div>
         <div className="fixed-card top-50 end-0 translate-middle-y">
-          {/* <iframe // indice
+          <iframe // indice
             width="220px"
             height="380px"
             data-widget-name=""
             name="MarketOverview"
             src="https://darqube.com/external-embedding/market-overview?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsib3ZlcnZpZXdfc2VjdGlvbnMiOltdLCJpbnN0cnVtZW50cyI6eyJJTkRFWEVTIjpbXX19LCJ3X3R5cGUiOiJNYXJrZXRPdmVydmlldyIsImZlX2NmZyI6eyJjaGNsciI6InJnYmEoNjEsIDE4NywgMTU0LCAxKSIsImNtb2RlIjowLCJmY2xyIjoicmdiYSgyNTUsIDI1NSwgMjU1LCAxKSIsImJnIjoicmdiYSgyMSwgMjUsIDMwLCAxKSIsImgiOjM2MCwidyI6MzMwLCJhc3oiOmZhbHNlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX0sInVjIjoicmdiYSg0OCwgMTMxLCAxMDksIDEpIiwiZGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImFjbyI6WyJJTkRFWEVTIl0sInNtYiI6e30sInNzIjp0cnVlLCJzdCI6dHJ1ZSwic2wiOnRydWUsImN0ZGMiOmZhbHNlfSwiZXhwIjoxNjg3MzQzOTk1LCJzdWIiOiJhY2Nlc3MifQ.U7zXtHxzM0X_p_-ddhK7tqjGJav-NUNG7Gji5ycZHLA"
-            id="MarketOverview-5tj3i5t"></iframe> */}
+            id="MarketOverview-5tj3i5t"></iframe>
         </div>
+
+<div className="d-flex justify-content-center align-item-center">
+        <Link to="/register">
+          <button type="button" className="btn-primary btn-lg py-3 px-3 my-3 border shadow ">
+            Ir a registro
+          </button>
+          </Link>
+          </div>
 
         {/* cards */}
 <hr className="my-5"/>

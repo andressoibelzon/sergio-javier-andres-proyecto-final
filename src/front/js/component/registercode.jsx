@@ -48,7 +48,7 @@ export const RegisterCode = () => {
     },
   });
   return (
-    <div className="container py-5">
+    <div className="container py-5 w-25 mx-auto">
 
       <h2 className="mb-4">Registro</h2>
 

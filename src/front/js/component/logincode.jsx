@@ -22,7 +22,7 @@ export const LoginCode = () => {
   }
 
   return (
-    <div className="container py-5">
+    <div className="container py-5 w-25 mx-auto">
       <form onSubmit={login}>
         <h2 className="mb-4">Inicio de sesion</h2>
         <div className="mb-3">
