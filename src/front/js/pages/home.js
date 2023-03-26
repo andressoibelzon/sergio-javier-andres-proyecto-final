@@ -155,13 +155,15 @@ export const Home = () => {
       <hr className="my-5"></hr>
 
 {/* esto muestra el contenido de las noticias */}
-      <div className="">
-        {/* <img src={homeChartsUrl} className="img-fluid" alt="Imagen" /> */}
-          <h3 className="container d-flex justify-content-center mb-5"> Actualízate con las noticias del día</h3>
+
+      <div className="container-fluid position-relative">
+      <h3 className="container d-flex justify-content-center mb-5"> Actualízate con las noticias del día</h3>
+
+        <img src={homeChartsUrl} className="img-fluid" alt="Imagen" />
 
           {/* <p>Texto que quieres poner sobre la imagen.</p> */}
           <iframe // noticias
-            className="container rounded d-flex justify-content-center mb-5"
+            className="container rounded d-flex justify-content-center mb-5 position-absolute top-50 start-50 translate-middle"
             width="330px"
             height="550px"
             data-widget-name=""
