@@ -178,7 +178,7 @@ export const RegisterCode = () => {
               <Link to="/recovery-password">
                 <div className="text-muted">Forgot password?</div>
               </Link>
-              <Link to="/register">
+              <Link to="/login">
                 <div className="text-muted px-3">Log in</div>
               </Link>
             </div>
