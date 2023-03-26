@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/nav.css";
+import logo from "../../img/logo-market-mood.png"
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -15,17 +16,21 @@ export const Navbar = () => {
   return (
     <nav className="styleNav p-3 text-bg-black">
       <div className="container">
-        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-center">
           <Link
-            className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+            className="d-flex align-items-center text-white text-decoration-none"
             to="/"
           >
-            <h3 className="mx-5">MarketMood</h3>
+            <h4 className="text-white pt-3">MarketMood</h4>
           </Link>
+
+<div>
+          <img src={logo}className="" alt="logo" style={{height:"50px", width:"auto"}} />
+          </div>
 
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li>
-              <Link to="/" className="nav-link px-2 text-secondary">
+              <Link to="/" className="nav-link px-2 text-white">
                 Home
               </Link>
             </li>
