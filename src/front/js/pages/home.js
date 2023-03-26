@@ -46,11 +46,12 @@ export const Home = () => {
   });
 
   return (
-    <div className="container-fluid py-5">
+    <div className="">
 
-      <div id="seccion1" className="container-fluid position-relative ">
-        <img src={carrousel1Url} className="img-fluid  shadow " alt="bullbear" style={{maxHeight: "700px", height: "auto", width:"100%"}}/>
-        
+      <div id="seccion1" className=" ">
+        <img src={carrousel1Url} className="img-fluid " alt="bullbear"/>
+        {/* <img src={carrousel1Url} className="img-fluid  shadow " alt="bullbear" style={{maxHeight: "700px", height: "auto", width:"100%"}}/> */}
+
           <h1 className="position-absolute bottom-50 start-50 translate-middle text-white text-center fw-bold" id="texto-bear">
             Tu camino al éxito financiero empieza aquí
           </h1>
