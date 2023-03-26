@@ -5,24 +5,12 @@ import { Context } from "../store/appContext";
 
 const UserProfileModificate = () => {
   const { store, actions } = useContext(Context);
-
-  // const [name, setName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [files, setFiles] = useState(null);
-  // const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
-  // const fileInputRef = useRef();
-
-  // useEffect(() => {
-  // //   if (files) {
-  // //     const file = files[0];
-  // //     const filereader = new FileReader();
-  // //     filereader.readAsDataURL(file);
-  // //   }
-  // // }, [files]);
+  // const [showError, setShowError] = useState(false);
 
   async function onFormSubmit(e) {
     e.preventDefault();
@@ -67,8 +55,7 @@ const UserProfileModificate = () => {
   return (
     <div className="container-fluid justify">
       <div className="row justify-content-center">
-        <div className="col-md-4">
-          <h3 className="my-5 text-center">Modificar datos de usuario</h3>
+        <div className="col-md-4 mt-5">
           <form
             className="form"
             action="##"
@@ -82,19 +69,6 @@ const UserProfileModificate = () => {
               </div>
             )} */}
 
-            <div className="form-group d-flex justify-content-center">
-              <div className="col-md-6">
-                {/* <input
-                  type="text"
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                  className="form-control input-profileUser mb-2"
-                  name="name"
-                  id="name"
-                  placeholder="Nombre"
-                /> */}
-              </div>
-            </div>
             <div className="form-group d-flex justify-content-center">
               <div className="col-md-6">
                 <input
@@ -128,7 +102,7 @@ const UserProfileModificate = () => {
                   value={email}
                   className="form-control input-profileUser mb-2"
                   name="email"
-                  placeholder="Correo electrónico"
+                  placeholder="email"
                 />
               </div>
             </div>
@@ -148,11 +122,8 @@ const UserProfileModificate = () => {
 
             <div className="form-group ">
               <div className=" d-flex justify-content-evenly mb-3">
-                <button
-                  className="btn btn-primary mx-5 p-2 bg-gradient button-save"
-                  type="submit"
-                >
-                  
+                <button className="btn btn-primary" type="submit">
+                  {" "}
                   Guardar
                 </button>
               </div>
