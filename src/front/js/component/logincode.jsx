@@ -6,15 +6,15 @@ import * as Yup from "yup";
 import "../../styles/login.css";
 
 export const LoginCode = () => {
- const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {actions} = useContext(Context)
+  const { actions } = useContext(Context)
   const navigate = useNavigate();
 
   async function login(e) {
     e.preventDefault()
-    let isLogged = await actions.login(email,password);
-    if(isLogged){//true
+    let isLogged = await actions.login(email, password);
+    if (isLogged) {//true
       setEmail("")
       setPassword("")
       navigate("/")
@@ -22,40 +22,36 @@ export const LoginCode = () => {
   }
 
   return (
-    <div className="container py-5">
-    <form onSubmit={login}>
-      <h1 className="mb-4">Inicio de sesion</h1>
-      <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
-          Email
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          onChange={(e)=>setEmail(e.target.value)}
-          value={email}
-          required
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Contraseña
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="exampleInputPassword1"
-          onChange={(e)=>setPassword(e.target.value)}
-          value={password}
-          required
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Aceptar
-      </button>
-    </form>
+    <div class="container py-5 w-25 mx-auto">
+      <form class="p-4 border rounded shadow-sm " onSubmit={login}>
+        <h1 class="mb-4 text-center">Inicio de sesión</h1>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input
+            type="email"
+            class="form-control form-control-sm"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input
+            type="password"
+            class="form-control form-control-sm"
+            id="exampleInputPassword1"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary d-block mx-auto mt-4">
+          Aceptar
+        </button>
+      </form>
     </div>
-  );
+  )
 };
