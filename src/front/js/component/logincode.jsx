@@ -24,7 +24,7 @@ export const LoginCode = () => {
   return (
     <div className="container py-5">
     <form onSubmit={login}>
-      <h1 className="mb-4">Inicio de sesion</h1>
+      <h2 className="mb-4">Inicio de sesion</h2>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Email
