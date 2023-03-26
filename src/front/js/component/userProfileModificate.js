@@ -5,24 +5,12 @@ import { Context } from "../store/appContext";
 
 const UserProfileModificate = () => {
   const { store, actions } = useContext(Context);
-
-  // const [name, setName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [files, setFiles] = useState(null);
-  // const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
-  // const fileInputRef = useRef();
-
-  // useEffect(() => {
-  // //   if (files) {
-  // //     const file = files[0];
-  // //     const filereader = new FileReader();
-  // //     filereader.readAsDataURL(file);
-  // //   }
-  // // }, [files]);
+  // const [showError, setShowError] = useState(false);
 
   async function onFormSubmit(e) {
     e.preventDefault();
@@ -81,19 +69,6 @@ const UserProfileModificate = () => {
               </div>
             )} */}
 
-            <div className="form-group d-flex justify-content-center">
-              <div className="col-md-6">
-                {/* <input
-                  type="text"
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                  className="form-control input-profileUser mb-2"
-                  name="name"
-                  id="name"
-                  placeholder="Nombre"
-                /> */}
-              </div>
-            </div>
             <div className="form-group d-flex justify-content-center">
               <div className="col-md-6">
                 <input

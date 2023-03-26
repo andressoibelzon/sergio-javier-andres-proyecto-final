@@ -41,11 +41,6 @@ const userProfile = () => {
     <>
       <div id="card-profile" className="card profile-date mt-4 border-0">
         {" "}
-        {/* <img
-                                                          src={store.user.image}
-                                                          className="avatar rounded-circle img-thumbnail img-profile-date img-fluid mt-2 mb-3"
-                                                          alt="..."
-                                                        /> */}{" "}
         <div className="card-body-h5 mb-0">
           <h5 className="card-title fs-1 ms-3 mb-0 text-capitalize user">
             {" "}
@@ -59,9 +54,6 @@ const userProfile = () => {
           <li className="list-group-item text-capitalize list-body border-0">
             <strong> Primer apellido </strong>: {store.user.last_name}{" "}
           </li>{" "}
-          {/* <li className="list-group-item text-capitalize list-body">
-                        <strong> Segundo apellido </strong>: {store.user.last_name}{" "}
-                      </li>{" "} */}{" "}
           <li className="list-group-item list-body">
             <strong> Correo electrónico </strong>: {store.user.email}{" "}
           </li>{" "}
