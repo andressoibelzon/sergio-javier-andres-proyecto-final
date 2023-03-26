@@ -166,7 +166,7 @@ export const RegisterCode = () => {
         </div>
 
         <div className="d-flex flex-row ">
-          <Link to="/forgot-password">
+          <Link to="/recovery-password">
             <div className="text-muted">Olvidaste la contraseña?</div>
           </Link>
           <Link to="/register">
