@@ -48,134 +48,134 @@ export const RegisterCode = () => {
     },
   });
   return (
-    <div className="container py-5">
+    <div className="container py-5 w-25 mx-auto">
 
-              <h2 className="mb-4">Registro</h2>
-           
-            <form className="needs-validation" onSubmit={formik.handleSubmit}>
+      <h2 className="mb-4">Registro</h2>
 
-            <div className="mb-3">
-                <div>
-                  <label className="form-outline mb-1" htmlFor="user_name">
-                    Nombre de usuario
-                  </label>
-                  <div>
-                    <input
-                      className="form-control mb-3"
-                      id="user_name"
-                      name="user_name"
-                      type="text"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.user_name}
-                    />
-                    {formik.touched.user_name && formik.errors.user_name ? (
-                      <div>{formik.errors.user_name}</div>
-                    ) : null}
-                  </div>
-                </div>
+      <form className="needs-validation" onSubmit={formik.handleSubmit}>
 
-                <div>
-                  <label className="form-outline  mb-1" htmlFor="first_name">
-                    Nombre
-                  </label>
-                  <div>
-                    <input
-                      className="form-control mb-3"
-                      id="first_name"
-                      name="first_name"
-                      type="text"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.first_name}
-                    />
-                    {formik.touched.first_name && formik.errors.first_name ? (
-                      <div>{formik.errors.first_name}</div>
-                    ) : null}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="form-outline  mb-1" htmlFor="last_name">
-                    Apellido
-                  </label>
-                  <div>
-                    <input
-                      className="form-control mb-3"
-                      id="last_name"
-                      name="last_name"
-                      type="text"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.last_name}
-                    />
-                    {formik.touched.last_name && formik.errors.last_name ? (
-                      <div>{formik.errors.last_name}</div>
-                    ) : null}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="form-outline mb-1" htmlFor="email">
-                    Dirección de correo
-                  </label>
-                  <div>
-                    <input
-                      className="form-control mb-3"
-                      id="email"
-                      name="email"
-                      type="email"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.email}
-                    />
-                    {formik.touched.email && formik.errors.email ? (
-                      <div>{formik.errors.email}</div>
-                    ) : null}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="form-outline mb-1" htmlFor="password">
-                    Contraseña
-                  </label>
-                  <div>
-                    <input
-                      className="form-control mb-3"
-                      id="password"
-                      name="password"
-                      type="password"
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.password}
-                    />
-                    {formik.touched.password && formik.errors.password ? (
-                      <div>{formik.errors.password}</div>
-                    ) : null}
-                  </div>
-                </div>
-
-                <div>
-                  <button
-                    className="btn btn-primary rounded"
-                    type="submit"
-                  >
-                    Aceptar
-                  </button>
-                </div>
+        <div className="mb-3">
+          <div>
+            <label className="form-outline mb-1" htmlFor="user_name">
+              Nombre de usuario
+            </label>
+            <div>
+              <input
+                className="form-control mb-3"
+                id="user_name"
+                name="user_name"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.user_name}
+              />
+              {formik.touched.user_name && formik.errors.user_name ? (
+                <div>{formik.errors.user_name}</div>
+              ) : null}
             </div>
-
-            <div className="d-flex flex-row ">
-              <Link to="/forgot-password">
-                <div className="text-muted">Olvidaste la contraseña?</div>
-              </Link>
-              <Link to="/register">
-                <div className="text-muted px-3">Iniciar sesión</div>
-              </Link>
-            </div>
-            </form>
-
           </div>
+
+          <div>
+            <label className="form-outline  mb-1" htmlFor="first_name">
+              Nombre
+            </label>
+            <div>
+              <input
+                className="form-control mb-3"
+                id="first_name"
+                name="first_name"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.first_name}
+              />
+              {formik.touched.first_name && formik.errors.first_name ? (
+                <div>{formik.errors.first_name}</div>
+              ) : null}
+            </div>
+          </div>
+
+          <div>
+            <label className="form-outline  mb-1" htmlFor="last_name">
+              Apellido
+            </label>
+            <div>
+              <input
+                className="form-control mb-3"
+                id="last_name"
+                name="last_name"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.last_name}
+              />
+              {formik.touched.last_name && formik.errors.last_name ? (
+                <div>{formik.errors.last_name}</div>
+              ) : null}
+            </div>
+          </div>
+
+          <div>
+            <label className="form-outline mb-1" htmlFor="email">
+              Dirección de correo
+            </label>
+            <div>
+              <input
+                className="form-control mb-3"
+                id="email"
+                name="email"
+                type="email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
+              />
+              {formik.touched.email && formik.errors.email ? (
+                <div>{formik.errors.email}</div>
+              ) : null}
+            </div>
+          </div>
+
+          <div>
+            <label className="form-outline mb-1" htmlFor="password">
+              Contraseña
+            </label>
+            <div>
+              <input
+                className="form-control mb-3"
+                id="password"
+                name="password"
+                type="password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+              />
+              {formik.touched.password && formik.errors.password ? (
+                <div>{formik.errors.password}</div>
+              ) : null}
+            </div>
+          </div>
+
+          <div>
+            <button
+              className="btn btn-primary rounded"
+              type="submit"
+            >
+              Aceptar
+            </button>
+          </div>
+        </div>
+
+        <div className="d-flex flex-row ">
+          <Link to="/recovery-password">
+            <div className="text-muted">Olvidaste la contraseña?</div>
+          </Link>
+          <Link to="/register">
+            <div className="text-muted px-3">Iniciar sesión</div>
+          </Link>
+        </div>
+      </form>
+
+    </div>
 
   );
 };
