@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import ModalDeleteUser from "./modalDeleteUser.js";
 import { getToken, deleteToken } from "../tokenUtilities";
 import { Link } from "react-router-dom";
+import "../../styles/profile.css";
 
 const userProfile = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,24 +39,24 @@ const userProfile = () => {
 
   return (
     <>
-      <div className="card profile-date mt-4">
+      <div id="card-profile" className="card profile-date mt-4 border-0">
         {" "}
         {/* <img
                                                           src={store.user.image}
                                                           className="avatar rounded-circle img-thumbnail img-profile-date img-fluid mt-2 mb-3"
                                                           alt="..."
                                                         /> */}{" "}
-        <div className="card-body-h5 mb-3">
-          <h5 className="card-title fs-1 text-capitalize user">
+        <div className="card-body-h5 mb-0">
+          <h5 className="card-title fs-1 ms-3 mb-0 text-capitalize user">
             {" "}
             {store.user.user_name}{" "}
           </h5>{" "}
         </div>{" "}
-        <ul className="list-group list-group-flush list-body-main mt-4 rounded">
-          <li className="list-group-item text-capitalize list-body">
+        <ul className="list-group list-group-flush list-body-main mt-4 ">
+          <li className="list-group-item text-capitalize list-body border-0">
             <strong> Nombre </strong>: {store.user.first_name}{" "}
           </li>{" "}
-          <li className="list-group-item text-capitalize list-body">
+          <li className="list-group-item text-capitalize list-body border-0">
             <strong> Primer apellido </strong>: {store.user.last_name}{" "}
           </li>{" "}
           {/* <li className="list-group-item text-capitalize list-body">
@@ -65,22 +66,19 @@ const userProfile = () => {
             <strong> Correo electrónico </strong>: {store.user.email}{" "}
           </li>{" "}
         </ul>{" "}
-        <div className="btn-group mt-4  mb-2">
+        <div id="container-buttons-profile" className="container">
+          <Link to="/profile/modificate">
+            <button className="btn-primary btn  border shadow" type="button">
+              Modificar datos{" "}
+            </button>{" "}
+          </Link>{" "}
           <button
-            className="btn btn-md btn button-dlt bg-gradient rounded"
+            className="btn btn-outline-danger shadow float-end"
             type="delete"
             onClick={onDeleteButtonClick}
           >
             Eliminar cuenta{" "}
           </button>{" "}
-          <Link to="/profile/modificate">
-            <button
-              className="btn btn-md btn btn-profile bg-gradient  ms-4"
-              type="button"
-            >
-              Modificar datos de usuario{" "}
-            </button>{" "}
-          </Link>{" "}
         </div>{" "}
       </div>{" "}
       {showModal && <ModalDeleteUser />}{" "}

@@ -67,7 +67,7 @@ const UserProfileModificate = () => {
   return (
     <div className="container-fluid justify">
       <div className="row justify-content-center">
-        <div className="col-md-4">
+        <div className="col-md-4 mt-5">
           <form
             className="form"
             action="##"
@@ -127,7 +127,7 @@ const UserProfileModificate = () => {
                   value={email}
                   className="form-control input-profileUser mb-2"
                   name="email"
-                  placeholder="Correo electrónico"
+                  placeholder="email"
                 />
               </div>
             </div>
@@ -147,10 +147,7 @@ const UserProfileModificate = () => {
 
             <div className="form-group ">
               <div className=" d-flex justify-content-evenly mb-3">
-                <button
-                  className="btn mx-5 p-2 bg-gradient button-save"
-                  type="submit"
-                >
+                <button className="btn btn-primary" type="submit">
                   {" "}
                   Guardar
                 </button>
