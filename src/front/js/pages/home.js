@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import carrousel1Url from "../../img/bull&bear.jpeg";
 import homeChartsUrl from "../../img/homeCharts.jpeg";
+import indices from "../../img/Indices.jpg";
+import logo from "../../img/logo-market-mood.png"
 import { useNavigate, Link } from "react-router-dom";
 
 
@@ -47,7 +49,7 @@ export const Home = () => {
     <div className="container-fluid py-5">
 
       <div id="seccion1" className="container-fluid position-relative ">
-        <img src={carrousel1Url} className="img-fluid  shadow " alt="bullbear" style={{maxHeight: "600px", height: "auto", width:"100%"}}/>
+        <img src={carrousel1Url} className="img-fluid  shadow " alt="bullbear" style={{maxHeight: "700px", height: "auto", width:"100%"}}/>
         
           <h1 className="position-absolute bottom-50 start-50 translate-middle text-white text-center">
             Tu camino al éxito financiero empieza aquí
@@ -73,6 +75,7 @@ export const Home = () => {
         <h2 className="container d-flex justify-content-center mb-5">
         Analítica de mercados: Gráficos, Noticias e Indices en tiempo real.
         </h2>
+
 
 <hr className="mb-5"></hr>
 
@@ -143,8 +146,13 @@ export const Home = () => {
       <hr></hr>
 
       {/* esto muestra el contenido del indice */}
-      <div className="">
-      <h2 className="container d-flex justify-content-center mb-5"> Indices</h2>
+      <div className="py-3">
+      <h2 className="container d-flex justify-content-center mb-5"> Índices de mercados financieros globales. </h2>
+
+<div className="container pb-5">
+        <img src={indices}className="img-fluid shadow rounded-2" alt="indices" />
+        </div>
+
 
       </div>
 
@@ -221,8 +229,9 @@ export const Home = () => {
       </div>
     </div>
 
-    <h4>Proximamente senales de trading</h4>
-
+<div className="px-5">
+    <p>¡Pronto lanzaremos nuestras señales de mercado de compra y venta! Obtén una ventaja competitiva en tus inversiones con nuestra experiencia y análisis de mercado en tiempo real. ¡Mantente atento para más detalles!</p>
+    </div>
 
       {/* <div id="section3" className="d-flex row flex-nowrap overflow-auto">
         <div className="card text-bg-primary mb-3" style={{ width: "20rem" }}>
