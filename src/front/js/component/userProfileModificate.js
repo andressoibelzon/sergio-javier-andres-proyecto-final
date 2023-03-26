@@ -68,6 +68,7 @@ const UserProfileModificate = () => {
     <div className="container-fluid justify">
       <div className="row justify-content-center">
         <div className="col-md-4">
+          <h3 className="my-5 text-center">Modificar datos de usuario</h3>
           <form
             className="form"
             action="##"
@@ -133,7 +134,7 @@ const UserProfileModificate = () => {
             </div>
 
             <div className="form-group d-flex justify-content-center">
-              <div className="col-lg-6">
+              <div className="col-md-6">
                 <input
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
@@ -148,10 +149,10 @@ const UserProfileModificate = () => {
             <div className="form-group ">
               <div className=" d-flex justify-content-evenly mb-3">
                 <button
-                  className="btn mx-5 p-2 bg-gradient button-save"
+                  className="btn btn-primary mx-5 p-2 bg-gradient button-save"
                   type="submit"
                 >
-                  {" "}
+                  
                   Guardar
                 </button>
               </div>

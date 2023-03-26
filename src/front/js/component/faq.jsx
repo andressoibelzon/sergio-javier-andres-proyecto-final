@@ -14,19 +14,19 @@ export const Faq = () => (
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>Gráficos e índices</strong> de mercado son herramientas para <strong>visualizar el rendimiento financiero de activos y mercados.</strong> Los gráficos muestran el precio de un activo a lo largo del tiempo, mientras que los índices son valores numéricos que indican el rendimiento de un conjunto de activos. Se utilizan para tomar decisiones de inversión y evaluar el desempeño de una cartera en relación con el mercado.
       </div>
     </div>
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      ¿Cómo puedo obtener acceso a SignalMood?
+      ¿Cómo puedo obtener acceso a MarketMood?
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      Para obtener acceso a MarketMood, primero debe <strong>registrarse</strong> en su sitio web y crear una cuenta. <strong>Listo</strong>, ya puedes disfrutar de todas las herramientas de la página.
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@ export const Faq = () => (
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        Interpretar los datos mediante <strong>patrones de gráficos</strong> implica analizar la información visualmente. Algunos patrones comunes incluyen <strong>líneas de tendencia, soportes y resistencias, y patrones de velas.</strong> La interpretación de estos patrones puede ayudar a identificar tendencias, señales de compra y venta, y niveles de precios importantes en los mercados financieros.
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@ export const Faq = () => (
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headinFour" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      El análisis técnico utiliza <strong>patrones de precios</strong> para predecir el movimiento del mercado. Ayuda a tomar decisiones de inversión, como identificar soportes y resistencias, patrones y tendencias de precios, y cuándo comprar o vender. Debe usarse junto con otras técnicas de análisis y evaluación de riesgos.
       </div>
     </div>
   </div>
@@ -61,7 +61,7 @@ export const Faq = () => (
     </h2>
     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      Algunos de los mejores recursos para aprender sobre gráficos e índices incluyen <strong>sitios web especializados en finanzas y mercados, como MarketMood.</strong> También hay libros sobre análisis técnico y financiero, como "Technical Analysis of the Financial Markets" de John J. Murphy y "The Intelligent Investor" de Benjamin Graham. Además, hay cursos y tutoriales en línea. Se pueden encontrar muchas comunidades y foros en línea donde los inversores comparten conocimientos y estrategias.
       </div>
     </div>
   </div>

@@ -8,11 +8,9 @@ export const Noticias = () => {
   return (
     <body className="noticias">
       <div className="w-50 mx-auto">
-        <br />
-        <br />
-        <h1 className="d-flex justify-content-center text-light">últimas notcias</h1>
-        <br />
-        <br />
+
+        <h3 className="d-flex justify-content-center text-black my-5">Últimas noticias</h3>
+
         <iframe
           id="iframe"
           width="670"
