@@ -56,9 +56,9 @@ export const Exchange = () => {
     let currentsPage = 1;
 
     return (
-        <div className="container mt-5 mb-5 ">
-            <h1 className="d-flex justify-content-center bg-white ">Exchange</h1>
-            <table className="table table-dark table-striped" id="listingTable">
+        <div className="container mt-5 mb-5  ">
+            <h3 className="d-flex justify-content-center bg-white mb-5">Exchange</h3>
+            <table className="table table-dark table-striped " id="listingTable">
                 <thead>
                     <tr>
                         <th scope="col" >BTC price*</th>

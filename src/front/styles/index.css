@@ -78,3 +78,24 @@ p {
     height: 30px;
     fill: var(--accents);
 }
+
+
+
+/* media queries */
+/* @media (min-width: 550px) and (max-width: 750px) {
+    body {
+        background-color: red;
+    }
+} */
+
+@media (max-width: 750px) {
+    #MarketOverview-5tj3i5t {
+        display: none;
+    }
+}
+
+@media (max-width: 920px) {
+    #texto-bear {
+        display: none;
+    }
+}

@@ -108,7 +108,7 @@ const UserProfileModificate = () => {
             </div>
 
             <div className="form-group d-flex justify-content-center">
-              <div className="col-lg-6">
+              <div className="col-md-6">
                 <input
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}

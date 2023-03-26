@@ -46,12 +46,13 @@ export const Home = () => {
   });
 
   return (
-    <div className="container-fluid py-5">
+    <div className="">
 
-      <div id="seccion1" className="container-fluid position-relative ">
-        <img src={carrousel1Url} className="img-fluid  shadow " alt="bullbear" style={{maxHeight: "700px", height: "auto", width:"100%"}}/>
-        
-          <h1 className="position-absolute bottom-50 start-50 translate-middle text-white text-center">
+      <div id="seccion1" className=" ">
+        <img src={carrousel1Url} className="img-fluid " alt="bullbear"/>
+        {/* <img src={carrousel1Url} className="img-fluid  shadow " alt="bullbear" style={{maxHeight: "700px", height: "auto", width:"100%"}}/> */}
+
+          <h1 className="position-absolute bottom-50 start-50 translate-middle text-white text-center fw-bold" id="texto-bear">
             Tu camino al éxito financiero empieza aquí
           </h1>
           
@@ -68,8 +69,8 @@ export const Home = () => {
         </div> */}
       
       <hr className="mb-5"></hr>
-        <h2 className="container d-flex justify-content-center mb-5">
-        Analítica de mercados: Gráficos, Noticias e Indices en tiempo real.
+        <h2 className="container d-flex justify-content-center fw-bold mb-5">
+        Gráficos, Noticias e Indices en tiempo real.
         </h2>
 
 
@@ -77,7 +78,7 @@ export const Home = () => {
 
 {/* esto contiene toda la seccion del grafico */}
 <div className="">
-        <h2 className="container d-flex justify-content-center "> Gráficos en tiempo real</h2>
+        <h3 className="container d-flex justify-content-center mb-5"> Gráficos en tiempo real</h3>
       <div
         id="container-carrusel"
         className="container shadow carousel-fade"
@@ -139,7 +140,6 @@ export const Home = () => {
       </div>
       </div>
 
-      <hr></hr>
 
       {/* esto muestra el contenido del indice */}
       {/* <div className="py-3">
@@ -152,16 +152,18 @@ export const Home = () => {
 
       </div> */}
 
-      <hr></hr>
+      <hr className="my-5"></hr>
 
 {/* esto muestra el contenido de las noticias */}
-      <div className="">
-        {/* <img src={homeChartsUrl} className="img-fluid" alt="Imagen" /> */}
-          <h2 className="container d-flex justify-content-center mb-5"> Actualizate con las noticias del dia</h2>
+
+      <div className="container-fluid position-relative">
+      <h3 className="container d-flex justify-content-center mb-5"> Actualízate con las noticias del día</h3>
+
+        <img src={homeChartsUrl} className="img-fluid" alt="Imagen" />
 
           {/* <p>Texto que quieres poner sobre la imagen.</p> */}
           <iframe // noticias
-            className="container rounded d-flex justify-content-center"
+            className="container rounded d-flex justify-content-center mb-5 position-absolute top-50 start-50 translate-middle"
             width="330px"
             height="550px"
             data-widget-name=""
@@ -169,7 +171,9 @@ export const Home = () => {
             src="https://darqube.com/external-embedding/news-widget?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3aWRnZXQiOnsibmV3cyI6WyJGb3JleGxpdmUiLCJUaGUgRWNvbm9taXN0IiwiQnVzaW5lc3MgSW5zaWRlciIsIkZpbmFuY2lhbCBUaW1lcyIsIkZpbmFuY2lhbCBQb3N0Il0sInR3X3VpZHMiOlsiNDU1ODI0NzcxIiwiMTUzOTY2MTIzIiwiMjg1ODI2ODAiLCIyNTA5ODA4NDMiLCI1NDY3NTcwMCJdfSwid190eXBlIjoiTmV3c1dpZGdldCIsImZlX2NmZyI6eyJjbW9kZSI6MCwiZmNsciI6InJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiLCJiZyI6InJnYmEoMjEsIDI1LCAzMCwgMSkiLCJoIjo5OTAsInciOjMzMCwiYXN6Ijp0cnVlLCJmdCI6ImRlZmF1bHQiLCJodCI6Im5vbmUiLCJ0cmgiOltdLCJjaGMiOiJyZ2JhKDIzNywgNTAsIDk4LCAxKSIsImJlIjp0cnVlLCJiYyI6InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIsImJ3IjoxLCJjbiI6IiIsImxuZyI6ImVuIiwiaGRpY24iOmZhbHNlLCJ3dG1WIjp7InR5cGUiOiJEYXJxdWJlIiwiZW5hYmxlZCI6dHJ1ZX19LCJleHAiOjE2ODcyNjc4MTMsInN1YiI6ImFjY2VzcyJ9.eOptEWvWOf5VX6T14Bmvl22AO32gpKydcjyGBDwlqn4" id="NewsWidget-h0utvq2">
           </iframe>
         </div>
-        <div className="fixed-card top-50 end-0 translate-middle-y">
+
+
+        <div className="fixed-top d-flex justify-content-end top-50 end-0 translate-middle-y">  
           <iframe // indice
             width="220px"
             height="380px"
@@ -233,7 +237,7 @@ export const Home = () => {
       </div>
     </div>
 
-<div className="px-5">
+<div className="px-5 mt-5">
     <p>¡Pronto lanzaremos nuestras señales de mercado de compra y venta! Obtén una ventaja competitiva en tus inversiones con nuestra experiencia y análisis de mercado en tiempo real. ¡Mantente atento para más detalles!</p>
     </div>
 
