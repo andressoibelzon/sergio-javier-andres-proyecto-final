@@ -59,7 +59,7 @@ const getState = ({
                         return true;
                     }
                 } catch (error) {
-                    console.log(error);
+                    alert("Volver a loguearse")
                     return false;
                 }
             },
