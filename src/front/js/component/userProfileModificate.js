@@ -96,7 +96,7 @@ const UserProfileModificate = () => {
 
             <div className="form-group d-flex justify-content-center">
               <div className="col-md-6">
-                <input
+                <input style={{ display: "none" }}
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
