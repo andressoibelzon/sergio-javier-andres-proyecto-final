@@ -94,11 +94,10 @@ p {
 
 @media (max-width: 1000px) {
     #NewsWidget-h0utvq2 {
-        height: 400px;
+        height: 290px;
+        width: 230px;
     }
 }
-
-
 
 @media (max-width: 920px) {
     #texto-bear {
