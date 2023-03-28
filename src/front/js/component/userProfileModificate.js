@@ -20,7 +20,7 @@ const UserProfileModificate = () => {
     setPassword("");
     setFirstName("");
     setLastName("");
-    navigate("/");
+    navigate("/profile");
     // e.target.classList.add("was-validated");
     // if (!e.target.checkValidity()) {
     //   return;

@@ -61,18 +61,13 @@ def user_profile_update():
     # name = request.json.get("name")
     first_name = request.json.get("first_name")
     last_name = request.json.get("last_name")
-    email = request.json.get("email")
     password = request.json.get("password")
-    # user_name = request.json.get("user_name")
     
     # pw_hash = encrypt_pwd(password)
     
     user_update = User.query.filter_by(email=user).first()
-    # user_update.name = name
     user_update.first_name = first_name
     user_update.last_name = last_name
-
-    user_update.email = email  #eliminar para no tener que comprobar y guardar en la base de datos que el email esta libre
     user_update.password = password
 
     db.session.commit()
