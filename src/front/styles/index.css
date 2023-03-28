@@ -92,6 +92,14 @@ p {
     }
 }
 
+@media (max-width: 1000px) {
+    #NewsWidget-h0utvq2 {
+        height: 400px;
+    }
+}
+
+
+
 @media (max-width: 920px) {
     #texto-bear {
         display: none;

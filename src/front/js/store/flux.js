@@ -137,29 +137,25 @@ const getState = ({
 
             actualizaUsusarioModificado: (email, password, first_name, last_name) => {
                 fetch(process.env.BACKEND_URL + "/api/profile", {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: "Bearer " + getToken(),
-                    },
-                    body: JSON.stringify({
-                        first_name,
-                        last_name,
-                        email,
-                        password,
-                    }),
-                }).then((response) => {
-                    if (response.status !== 200) {
-                        throw new Error();
-                    }
-                    // actions.getDataProfile(); // Obtiene los datos del usuario en cuestion
-
-                    //     return response.json();
-                    //   })
-                    //   .then((data) => {
-                    //     navigate("/profile");
-                });
-                //   .catch(() => setShowError(true));
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: "Bearer " + getToken(),
+                        },
+                        body: JSON.stringify({
+                            first_name,
+                            last_name,
+                            password,
+                        }),
+                    }).then((response) => {
+                        if (response.status === 200) {
+                            getActions().getDataProfile()
+                        }
+                        if (response.status !== 200) {
+                            throw new Error();
+                        }
+                    })
+                    .catch((error) => console.log(error));
             },
 
             register: async (user_name, first_name, last_name, email, password) => {
