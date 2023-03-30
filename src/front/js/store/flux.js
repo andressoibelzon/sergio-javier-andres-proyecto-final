@@ -59,7 +59,20 @@ const getState = ({
                         return true;
                     }
                 } catch (error) {
-                    alert("Volver a loguearse")
+                    Toastify({
+                        text: "Requiere inicio de sesión",
+                        duration: 3000,
+                        destination: "https://github.com/apvarun/toastify-js",
+                        newWindow: true,
+                        close: true,
+                        gravity: "top", // top or bottom
+                        position: "right", // left, center or right
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "linear-gradient(to right, #00B09B, #96C93D)",
+                        },
+                        onClick: function() {}, // Callback after click
+                    }).showToast();
                     return false;
                 }
             },
@@ -152,10 +165,37 @@ const getState = ({
                             getActions().getDataProfile()
                         }
                         if (response.status !== 200) {
-                            throw new Error();
+                            Toastify({
+                                text: "Modificación de datos completada",
+                                duration: 3000,
+                                destination: "https://github.com/apvarun/toastify-js",
+                                newWindow: true,
+                                close: true,
+                                gravity: "top", // top or bottom
+                                position: "right", // left, center or right
+                                stopOnFocus: true, // Prevents dismissing of toast on hover
+                                style: {
+                                    background: "linear-gradient(to right, #00B09B, #96C93D)",
+                                },
+                                onClick: function() {}, // Callback after click
+                            }).showToast();
                         }
                     })
                     .catch((error) => console.log(error));
+                Toastify({
+                    text: "Error al modificar los datos",
+                    duration: 3000,
+                    destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // top or bottom
+                    position: "right", // left, center or right
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "linear-gradient(to right, #00B09B, #96C93D)",
+                    },
+                    onClick: function() {}, // Callback after click
+                }).showToast();
             },
 
             register: async (user_name, first_name, last_name, email, password) => {
@@ -226,11 +266,37 @@ const getState = ({
                     })
                     .then(response => {
                         if (response.ok) {
-                            alert("Se ha enviado correctamente")
+                            Toastify({
+                                text: "Se ha enviado correctamente",
+                                duration: 3000,
+                                destination: "https://github.com/apvarun/toastify-js",
+                                newWindow: true,
+                                close: true,
+                                gravity: "top", // top or bottom
+                                position: "right", // left, center or right
+                                stopOnFocus: true, // Prevents dismissing of toast on hover
+                                style: {
+                                    background: "linear-gradient(to right, #00B09B, #96C93D)",
+                                },
+                                onClick: function() {}, // Callback after click
+                            }).showToast();
                         }
                     })
                     .catch(error => {
-                        alert("Se ha producido un error al enviar el comentario. Por favor, inténtalo de nuevo más tarde")
+                        Toastify({
+                            text: "Se ha producido un error al enviar el comentario. Por favor, inténtalo de nuevo más tarde",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // top or bottom
+                            position: "right", // left, center or right
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00B09B, #96C93D)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
                     });
             },
             exampleFunction: () => {
@@ -249,13 +315,52 @@ const getState = ({
                     })
                     .then(response => {
                         if (response.ok) {
-                            alert("Se ha enviado un correo electrónico con instrucciones para restablecer tu contraseña")
+                            Toastify({
+                                text: "Se ha enviado un correo electrónico con instrucciones para restablecer tu contraseña",
+                                duration: 3000,
+                                destination: "https://github.com/apvarun/toastify-js",
+                                newWindow: true,
+                                close: true,
+                                gravity: "top", // top or bottom
+                                position: "right", // left, center or right
+                                stopOnFocus: true, // Prevents dismissing of toast on hover
+                                style: {
+                                    background: "linear-gradient(to right, #00B09B, #96C93D)",
+                                },
+                                onClick: function() {}, // Callback after click
+                            }).showToast();
                         } else {
-                            alert("no encontrado dirección de correo electrónico")
+                            Toastify({
+                                text: "no encontrado dirección de correo electrónico",
+                                duration: 3000,
+                                destination: "https://github.com/apvarun/toastify-js",
+                                newWindow: true,
+                                close: true,
+                                gravity: "top", // top or bottom
+                                position: "right", // left, center or right
+                                stopOnFocus: true, // Prevents dismissing of toast on hover
+                                style: {
+                                    background: "linear-gradient(to right, #00B09B, #96C93D)",
+                                },
+                                onClick: function() {}, // Callback after click
+                            }).showToast();
                         }
                     })
                     .catch(error => {
-                        alert("Se ha producido un error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde")
+                        Toastify({
+                            text: "Se ha producido un error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // top or bottom
+                            position: "right", // left, center or right
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00B09B, #96C93D)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
                     });
             },
 
@@ -271,11 +376,37 @@ const getState = ({
                     })
                     .then(response => {
                         if (response.ok) {
-                            alert("¡Gracias por suscribirte!")
+                            Toastify({
+                                text: "¡Gracias por suscribirte!",
+                                duration: 3000,
+                                destination: "https://github.com/apvarun/toastify-js",
+                                newWindow: true,
+                                close: true,
+                                gravity: "top", // top or bottom
+                                position: "right", // left, center or right
+                                stopOnFocus: true, // Prevents dismissing of toast on hover
+                                style: {
+                                    background: "linear-gradient(to right, #00B09B, #96C93D)",
+                                },
+                                onClick: function() {}, // Callback after click
+                            }).showToast();
                         }
                     })
                     .catch(error => {
-                        alert("Hubo un error al enviar la suscripción.Intentelo mas tarde")
+                        Toastify({
+                            text: "Hubo un error al enviar la suscripción.Intentelo mas tarde",
+                            duration: 3000,
+                            destination: "https://github.com/apvarun/toastify-js",
+                            newWindow: true,
+                            close: true,
+                            gravity: "top", // top or bottom
+                            position: "right", // left, center or right
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00B09B, #96C93D)",
+                            },
+                            onClick: function() {}, // Callback after click
+                        }).showToast();
                     });
             },
             getMessage: async () => {
